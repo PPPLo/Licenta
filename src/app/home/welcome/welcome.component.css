@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+.welcome-content-wrapper{
+  margin: 0 auto;
+  max-width:960px;
+  background-color: white;
+}
+
+.welcome-image-container{
+    background-image: url('../../../assets/Welcome/welcome-photo.jpg');  
+    margin: 0 auto;
+    max-width:960px;
+    height: 400px;
+    margin-bottom: 30px;
+} 
+.welcome-text-main {
+    width:350px;
+    height:50px;
+    font-family: 'Anton', sans-serif;
+    font-size: 45px;
+    margin:auto;
+  }
+
+#coloured-word{
+    color:greenyellow;
+}
+
+.welcome-text-second{
+    width:250px;
+    height:30px;
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    margin:auto;
+    position:relative;
+    top:150px;
+    left:-45px;
+}
+
+.welcome-button{
+    width: 150px;
+    height: 40px;
+    background-color:greenyellow;
+    font-family: 'Anton', sans-serif;
+    border-radius: 0 !important;
+    position:relative;
+    top:200px;
+    left:310px;
+}
+
+.welcome-categories-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin:0;
+  justify-content:space-between;
+}
+  .text-container{
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    position:relative;
+    top:10px;
+    background-color:lightblue;
+    text-align:center;
+    margin-top:0;
+  }
+
+  .column {
+    flex: 31%;
+    max-width: 31%;
+    margin-bottom: 20px;
+  }
+
+  .orange-column {
+    background-color: lightpink;
+    height: 300px;
+  }
+  
+  .blue-column {
+    background-color: lightpink;
+    height: 300px;
+  }
+  
+  .green-column {
+    background-color: lightpink;
+    height: 300px;
+  }
+
+  .welcome-new-in-container{
+    display:grid;
+    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 15px;
+    grid-template-rows: 200px 200px;
+  }
+
+  .new-in-product{
+    background-color: lightpink;
+  
+  }
+
+  .welcome-plants-you-love {
+    display: flex;
+    flex-wrap: wrap;
+    margin:0;
+    justify-content:space-between;
+  }
+
+  .slide-column {
+    flex: 23%;
+    max-width: 23%;
+    margin-bottom: 20px;
+  }
+
+  .shopping-facilities-wrapper{
+    margin:0;
+    background-color:lightgreen;
+  }
+
+  .size-container{
+    margin:0 auto;
+    width:960px;
+  }
+
+  .shopping-facilities-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin:0;
+    justify-content:space-between;
+  }
+
+  .info-column {
+    flex: 33.33%;
+    max-width: 33.33%;
+  }
+
+  /* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 960px) {
+  .column, .info-column {
+    flex: 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 800px) {
+  .column, info-column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .slide-column {
+    flex: 25%;
+    max-width: 25%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 800px) {
+  .slide-column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+
