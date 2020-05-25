@@ -1,5 +1,9 @@
 .footer-wrapper{
-  background-color:rgba(240, 242, 245, 0.5)
+  background-color:rgba(240, 242, 245, 0.5);
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 .footer-info-container{
     max-width:960px;

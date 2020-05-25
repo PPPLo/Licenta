@@ -5,3 +5,9 @@ ul li a{
     margin-right: 20px;
 }
 
+.caret-off::before {
+    display: none;
+}
+.caret-off::after {
+    display: none;
+}

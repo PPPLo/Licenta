@@ -1,76 +1,89 @@
 
     <nav class="navbar nav-fill navbar-expand-lg sticky-top navbar-light bg-light">
-      <a class = "brand" href="#" ><img src="../assets/Logo/logo.PNG" width="40" height="40"><span id="CompaName">GEtPlanted.ro</span></a>
+        <a class = "brand"  [routerLink]="['/welcome']" > <img src="../assets/Logo/logo.PNG" width="40" height="40"><span id="CompaName">GEtPlanted.ro</span></a>       
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
             <li class="nav-item">
-              <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+              <a class="nav-link" > <span class="sr-only">(current)</span></a>
             </li>
-         <li class="nav-item dropdown dmenu" dropdown>
-              <a dropdownToggle role="button" class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" >
-              PLANT TYPES
-              </a>
-                <ul *dropdownMenu class="dropdown-menu sm-menu">
-                  <li><a class="dropdown-item" href="#" >All Plants</a></li>
-                  <li><a class="dropdown-item" href="#" >House Plants</a></li>
-                  <li><a class="dropdown-item" href="#" >Succulents</a></li>
-                  <li><a class="dropdown-item" href="#" >Hanging Plants</a></li>
-                  <li><a class="dropdown-item" href="#" >Orchids</a></li>
-                  <li><a class="dropdown-item" href="#" >Flowering Plants</a></li>
-                  <li><a class="dropdown-item" href="#" >Bonsai&Bamboo</a></li>
-                </ul>
-            </li> 
+
             <li class="nav-item dropdown dmenu" dropdown>
-              <a dropdownToggle role="button" class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" >
-              COLLECTIONS
-              </a>
-                <ul *dropdownMenu class="dropdown-menu sm-menu">
-                  <li><a class="dropdown-item" href="#" >Low Light Plants</a></li>
-                  <li><a class="dropdown-item" href="#" >Bright Light Plants</a></li>
-                  <li><a class="dropdown-item" href="#" >Easy Care Plants</a></li>
-                  <li><a class="dropdown-item" href="#" >Air Purifying Plants</a></li>
-                  <li><a class="dropdown-item" href="#" >Pet Friendly Plants</a></li>
-                </ul>
-            </li> 
-       
-            <li class="nav-item dropdown dmenu" dropdown>
-              <a dropdownToggle role="button" class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" >
-              SHOP BY SIZE
-              </a>
-                <ul *dropdownMenu class="dropdown-menu sm-menu">
-                  <li><a class="dropdown-item" href="#" >Large Plants</a></li>
-                  <li><a class="dropdown-item" href="#" >Medium Plants</a></li>
-                  <li><a class="dropdown-item" href="#" >Small Plants</a></li>
-                  <li><a class="dropdown-item" href="#" >Mini Plants</a></li>
-                </ul>
-            </li>             
+                  <a dropdownToggle role="button" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" >
+                  TIPURI DE PLANTE
+                  </a>
+                    <ul *dropdownMenu class="dropdown-menu sm-menu">
+                      <li><a class="dropdown-item"  routerLink="/products">Toate Plantele</a></li>
+                      <li><a class="dropdown-item"  >Plante curgatoare</a></li>
+                      <li><a class="dropdown-item"  >Plante purificatoare de aer</a></li>
+                      <li><a class="dropdown-item"  >Plante pentru lumină redusă</a></li>
+                      <li><a class="dropdown-item"  >Plante iubitoare de lumină</a></li>
+                      <li><a class="dropdown-item"  >Plante ușor de îngrijit</a></li>
+                      <li><a class="dropdown-item"  >Plante pet-friendly</a></li>
+                    </ul>
+                </li> 
+
+                <li class="nav-item dropdown dmenu" dropdown>
+                  <a dropdownToggle role="button" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" >
+                  COLECȚII
+                  </a>
+                    <ul *dropdownMenu class="dropdown-menu sm-menu">
+                      <li><a class="dropdown-item"  >Peperomia</a></li>
+                      <li><a class="dropdown-item"  >Philodendron</a></li>
+                      <li><a class="dropdown-item"  >Pothos</a></li>
+                      <li><a class="dropdown-item"  >Ficus</a></li>
+                      <li><a class="dropdown-item"  >Sanseveria</a></li>
+                      <li><a class="dropdown-item"  >Monstera</a></li>
+                      <li><a class="dropdown-item"  >Hoya</a></li>
+                      <li><a class="dropdown-item"  >Palmieri</a></li>
+                      <li><a class="dropdown-item"  >Calathea</a></li>
+                      <li><a class="dropdown-item"  >Suculente</a></li>
+                      <li><a class="dropdown-item"  >Plante cu flori</a></li>
+                    </ul>
+                </li> 
+          
+                <li class="nav-item dropdown dmenu" dropdown>
+                  <a dropdownToggle role="button" class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" >
+                  DUPĂ MARIME
+                  </a>
+                    <ul *dropdownMenu class="dropdown-menu sm-menu">
+                      <li><a class="dropdown-item"  >Plante Mari</a></li>
+                      <li><a class="dropdown-item"  >Plante Medii</a></li>
+                      <li><a class="dropdown-item"  >Plante Mici</a></li>
+                      <li><a class="dropdown-item"  >Plante Mini</a></li>
+                    </ul>
+                </li>             
           </ul>
         </div>
+
         <div class="menu-social" >
           <ul class="nav navbar-nav">
-            <li class="nav-item">
+
+            <li class="nav-item" style="margin:auto">
               <div class="nav-link">
-                <a><mat-icon svgIcon="search-icon"></mat-icon></a>
+                <a routerLink="/search"><mat-icon svgIcon="search-icon"></mat-icon></a>
               </div>
             </li>
-            <li class="nav-item">
-              <div class="nav-link" dropdown>
-                <a dropdownToggle role="button" ><mat-icon svgIcon="user-icon"></mat-icon></a>
+
+            <li class="nav-item dropdown dmenu " dropdown>
+                <a dropdownToggle role="button" class="nav-link dropdown-toggle caret-off"  id="navbardrop" data-toggle="dropdown" >
+                  <mat-icon svgIcon="user-icon"></mat-icon>
+                </a>
                 <ul *dropdownMenu class="dropdown-menu sm-menu">
-                  <li><a class="dropdown-item" href="#" >service2</a></li>
-                  <li><a class="dropdown-item" href="#" >service2</a></li>
-                  <li><a class="dropdown-item" href="#" >service3</a></li>
+                  <li><a class="dropdown-item" href="#" >Înregistrare</a></li>
+                  <li><a class="dropdown-item" href="#" >Autentificare</a></li>
                 </ul>                 
-              </div>
             </li>
-            <li class="nav-item">
+
+            <li class="nav-item" style="margin:auto">
               <div class="nav-link">
-                <a><mat-icon svgIcon="cart-icon" matBadge="20" matBadgeSize="small" matBadgePosition="below" matBadgeOverlap="true" ></mat-icon></a>
+                <a routerLink="/cart"><mat-icon svgIcon="cart-icon" matBadge="20" matBadgeSize="small" matBadgePosition="below" matBadgeOverlap="true" ></mat-icon></a>
               </div>
             </li>
+
           </ul>
         </div>
     </nav>
