@@ -1,37 +1,42 @@
 
 <div class="page-wrapper">
     <div class="content-wrapper">
-        <div class="product-view">
+        <div class="product-view" *ngIf='product'>
             <div class="product-detail" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center stretch" fxLayout.xs="column" >
                 <div class='photo-galery' fxFlex="0 1 calc(15% -15px)" fxFlex.xs="0 0 0">
                     <div class ="photo-container" fxLayout="column" fxLayoutGap="15px">
-                        <div class="image-container">
-                            <img>
+                        <div class="image-container" (click)='showImage(product.urlImage1)'>
+                            <img [src]="product.urlImage1" width="100%" height="100%">
                         </div>
-                        <div class="image-container">
-                            <img>
+                        <div class="image-container" (click)='showImage(product.urlImage2)'>
+                            <img [src]="product.urlImage2" width="100%" height="100%">
                         </div>
-                        <div class="image-container">
-                            <img>
+                        <div class="image-container" (click)='showImage(product.urlImage3)'>
+                            <img [src]="product.urlImage3" width="100%" height="100%">
                         </div>
                     </div>
                 </div>
                 <div class='main-photo' fxFlex="0 1 calc(50% -15px)" fxFlex.xs="1 1 calc(100% - 15px)">
-                    <img>
+                    <img [src]="currentImageUrl" width="100%" height="100%">
                 </div>
-                <div class='side-info' fxFlex="0 1 calc(35% - 15px)" fxFlex.xs="1 1 calc(100% - 15px)">
+                <div class='side-info' fxFlex="0 1 calc(35% - 15px)" fxFlex.xs="1 1 calc(100% - 15px)" >
                     <div class="info-container" >
                         <div class="product-title">
-                            <h1>MONSTERA DELICIOSA</h1>
+                            <h1>{{product.name}}</h1>
                         </div>
                         <div class="product-price">
-                            <h2>25 RON</h2>
-                        </div>                   
+                            <h2>{{product.price}} RON</h2>
+                        </div>    
+                        <div class="product-rating" fxLayout="row"  fxLayoutAlign="start stretch">
+                            <div class="inline-element-rating">
+                                <app-rating> </app-rating> 
+                            </div>
+                            <div class="inline-element-rating">
+                                <p>| {{product.numberofreviews}} 25 comentarii <p>
+                            </div>
+                        </div>               
                         <div class="product-text">
-                            <p>Elegant, elemental and easy to maintain, our concrete succulent garden is the trifecta of home greenifying. 
-                                A colorful collection of succulents in a white concrete planter with elegant gold details. It’s a concrete 
-                                fact – this one makes an awesome gift. Plant Perk: Succulents improve a room’s humidity level which helps 
-                                to relieve dry skin and scratchy throats.</p>
+                            <p>{{product.productdetail}}</p>
                         </div>
                         <div class="plant-quantity" fxLayout="row" fxLayoutAlign="start none" >
                             <div class="inline-element qty-text" fxFlex="0 0 calc(30% -15px)">
@@ -64,26 +69,36 @@
                     </div>
                 </div>
             </div>
-            <div class="product-care">
+            <div class="product-information">
                 <mat-tab-group  animationDuration="0ms">
-                    <mat-tab label="Detalii produs">
+                    <mat-tab label="Detalii produs" >
                         <div class="details-content">
+                            <p>{{product.productdetail}}</p>
                         </div>
                     </mat-tab>
                     <mat-tab label="Instrucțiuni de îngrijire"> 
                         <div class="details-content">
+                            <p></p>
                         </div> 
                     </mat-tab>
                     <mat-tab label="Ce este inclus">
                         <div class="details-content">
+                            <p></p>
                         </div>  
                     </mat-tab>
                     <mat-tab label="Livrare">
                         <div class="details-content">
+                            <p></p>
                         </div>  
                     </mat-tab>
                 </mat-tab-group>
-            </div>          
+            </div> 
+            <div class="reviews-container">
+                
+            </div>
+
+                    
         </div>
+
     </div>
 </div>

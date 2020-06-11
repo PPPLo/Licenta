@@ -14,6 +14,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularUiModule } from './angularmaterial/angular-ui.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { RatingComponent } from './rating/rating.component';
 
 
 
@@ -24,7 +25,8 @@ import { AppRoutingModule } from '../app-routing.module';
     SearchComponent,
     AccountComponent,
     CartComponent,
-    CustomerServiceComponent
+    CustomerServiceComponent,
+    RatingComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { AppRoutingModule } from '../app-routing.module';
     CustomerServiceComponent,
     HttpClientModule,
     BsDropdownModule,
-    AngularUiModule
+    AngularUiModule,
+    RatingComponent 
   ]
 })
 export class SharedModule { }

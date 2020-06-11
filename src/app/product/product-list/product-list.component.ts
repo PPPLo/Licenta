@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../product';
 import {Subscriber, Subscription} from 'rxjs';
-import {mergeMap, map} from 'rxjs/operators';
+import { mergeMap, map } from 'rxjs/operators';
 import { ProductService } from '../product-service/product.service';
 import { CollectionsService } from '../product-service/collections.service';
-
+   
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -22,14 +22,18 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.collectionsService.getAllCollections().pipe
+    /*this.collectionsService.getAllCollections().pipe
     (mergeMap(collections=>this.productService.getProducts().pipe
     (map(products=>[collections,products])))).subscribe(([collections,products])=>{
       this.products=products;
-      this.collections=this.collections; 
-      console.log(products);
-      console.log(collections);
-    })
+      this.collections=this.collections;
+    })*/
+
+    this.productService.getProducts().subscribe(products=>this.products=products);
+  }
+
+  getProductByName(key){
+    return this.products.filter(products=>products.name==key);
   }
 
   getProductsByCollections(key){

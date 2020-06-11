@@ -14,13 +14,13 @@ import { SearchComponent } from './shared/header/search/search.component';
 const routes: Routes = [
   {path: 'welcome', component: WelcomeComponent},
   {path: 'products', component: ProductListComponent},
-  {path: 'productdetail', component: ProductDetailComponent},
+  {path: 'products/:name', component: ProductDetailComponent},
   {path: 'search', component: SearchComponent},
   {path: 'cart', component:CartComponent},
   {path: 'login', component: AccountComponent},
   {path: 'customerservice', component: CustomerServiceComponent},
-  /*{path:'', redirectTo:'welcome', pathMatch:'full'},*/
-  /*{path:'**', redirectTo:'welcome', pathMatch:'full'}*/
+  //{path:'', redirectTo:'welcome', pathMatch:'full'},
+  //{path:'**', redirectTo:'welcome', pathMatch:'full'}
 ];
 
 @NgModule({

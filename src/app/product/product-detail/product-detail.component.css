@@ -13,11 +13,9 @@
 }
 
 .photo-galery{
-
 }
 
 .main-photo{
-    background:yellow;
 }
 
 .side-info{
@@ -26,8 +24,12 @@
 
 .image-container{
     margin:5px;
-    height: 100px;
-    background-color: brown;
+    height: 110px;
+    width: 110px;
+}
+
+.image-container:hover{
+    cursor:pointer;
 }
 
 .select-element{
@@ -87,6 +89,7 @@
 }
 
 .product-text{
+    height: 150px;
     font-size: 0.8em;
     text-align:justify; 
     padding-bottom: 0px;
@@ -99,4 +102,26 @@
 
 .plant-quantity{
     margin-top:0px;
+}
+
+.product-information p{
+    font-size:0.7rem;
+    text-align: left;
+}
+
+.mat-tab-label{
+    font-size: 0.8rem !important;
+    }
+
+.product-rating{
+    font-size: small;
+}
+
+.inline-element-rating{
+    display:inline;
+}
+
+.product-rating{
+    height: 20px;
+    margin-bottom: 10px;
 }

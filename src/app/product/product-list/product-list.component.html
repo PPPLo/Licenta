@@ -64,7 +64,7 @@
                 <div class="cardList">
                    <!-- <ng-container *ngFor="let products of getProductsByCategory(collections.key)"> !-->
                     <ng-container *ngFor="let products of products">     
-                        <mat-card class="cardListItem"  routerLink = "/productdetail" >
+                        <mat-card class="cardListItem"  [routerLink] = "['/products', products.name]"  >
                             <img mat-card-image [src]="products.urlImage1">
                             <mat-card-content  fxLayout="row"  fxLayoutAlign="space-between end"  >
                                 <div class="details" >{{products.name}}</div>
