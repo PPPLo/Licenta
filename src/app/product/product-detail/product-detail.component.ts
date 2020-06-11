@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
+  selected:any;
   constructor() { }
 
   ngOnInit(): void {

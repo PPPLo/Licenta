@@ -1,0 +1,102 @@
+.page-wrapper{
+    margin-top:15px;
+    margin-bottom:5px;
+    font-family: 'Anton', sans-serif;
+}
+.content-wrapper{
+    margin:0 auto;
+    max-width:960px;
+}
+.product-detail{
+    height: 400px;
+    margin-bottom: 15px;
+}
+
+.photo-galery{
+
+}
+
+.main-photo{
+    background:yellow;
+}
+
+.side-info{
+    margin-left:5px;
+}
+
+.image-container{
+    margin:5px;
+    height: 100px;
+    background-color: brown;
+}
+
+.select-element{
+    width:35px;
+}
+
+.hr-sect {
+    border-top: 1px solid black;
+  }
+
+  .inline-element
+  {
+
+  }
+
+  .qty-text{
+      text-align: center;
+      padding-top:20px;
+      font-size:0.9em;
+      font-weight: bold;
+  }
+
+  .qty-selector{
+    text-align:left;
+  }
+
+  .delivery-info-text p{
+    font-size:0.9em;
+    font-weight: bold; 
+    margin-top:12px; 
+  }
+  .add-button{
+    width: 150px;
+    height: 25px;
+    background-color:greenyellow;
+    font-family: 'Anton', sans-serif;
+    border-radius: 0 !important;
+    margin-top:15px;
+    text-align: center;
+    padding-bottom:30px;
+    font-weight: boldș;
+  }
+
+  .product-title h1{
+      font-size: 1.3em;
+      font-weight: bold;
+      padding-top:10px;
+      margin-bottom:0px;
+      padding-bottom:0px;
+  }
+
+  .product-price h2{
+    font-size: 1.0em;
+    font-weight: bold;
+    padding-top:0px;
+    margin-top:0px;
+}
+
+.product-text{
+    font-size: 0.8em;
+    text-align:justify; 
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.details-content{
+    height: 200px;
+}
+
+.plant-quantity{
+    margin-top:0px;
+}

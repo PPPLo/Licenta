@@ -1,4 +1,5 @@
 
+    <div class="navbarwrapper">
     <nav class="navbar nav-fill navbar-expand-lg sticky-top navbar-light bg-light">
         <a class = "brand"  [routerLink]="['/welcome']" > <img src="../assets/Logo/logo.PNG" width="40" height="40"><span id="CompaName">GEtPlanted.ro</span></a>       
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,12 +18,12 @@
                   </a>
                     <ul *dropdownMenu class="dropdown-menu sm-menu">
                       <li><a class="dropdown-item"  routerLink="/products">Toate Plantele</a></li>
-                      <li><a class="dropdown-item"  >Plante curgatoare</a></li>
-                      <li><a class="dropdown-item"  >Plante purificatoare de aer</a></li>
-                      <li><a class="dropdown-item"  >Plante pentru lumină redusă</a></li>
-                      <li><a class="dropdown-item"  >Plante iubitoare de lumină</a></li>
-                      <li><a class="dropdown-item"  >Plante ușor de îngrijit</a></li>
-                      <li><a class="dropdown-item"  >Plante pet-friendly</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Plante curgatoare</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Plante purificatoare de aer</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Plante pentru lumină redusă</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Plante iubitoare de lumină</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Plante ușor de îngrijit</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Plante pet-friendly</a></li>
                     </ul>
                 </li> 
 
@@ -31,17 +32,17 @@
                   COLECȚII
                   </a>
                     <ul *dropdownMenu class="dropdown-menu sm-menu">
-                      <li><a class="dropdown-item"  >Peperomia</a></li>
-                      <li><a class="dropdown-item"  >Philodendron</a></li>
-                      <li><a class="dropdown-item"  >Pothos</a></li>
-                      <li><a class="dropdown-item"  >Ficus</a></li>
-                      <li><a class="dropdown-item"  >Sanseveria</a></li>
-                      <li><a class="dropdown-item"  >Monstera</a></li>
-                      <li><a class="dropdown-item"  >Hoya</a></li>
-                      <li><a class="dropdown-item"  >Palmieri</a></li>
-                      <li><a class="dropdown-item"  >Calathea</a></li>
-                      <li><a class="dropdown-item"  >Suculente</a></li>
-                      <li><a class="dropdown-item"  >Plante cu flori</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Peperomia</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Philodendron</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Pothos</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Ficus</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Sanseveria</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Monstera</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Hoya</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Palmieri</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Calathea</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Suculente</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Plante cu flori</a></li>
                     </ul>
                 </li> 
           
@@ -50,10 +51,10 @@
                   DUPĂ MARIME
                   </a>
                     <ul *dropdownMenu class="dropdown-menu sm-menu">
-                      <li><a class="dropdown-item"  >Plante Mari</a></li>
-                      <li><a class="dropdown-item"  >Plante Medii</a></li>
-                      <li><a class="dropdown-item"  >Plante Mici</a></li>
-                      <li><a class="dropdown-item"  >Plante Mini</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Plante Mari</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Plante Medii</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Plante Mici</a></li>
+                      <li><a class="dropdown-item"  routerLink="/products">Plante Mini</a></li>
                     </ul>
                 </li>             
           </ul>
@@ -64,7 +65,7 @@
 
             <li class="nav-item" style="margin:auto">
               <div class="nav-link">
-                <a routerLink="/search"><mat-icon svgIcon="search-icon"></mat-icon></a>
+                <a routerLink="/search" class="icon" ><mat-icon svgIcon="search-icon"></mat-icon></a>
               </div>
             </li>
 
@@ -73,20 +74,20 @@
                   <mat-icon svgIcon="user-icon"></mat-icon>
                 </a>
                 <ul *dropdownMenu class="dropdown-menu sm-menu">
-                  <li><a class="dropdown-item" href="#" >Înregistrare</a></li>
-                  <li><a class="dropdown-item" href="#" >Autentificare</a></li>
+                  <li><a class="dropdown-item" routerLink="/login">Înregistrare</a></li>
+                  <li><a class="dropdown-item" routerLink="/login">Autentificare</a></li>
                 </ul>                 
             </li>
 
             <li class="nav-item" style="margin:auto">
               <div class="nav-link">
-                <a routerLink="/cart"><mat-icon svgIcon="cart-icon" matBadge="20" matBadgeSize="small" matBadgePosition="below" matBadgeOverlap="true" ></mat-icon></a>
+                <a routerLink="/cart" class="icon"><mat-icon svgIcon="cart-icon" matBadge="20" matBadgeSize="small" matBadgePosition="below" matBadgeOverlap="true" ></mat-icon></a>
               </div>
             </li>
-
           </ul>
         </div>
     </nav>
+  </div>
 
 
     

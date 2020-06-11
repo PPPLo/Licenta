@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import {FlexLayoutModule} from '@angular/flex-layout';
+
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductService } from './product.service';
-import { HttpClientModule } from '@angular/common/http';
+
+import { AngularUiModule } from '../shared/angularmaterial/angular-ui.module';
+import { AppRoutingModule } from '../app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -12,14 +17,16 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularUiModule,
+    AppRoutingModule,
+    FlexLayoutModule
   ],
   exports:[
     ProductDetailComponent,
-    ProductListComponent
+    ProductListComponent,
+    CommonModule,
   ],
-  providers: [
-    ProductService
-  ]
+  providers: []
 })
 export class ProductModule { }

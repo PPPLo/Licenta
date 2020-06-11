@@ -79,8 +79,34 @@ h2{
 .copyright{
   font-size: 0.5rem;
   text-align:center;
-
 }
+
+.footer-links:link{
+  text-decoration: none;
+}
+
+.footer-links:visited{
+  text-decoration: none;
+  color:black;
+}
+
+.footer-links:hover{
+  text-decoration: underline;
+}
+
+.icon:link{
+  text-decoration: none;
+}
+
+.icon:visited{
+  text-decoration: none;
+  color:black;
+}
+
+.icon:hover{
+  color:grey;
+}
+
 @media (max-width: 960px) {
     .footer-flex-column {
       flex: 25%;

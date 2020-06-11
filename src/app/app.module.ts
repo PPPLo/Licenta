@@ -10,20 +10,29 @@ import { ProductListComponent} from './product/product-list/product-list.compone
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
+import { AngularFireModule} from '@angular/fire';
+import {environment} from 'src/environments/environment';
+import { AngularFireDatabaseModule} from '@angular/fire/database';
+import { AngularFireAuthModule} from '@angular/fire/auth'; 
+ 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent
   ],
   imports: [
-    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     SharedModule, 
     ProductModule,
     AppRoutingModule,
     NgbModule,
-    BsDropdownModule.forRoot()
-
+    BsDropdownModule.forRoot(),
+    BrowserModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

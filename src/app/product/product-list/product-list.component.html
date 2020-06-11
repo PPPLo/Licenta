@@ -1,47 +1,78 @@
 <div class="content-wrapper">
-    <div class="page-container">
-        <div class="mt-3 mb-mb-0 mb-4 col-md-3">
-            <div class="left-selection-wrapper">
-                <div class="page-info">
-                    <h1>Plant Category Title </h1>
-                    <p>With so many plants online to choose from and grow with, it’s hard to pick just one for plant delivery! From bamboo to herb gardens to large indoor plants -- each one is ready to fit in with your (or a friend’s) personality, space or occasion.</p>
-                </div>
-                <div class="sort-options">
-                    <ul>
-                        <li>Name: A to Z</li>
-                        <li>Name: Z to A</li>
-                        <li>Price: Low to High</li>
-                        <li>Price: High to Low</li>
-                    </ul>
-                </div>
-                <div class="price-options">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <div class="size-options">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <div class="care-level-options">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="product-list col-md-9">
-            </div>
+    <div class="page-container collection container">
+        <div class="row">
+            page link
         </div>
+        <div class="row">
+                <div class="mt-3 mb-mb-0 mb-4 col-md-3">
+                    <div class="left-selection-wrapper">
+                        <div class="category-title">
+                            <h1>Plant Category Title </h1>
+                        </div>
+                        <div class="description-container show more">
+                            <div>
+                                <p class="pb-0 description mb-0 mb-md-4">
+                                    With so many plants online to choose from and grow with,
+                                    it’s hard to pick just one for plant delivery! From bamboo to 
+                                    herb gardens to large indoor plants -- each one is ready to fit 
+                                    in with your (or a friend’s) personality, space or occasion.
+                                </p>
+                                <div class="read-more">
+                                    Citește mai mult >>
+                                </div>
+                            </div>
+                         </div>
+                        <div class="sort-options options">
+                            <div class="hr-sect"></div>
+                            <h3>Sortare</h3>
+                            <div class="hr-sect"></div>
+                            <mat-radio-group class="radio-group" aria-label="Select an option">
+                                <mat-radio-button class="radio-button" value="1">Nume: A la Z</mat-radio-button>
+                                <mat-radio-button class="radio-button" value="2">Nume: Z la A</mat-radio-button>
+                            </mat-radio-group>
+                            <mat-radio-group class="radio-group" aria-label="Select an option">
+                                <mat-radio-button class="radio-button" value="1">Preț: Crescator</mat-radio-button>
+                                <mat-radio-button class="radio-button" value="2">Preț: Crescator</mat-radio-button>
+                              </mat-radio-group>
+
+                        </div>
+                        <div class="price-options options">
+                            <div class="hr-sect"></div>
+                            <h3>Preț</h3>
+                            <div class="hr-sect"></div>
+                            <mat-radio-group class="radio-group" aria-label="Select an option">
+                                <mat-radio-button class="radio-button" value="1">Sub 50 RON</mat-radio-button>
+                                <mat-radio-button class="radio-button" value="2">50 RON - 100 RON</mat-radio-button>
+                                <mat-radio-button class="radio-button" value="2">100 RON - 200 RON</mat-radio-button>
+                                <mat-radio-button class="radio-button" value="2">200 RON +</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div class="size-options options">
+                            <div class="hr-sect"></div>
+                                <h3>Mărime</h3>
+                            <div class="hr-sect"></div>
+                                <mat-radio-group class="radio-group" aria-label="Select an option">
+                                    <mat-radio-button class="radio-button" value="1">Plante mari</mat-radio-button>
+                                    <mat-radio-button class="radio-button" value="2">Plante medii</mat-radio-button>
+                                    <mat-radio-button class="radio-button" value="2">Plante mici</mat-radio-button>
+                                    <mat-radio-button class="radio-button" value="2">Plante mini</mat-radio-button>
+                                </mat-radio-group>
+                        </div>
+                    </div>
+                </div>
+            <div class="product-list col-md-9">               
+                <div class="cardList">
+                   <!-- <ng-container *ngFor="let products of getProductsByCategory(collections.key)"> !-->
+                    <ng-container *ngFor="let products of products">     
+                        <mat-card class="cardListItem"  routerLink = "/productdetail" >
+                            <img mat-card-image [src]="products.urlImage1">
+                            <mat-card-content  fxLayout="row"  fxLayoutAlign="space-between end"  >
+                                <div class="details" >{{products.name}}</div>
+                                <div class="details price" >{{products.price}}  RON</div>
+                            </mat-card-content>
+                         </mat-card>
+                    </ng-container>
+                </div>
+            </div>
     </div>
 </div>

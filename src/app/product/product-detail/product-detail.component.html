@@ -1,1 +1,89 @@
-<p>product-detail works!</p>
+
+<div class="page-wrapper">
+    <div class="content-wrapper">
+        <div class="product-view">
+            <div class="product-detail" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center stretch" fxLayout.xs="column" >
+                <div class='photo-galery' fxFlex="0 1 calc(15% -15px)" fxFlex.xs="0 0 0">
+                    <div class ="photo-container" fxLayout="column" fxLayoutGap="15px">
+                        <div class="image-container">
+                            <img>
+                        </div>
+                        <div class="image-container">
+                            <img>
+                        </div>
+                        <div class="image-container">
+                            <img>
+                        </div>
+                    </div>
+                </div>
+                <div class='main-photo' fxFlex="0 1 calc(50% -15px)" fxFlex.xs="1 1 calc(100% - 15px)">
+                    <img>
+                </div>
+                <div class='side-info' fxFlex="0 1 calc(35% - 15px)" fxFlex.xs="1 1 calc(100% - 15px)">
+                    <div class="info-container" >
+                        <div class="product-title">
+                            <h1>MONSTERA DELICIOSA</h1>
+                        </div>
+                        <div class="product-price">
+                            <h2>25 RON</h2>
+                        </div>                   
+                        <div class="product-text">
+                            <p>Elegant, elemental and easy to maintain, our concrete succulent garden is the trifecta of home greenifying. 
+                                A colorful collection of succulents in a white concrete planter with elegant gold details. It’s a concrete 
+                                fact – this one makes an awesome gift. Plant Perk: Succulents improve a room’s humidity level which helps 
+                                to relieve dry skin and scratchy throats.</p>
+                        </div>
+                        <div class="plant-quantity" fxLayout="row" fxLayoutAlign="start none" >
+                            <div class="inline-element qty-text" fxFlex="0 0 calc(30% -15px)">
+                                <p>Cantitate</p>
+                            </div>
+                            <div class="inline-element qty-selector" fxFlex="0 0 calc(65% -15px)">
+                                <mat-form-field class="select-element">
+                                    <select [(value)]="selected" matNativeControl required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="hr-sect"></div>
+                        <div class="delivery-info-text">
+                            <p>Livrare gratuită la comezi peste 200 RON!</p>
+                        </div>    
+                        <div class="hr-sect"></div>
+                        <div class="button-container" fxLayout="row" fxLayoutAlign="left center">
+                            <a type="button" class="btn add-button" >Adaugă în coș</a>
+                        </div>                   
+                    </div>
+                </div>
+            </div>
+            <div class="product-care">
+                <mat-tab-group  animationDuration="0ms">
+                    <mat-tab label="Detalii produs">
+                        <div class="details-content">
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Instrucțiuni de îngrijire"> 
+                        <div class="details-content">
+                        </div> 
+                    </mat-tab>
+                    <mat-tab label="Ce este inclus">
+                        <div class="details-content">
+                        </div>  
+                    </mat-tab>
+                    <mat-tab label="Livrare">
+                        <div class="details-content">
+                        </div>  
+                    </mat-tab>
+                </mat-tab-group>
+            </div>          
+        </div>
+    </div>
+</div>

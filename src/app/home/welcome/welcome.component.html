@@ -1,85 +1,105 @@
 <div class="welcome-content-wrapper">
-        <div class="welcome-image-container">
-            <div class="welcome-text-main">
+    <div class="welcome-image-container">
+        <div class="welcome-text-main">
             <p>FROM OUR <br> <span id="coloured-word">GREENHOUSE</span> <br>TO YOUR HOUSE</p>
-            </div>
-            <div class="welcome-text-second">
+        </div>
+        <div class="welcome-text-second">
             <p>Bring spring in with green & blooming plants.</p>
-            </div>
-            <a type="button" class="btn welcome-button">Shop now</a>
+        </div>
+            <a type="button" class="btn welcome-button" routerLink="/products">Shop now</a>
         </div>
     <div class="welcome-categories-wrapper">
-            <div class='column'>
-              <div class='green-column'>
-                Some Text in Column One
-              </div>
-            </div>
-            <div class='column'>
-              <div class='blue-column'>
-                Some Text in Column Two
-              </div>
-            </div>
-                <div class='column'>
-              <div class='orange-column'>
-                Some Text in Column Three
-              </div>
-            </div>
+        <div class='column'>
+            <a routerLink="/products">
+                <div class='first-column'>
+                </div>
+            </a>
+        </div>
+        <div class='column'>
+            <a routerLink="/products">
+                <div class='second-column'>
+                  <img>
+                </div>
+            </a>
+        </div>
+        <div class='column'>
+            <a routerLink="/products">
+                <div class='third-column'>
+                  <img>
+                </div>
+            </a>
+        </div>
     </div>
     <div class="welcome-new-in-wrapper">
         <div class="text-container">
           <div class="hr-sect"><p class="text-title">Shop new in</p></div>
         </div>
         <div class="welcome-new-in-container">
-            <div class="new-in-product">One</div>
-            <div class="new-in-product">Two</div>
-            <div class="new-in-product">Three</div>
-            <div class="new-in-product">Four</div>
-            <div class="new-in-product">One</div>
-            <div class="new-in-product">Two</div>
-            <div class="new-in-product">Three</div>
-            <div class="new-in-product">Four</div>
+            <a routerLink="/productdetail"><div class="new-in-product">One</div></a>
+            <a routerLink="/productdetail"><div class="new-in-product">Two</div></a>
+            <a routerLink="/productdetail"><div class="new-in-product">Three</div></a>
+            <a routerLink="/productdetail"><div class="new-in-product">Four</div></a>
+            <a routerLink="/productdetail"><div class="new-in-product">One</div></a>
+            <a routerLink="/productdetail"><div class="new-in-product">Two</div></a>
+            <a routerLink="/productdetail"><div class="new-in-product">Three</div></a>
+            <a routerLink="/productdetail"><div class="new-in-product">Four</div></a>
         </div>
     </div>
     <div class="text-container">
       <div class="hr-sect"><p class="text-title">Plants you love</p></div>
     </div>
     <div class="welcome-plants-you-love">
-            <div class='slide-column'>
-              <div class='green-column'>
+        <div class='slide-column'>
+            <div class='slider-first-column'>
                 Some Text in Column One
-              </div>
             </div>
-            <div class='slide-column'>
-              <div class='orange-column'>
+        </div>
+        <div class='slide-column'>
+            <div class='slider-second-column'>
                 Some Text in Column Two
-              </div>
             </div>
-            <div class='slide-column'>
-              <div class='orange-column'>
+        </div>
+        <div class='slide-column'>
+            <div class='slider-third-column'>
                 Some Text in Column Three
-              </div>
             </div>
+        </div>
             <div class='slide-column'>
-              <div class='green-column'>
+              <div class='slider-fourth-column'>
                   Some Text in Column One
               </div>
             </div>
-    </div>
-</div>
-<div class="shopping-facilities-wrapper">
+       </div>
+  </div>
+  <div class="shopping-facilities-wrapper">
     <div class="size-container">
         <div class="shopping-facilities-container" >
-            <div class='info-column'>               
-                <h4>Flexible Shipping Dates</h4> 
-                <p>Choose your delivery date to accommodate your schedule. Our standard shipping time is two - five days with overnight shipping options.</p>            
+            <div class='info-column'> 
+                <div class='icons'>
+                    <mat-icon svgIcon="box-icon"></mat-icon>  
+                </div>            
+                <h4>Livrare flexibilă</h4> 
+                <p class = "description">Alege data livrării în funcție de programul tău!
+                  Durata normală a livrării este 3-5 zile lucrătoare.
+                  Livrare gratuită pentru comenzi mai mari de 200 RON.</p>            
             </div>
-            <div class='info-column'>                
-                <h4>Flexible Shipping Dates</h4> 
-                <p>Choose your delivery date to accommodate your schedule. Our standard shipping time is two - five days with overnight shipping options.</p>            
+            <div class='info-column'> 
+              <div class='icons'>
+                  <mat-icon svgIcon="plant-pot-icon"></mat-icon>
+                  <mat-icon svgIcon="cactus-icon"></mat-icon>
+                  <mat-icon svgIcon="growth-icon"></mat-icon>
+              </div>           
+              <h4>Plante direct din seră</h4> 
+              <p class = "description">Plantele sunt livrate direct din sera noastră, unde sunt păstrate în condițiile ideale.
+                  Asigurăm calitatea și starea impecabilă a plantelor noastre la livrare.
+              </p>            
             </div>
-            <div class='info-column'>               
-                <h4>Flexible Shipping Dates</h4> 
-                <p>Choose your delivery date to accommodate your schedule. Our standard shipping time is two - five days with overnight shipping options.</p>                          
+            <div class='info-column'> 
+              <div class='icons'>  
+                <mat-icon svgIcon="gardening-icon"></mat-icon>            
+              </div>  
+                <h4>Semințele succesului</h4> 
+                <p class = "description">Garanție 30 de zile pentru toate plantele livrare + carduri cu instrucțiuni de îngrijire incluse.  </p>                         
             </div>
         </div>
     </div>
