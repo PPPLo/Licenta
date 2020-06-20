@@ -14,6 +14,7 @@ ul li a{
 
 .navbarwrapper{
     background-color: rgb(242, 242, 242) !important;
+    height: 60px;
 }
 
 .navbar{

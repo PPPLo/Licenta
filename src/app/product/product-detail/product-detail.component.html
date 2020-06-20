@@ -2,8 +2,8 @@
 <div class="page-wrapper">
     <div class="content-wrapper">
         <div class="product-view" *ngIf='product'>
-            <div class="product-detail" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center stretch" fxLayout.xs="column" >
-                <div class='photo-galery' fxFlex="0 1 calc(15% -15px)" fxFlex.xs="0 0 0">
+            <div class="product-detail" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center none" fxLayout.xs="column" >
+                <div class='photo-galery' fxFlex="0 0 calc(15% -15px)" fxFlex.xs="0 0 0">
                     <div class ="photo-container" fxLayout="column" fxLayoutGap="15px">
                         <div class="image-container" (click)='showImage(product.urlImage1)'>
                             <img [src]="product.urlImage1" width="100%" height="100%">
@@ -16,18 +16,18 @@
                         </div>
                     </div>
                 </div>
-                <div class='main-photo' fxFlex="0 1 calc(50% -15px)" fxFlex.xs="1 1 calc(100% - 15px)">
+                <div class='main-photo' fxFlex="0 0 calc(50% -15px)" fxFlex.xs="0 0 calc(100% - 15px)">
                     <img [src]="currentImageUrl" width="100%" height="100%">
                 </div>
-                <div class='side-info' fxFlex="0 1 calc(35% - 15px)" fxFlex.xs="1 1 calc(100% - 15px)" >
-                    <div class="info-container" >
+                <div class='side-info' fxFlex="0 0 calc(35% - 15px)" fxFlex.xs="0 0 calc(100% - 15px)" >
+                    <div class="info-container " >
                         <div class="product-title">
                             <h1>{{product.name}}</h1>
                         </div>
-                        <div class="product-price">
-                            <h2>{{product.price}} RON</h2>
+                        <div class="product-title-botanical">
+                            <h2>{{product.botanicalname}}</h2>
                         </div>    
-                        <div class="product-rating" fxLayout="row"  fxLayoutAlign="start stretch">
+                        <div class="product-rating" fxLayout="row"  fxLayoutAlign="start none">
                             <div class="inline-element-rating">
                                 <app-rating> </app-rating> 
                             </div>
@@ -38,13 +38,15 @@
                         <div class="product-text">
                             <p>{{product.productdetail}}</p>
                         </div>
+                        <div class="product-price">
+                            <h2>{{product.price}} RON</h2>
+                        </div>
                         <div class="plant-quantity" fxLayout="row" fxLayoutAlign="start none" >
                             <div class="inline-element qty-text" fxFlex="0 0 calc(30% -15px)">
                                 <p>Cantitate</p>
                             </div>
-                            <div class="inline-element qty-selector" fxFlex="0 0 calc(65% -15px)">
-                                <mat-form-field class="select-element">
-                                    <select [(value)]="selected" matNativeControl required>
+                            <div class="inline-element qty-selector" fxFlex="0 0 calc(65% -15px)">                 
+                                    <select [(value)]="selected" class="form-control form-control-sm">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -55,7 +57,7 @@
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                </mat-form-field>
+    
                             </div>
                         </div>
                         <div class="hr-sect"></div>
@@ -72,23 +74,41 @@
             <div class="product-information">
                 <mat-tab-group  animationDuration="0ms">
                     <mat-tab label="Detalii produs" >
-                        <div class="details-content">
-                            <p>{{product.productdetail}}</p>
+                        <div class="details-content" >
+                            <ul class="details" *ngFor='let specs of productspecs '>
+                            <li *ngIf=' specs.length!==0 && specs!=="" '>{{specs}}</li>
+                            </ul>
                         </div>
                     </mat-tab>
                     <mat-tab label="Instrucțiuni de îngrijire"> 
                         <div class="details-content">
-                            <p></p>
+                            <ul>
+                                <li>{{careinstructions[0]}}</li>
+                                <li>{{careinstructions[1]}}</li>
+                                <li>{{careinstructions[2]}}</li>
+                                <li>{{careinstructions[3]}}</li>
+                            </ul>
                         </div> 
                     </mat-tab>
                     <mat-tab label="Ce este inclus">
                         <div class="details-content">
-                            <p></p>
+                            <ul> 
+                                <li>Plantă în ghiveci de plastic de {{product.size}} cm într-un sol ecologic de nucă de cocos.</li>
+                                <li>Instrucțiuni de îngrijire intr-un ghid printat.</li>
+                                <li>Sfaturi de îngrijire și asistență pentru toată durata de viață a plantei tale.</li>
+                                <li>Garanție de 30 de zile.</li>
+                            </ul>
                         </div>  
                     </mat-tab>
                     <mat-tab label="Livrare">
                         <div class="details-content">
-                            <p></p>
+                            <ul>
+                                <li>Plantele noastre sunt ambalate cu grijă și livrate direct din sera noastră până la ușa ta.</li>
+                                <li>Toate comenzile de peste 200 ron sunt livrate gratuit.</li>
+                                <li>Timpul nostru standard de livrare este de 2-4 zile lucrătoare.</li>
+                                <li>Transportul standard este de 20 RON.</li>
+                                <li>Oferim și transportul a doua zi și livrarea sâmbătă.</li>
+                            </ul>
                         </div>  
                     </mat-tab>
                 </mat-tab-group>

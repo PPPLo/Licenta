@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { MatIconRegistry } from "@angular/material/icon"; 
 import { DomSanitizer } from "@angular/platform-browser";
+import { EventEmitter } from 'protractor';
+import { ProductService } from 'src/app/product/product-service/product.service';
+
 
 @Component({
   selector: 'app-header',
@@ -9,8 +12,9 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private matIconRegistry : MatIconRegistry,
-    private domSanitizer: DomSanitizer) {
+    constructor(private matIconRegistry : MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+    private productService: ProductService) {
     this.matIconRegistry.addSvgIcon(
       "user-icon",
       this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/Icons/user-icon.svg")

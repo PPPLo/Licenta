@@ -7,7 +7,8 @@
 }
 
 .welcome-image-container{
-  background-image: url('../../../assets/Welcome/welcome-photo.jpg');  
+  /*background-image: url('../../../assets/Welcome/background.jpeg'); */
+  background:lightblue;
   margin: 0 auto;
   max-width:960px;
   height: 400px;
@@ -18,7 +19,7 @@
   width:350px;
   height:50px;
   font-family: 'Anton', sans-serif;
-  font-size: 45px;
+  font-size: 40px;
   margin:auto;
 }
 
@@ -69,34 +70,62 @@
   max-width: 31%;
   margin-bottom: 20px;
   height: 300px;
-  background-color: lightpink;
+  border:solid;
 }
 
 .first-column {
-  background-color: lightpink;
   height: 300px;
 }
   
 .second-column {
-  background-color: lightpink;
   height: 300px;
 }
   
 .third-column {
-  background-color: lightpink;
   height: 300px;
 }
 
 .welcome-new-in-container{
   display:grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 15px;
+  grid-gap: 20px;
+  row-gap: 70px;
   grid-template-rows: 200px 200px;
+  height: 500px;
+  margin-bottom:20px;
 }
 
-.new-in-product{
-  background-color: lightpink; 
+.details{
+  font-size: small;
+  height: 20px;
+  width:50px;
+  margin-bottom:5px;
+  padding:0;
+  margin:0;
+  font-family: 'Anton', sans-serif;
+  color:black;
+}
 
+.price{ 
+  text-align:end;    
+}
+
+a:link{
+}
+      
+a:visited{
+  color:black;
+}
+      
+a:hover{
+    cursor: pointer;
+    text-decoration: none;
+    color:black;
+ }
+
+.new-in-product{
+  height: 250px;
+  margin-bottom: 15px;
 }
 
 .welcome-plants-you-love {
@@ -111,7 +140,7 @@
   max-width: 23%;
   margin-bottom: 20px;
   height: 250px;
-  background-color: lightpink;
+  border:solid;
 }
 
 .shopping-facilities-wrapper{

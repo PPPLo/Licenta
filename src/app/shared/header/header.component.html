@@ -1,7 +1,6 @@
-
     <div class="navbarwrapper">
     <nav class="navbar nav-fill navbar-expand-lg sticky-top navbar-light bg-light">
-        <a class = "brand"  [routerLink]="['/welcome']" > <img src="../assets/Logo/logo.PNG" width="40" height="40"><span id="CompaName">GEtPlanted.ro</span></a>       
+        <a class = "brand"  [routerLink]="['/welcome']" > <img src="../assets/Logo/logo.PNG" width="40" height="40"><span id="CompaName">LOGO</span></a>       
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -17,13 +16,12 @@
                   TIPURI DE PLANTE
                   </a>
                     <ul *dropdownMenu class="dropdown-menu sm-menu">
-                      <li><a class="dropdown-item"  routerLink="/products">Toate Plantele</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Plante curgatoare</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Plante purificatoare de aer</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Plante pentru lumină redusă</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Plante iubitoare de lumină</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Plante ușor de îngrijit</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Plante pet-friendly</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'all']" >Toate Plantele</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'vining']" >Plante curgatoare</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'airpurifying']" >Plante purificatoare de aer</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'lowlight']" >Plante pentru lumină redusă</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'easycare']" >Plante ușor de îngrijit</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'petfriendly']">Plante pet-friendly</a></li>
                     </ul>
                 </li> 
 
@@ -32,17 +30,16 @@
                   COLECȚII
                   </a>
                     <ul *dropdownMenu class="dropdown-menu sm-menu">
-                      <li><a class="dropdown-item"  routerLink="/products">Peperomia</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Philodendron</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Pothos</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Ficus</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Sanseveria</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Monstera</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Hoya</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Palmieri</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Calathea</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Suculente</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Plante cu flori</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'hoya']" >Hoya</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'peperomia']" >Peperomia</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'philodendron']" >Philodendron</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'pothos']" >Pothos</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'sanseveria']" >Sanseveria</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'calathea']" >Calathea</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'palm']">Palmieri</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'succulent']">Suculente</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'flowering']">Plante cu flori</a></li>
                     </ul>
                 </li> 
           
@@ -51,10 +48,10 @@
                   DUPĂ MARIME
                   </a>
                     <ul *dropdownMenu class="dropdown-menu sm-menu">
-                      <li><a class="dropdown-item"  routerLink="/products">Plante Mari</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Plante Medii</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Plante Mici</a></li>
-                      <li><a class="dropdown-item"  routerLink="/products">Plante Mini</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'large']">Plante Mari</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'medium']">Plante Medii</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'small']">Plante Mici</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'mini']">Plante Mini</a></li>
                     </ul>
                 </li>             
           </ul>

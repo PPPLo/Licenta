@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product-service/product.service';
 import { ViewEncapsulation} from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-detail',
@@ -14,8 +15,11 @@ export class ProductDetailComponent implements OnInit {
   selected:any;
   product:any;
   retrieved_product:any;
+  careinstructions:string[];
   products:any[];
   currentImageUrl:string;
+  productspecs: string[];
+  sub: Subscription;
 
   constructor(private route: ActivatedRoute,
     private productService:ProductService) {
@@ -25,22 +29,22 @@ export class ProductDetailComponent implements OnInit {
     this.currentImageUrl=urlImage;
   }
 
- /* onNotify(rating:number):void {
-       
-    this.product.rating = rating;
-  }
-  */
   ngOnInit(): void {
 
     let name = this.route.snapshot.paramMap.get('name');
-
-    this.productService.getProducts().subscribe({next:products=>{
-      this.products = products; 
-      this.product = this.products.filter(products=>products.name==name)[0];
-      this.retrieved_product=this.product;
-      this.currentImageUrl=this.product.urlImage1;
-    }});
     console.log(name);
-    
+
+    this.sub=this.productService.getProduct(name).subscribe({next:product=>{
+      console.log(product);
+      this.product=product[0];
+      this.currentImageUrl=this.product.urlImage1;
+      this.careinstructions=this.product.careinstructions.split("\n", 4);
+      this.productspecs=this.product.productspecs.split("\n");
+      console.log(this.sub);
+    }}); 
+  }
+
+  ngOnDestroy(){
+    this.sub.unsubscribe();
   }
 }

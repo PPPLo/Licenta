@@ -9,17 +9,17 @@ import { AccountComponent } from './shared/header/account/account.component';
 import { CartComponent } from './shared/header/cart/cart.component';
 import { CustomerServiceComponent } from './shared/footer/customer-service/customer-service.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
-import { SearchComponent } from './shared/header/search/search.component';
+import { ProductSearchComponent } from './product/product-search/product-search.component';
 
 const routes: Routes = [
   {path: 'welcome', component: WelcomeComponent},
-  {path: 'products', component: ProductListComponent},
-  {path: 'products/:name', component: ProductDetailComponent},
-  {path: 'search', component: SearchComponent},
+  {path: 'products/c/:option', component: ProductListComponent},
+  {path: 'products/p/:name', component: ProductDetailComponent},
+  {path: 'search', component: ProductSearchComponent},
   {path: 'cart', component:CartComponent},
   {path: 'login', component: AccountComponent},
   {path: 'customerservice', component: CustomerServiceComponent},
-  //{path:'', redirectTo:'welcome', pathMatch:'full'},
+  {path:'', redirectTo:'welcome', pathMatch:'full'},
   //{path:'**', redirectTo:'welcome', pathMatch:'full'}
 ];
 

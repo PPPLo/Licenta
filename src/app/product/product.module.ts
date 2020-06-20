@@ -9,12 +9,15 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { AngularUiModule } from '../shared/angularmaterial/angular-ui.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ProductSearchComponent } from './product-search/product-search.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     ProductListComponent, 
-    ProductDetailComponent
+    ProductDetailComponent, 
+    ProductSearchComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +25,8 @@ import { SharedModule } from '../shared/shared.module';
     AngularUiModule,
     AppRoutingModule,
     FlexLayoutModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   exports:[
     ProductDetailComponent,

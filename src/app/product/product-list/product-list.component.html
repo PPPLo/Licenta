@@ -1,10 +1,11 @@
 <div class="content-wrapper">
     <div class="page-container collection container">
-        <div class="row">
-            page link
+        <div class="row-link" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="space-between start">
+            <div class="link-detail">link/back butto</div>
+            <div class="nr-of-items">{{nrOfItems}} item-uri</div>
         </div>
-        <div class="row">
-                <div class="mt-3 mb-mb-0 mb-4 col-md-3">
+        <div class="row"  fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="space-between start" fxLayout.xs="column">
+                <div class="left-info" fxFlex="1 1 calc(25% -15px)" fxFlex.xs="0 0 100%">
                     <div class="left-selection-wrapper">
                         <div class="category-title">
                             <h1>Plant Category Title </h1>
@@ -26,53 +27,51 @@
                             <div class="hr-sect"></div>
                             <h3>Sortare</h3>
                             <div class="hr-sect"></div>
-                            <mat-radio-group class="radio-group" aria-label="Select an option">
-                                <mat-radio-button class="radio-button" value="1">Nume: A la Z</mat-radio-button>
-                                <mat-radio-button class="radio-button" value="2">Nume: Z la A</mat-radio-button>
+                            <mat-radio-group class="radio-group" aria-label="Select an option" [(ngModel)]="sortOption">
+                                <mat-radio-button class="radio-button-first" value="atoz">Nume: A la Z</mat-radio-button>
+                                <mat-radio-button class="radio-button-first" value="ztoa">Nume: Z la A</mat-radio-button>
+                                <mat-radio-button class="radio-button-first" value="ascending">Preț: Crescator</mat-radio-button>
+                                <mat-radio-button class="radio-button-first" value="descending">Preț: Descrescator</mat-radio-button>
                             </mat-radio-group>
-                            <mat-radio-group class="radio-group" aria-label="Select an option">
-                                <mat-radio-button class="radio-button" value="1">Preț: Crescator</mat-radio-button>
-                                <mat-radio-button class="radio-button" value="2">Preț: Crescator</mat-radio-button>
-                              </mat-radio-group>
 
                         </div>
                         <div class="price-options options">
                             <div class="hr-sect"></div>
                             <h3>Preț</h3>
                             <div class="hr-sect"></div>
-                            <mat-radio-group class="radio-group" aria-label="Select an option">
-                                <mat-radio-button class="radio-button" value="1">Sub 50 RON</mat-radio-button>
-                                <mat-radio-button class="radio-button" value="2">50 RON - 100 RON</mat-radio-button>
-                                <mat-radio-button class="radio-button" value="2">100 RON - 200 RON</mat-radio-button>
-                                <mat-radio-button class="radio-button" value="2">200 RON +</mat-radio-button>
+                            <mat-radio-group class="radio-group" aria-label="Select an option" >
+                                <mat-radio-button class="radio-button-second" [value]="1">Sub 50 RON</mat-radio-button>
+                                <mat-radio-button class="radio-button-second" [value]="2">50 RON - 100 RON</mat-radio-button>
+                                <mat-radio-button class="radio-button-second" [value]="3">100 RON - 200 RON</mat-radio-button>
+                                <mat-radio-button class="radio-button-second" [value]="4">200 RON +</mat-radio-button>
                             </mat-radio-group>
                         </div>
                         <div class="size-options options">
                             <div class="hr-sect"></div>
                                 <h3>Mărime</h3>
                             <div class="hr-sect"></div>
-                                <mat-radio-group class="radio-group" aria-label="Select an option">
-                                    <mat-radio-button class="radio-button" value="1">Plante mari</mat-radio-button>
-                                    <mat-radio-button class="radio-button" value="2">Plante medii</mat-radio-button>
-                                    <mat-radio-button class="radio-button" value="2">Plante mici</mat-radio-button>
-                                    <mat-radio-button class="radio-button" value="2">Plante mini</mat-radio-button>
+                                <mat-radio-group class="radio-group" aria-label="Select an option" [(ngModel)]="sizeSortOption">
+                                    <mat-radio-button class="radio-button-third" value="large">Plante mari</mat-radio-button>
+                                    <mat-radio-button class="radio-button-third" value="medium">Plante medii</mat-radio-button>
+                                    <mat-radio-button class="radio-button-third" value="small">Plante mici</mat-radio-button>
+                                    <mat-radio-button class="radio-button-third" value="mini">Plante mini</mat-radio-button>
                                 </mat-radio-group>
                         </div>
                     </div>
                 </div>
-            <div class="product-list col-md-9">               
-                <div class="cardList">
-                   <!-- <ng-container *ngFor="let products of getProductsByCategory(collections.key)"> !-->
-                    <ng-container *ngFor="let products of products">     
-                        <mat-card class="cardListItem"  [routerLink] = "['/products', products.name]"  >
-                            <img mat-card-image [src]="products.urlImage1">
-                            <mat-card-content  fxLayout="row"  fxLayoutAlign="space-between end"  >
-                                <div class="details" >{{products.name}}</div>
-                                <div class="details price" >{{products.price}}  RON</div>
-                            </mat-card-content>
-                         </mat-card>
-                    </ng-container>
+                <div class="product-list" [style.height.px]='rowHeight' fxFlex="1 1 calc(75% -15px)"  fxFlex.xs="0 0 100%">              
+                    <div class="cardList" fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="space-between top" fxLayout.xs="column">
+                        <ng-container *ngFor="let products of filteredProducts" >     
+                            <mat-card class="cardListItem"  [routerLink] = "['/products/p', products.name]" fxFlex="0 1 calc(33% -15px)" fxFlex.xs="0 0 100%"  >
+                                <img class="image" mat-card-image [src]="products.urlImage1">
+                                <mat-card-content  fxLayout="row" fxLayoutAlign="space-between center"  >
+                                    <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products.name}}</div>
+                                    <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products.price}}  RON</div>
+                                </mat-card-content>
+                            </mat-card>
+                        </ng-container>
+                    </div>
                 </div>
-            </div>
+        </div>
     </div>
 </div>

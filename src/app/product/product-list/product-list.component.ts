@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IProduct } from '../product';
-import {Subscriber, Subscription} from 'rxjs';
+import {Subscriber, Subscription, Observable} from 'rxjs';
 import { mergeMap, map } from 'rxjs/operators';
 import { ProductService } from '../product-service/product.service';
-import { CollectionsService } from '../product-service/collections.service';
+import { analytics } from 'firebase';
+import { ActivatedRoute } from '@angular/router';
    
 @Component({
   selector: 'app-product-list',
@@ -15,50 +16,50 @@ import { CollectionsService } from '../product-service/collections.service';
 export class ProductListComponent implements OnInit {
 
   products:any[];
-  collections: any[];
+  rowHeight:number;
+  nrOfItems: number;
+  filteredProducts:any[];
+  paramOption :Subscription;
+  productListChanges: Subscription;
+  sortOption :string;
+  priceSortOption: string;
+  sizeSortOption: string;
 
+
+  
   constructor(private productService:ProductService,
-              private collectionsService:CollectionsService) { }
-
+              private route: ActivatedRoute) { }
+ 
   ngOnInit(): void {
+    
+    this.paramOption=this.route.params.subscribe(
+         (params) => {
+         
+          this.productListChanges=this.productService.getFilteredProductsByOptionFlag(params.option).subscribe({next:products=>{
+                                  this.filteredProducts = products;         
+                                  this.nrOfItems = this.filteredProducts.length;
+                                  this.rowHeight = Math.ceil(this.nrOfItems/3)*290;
+          }
+        });
+      }
+    );     
+  }
 
-    /*this.collectionsService.getAllCollections().pipe
+  ngOnChange():void{
+    console.log(this.sortOption);
+  }
+
+  ngOnDestroy(): void {
+    this.paramOption.unsubscribe();
+    this.productListChanges.unsubscribe();
+    console.log("unsubscribed");
+  } 
+}    
+        /*this.collectionsService.getAllCollections().pipe
     (mergeMap(collections=>this.productService.getProducts().pipe
     (map(products=>[collections,products])))).subscribe(([collections,products])=>{
       this.products=products;
       this.collections=this.collections;
     })*/
+  
 
-    this.productService.getProducts().subscribe(products=>this.products=products);
-  }
-
-  getProductByName(key){
-    return this.products.filter(products=>products.name==key);
-  }
-
-  getProductsByCollections(key){
-    return this.products.filter(products=>products.collections==key);
-
-  /*
-  getProductsByCategory(key){
-    return this.products.filter(products=>products.category==key);
-  }
- 
-  }
-  getProductsBySize(key){
-    return this.products.filter(products=>{
-    if (key=='mini'){
-      products.size == 8;
-    }
-    else if (key=='small'){
-      products.size == 12;
-    }
-    else if (key=='medium'){
-      products.size == 12;
-    }
-    else if(key=='large'){}
-  }
-  );
-}*/
-}
-}

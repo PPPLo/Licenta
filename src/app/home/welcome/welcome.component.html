@@ -1,17 +1,18 @@
 <div class="welcome-content-wrapper">
     <div class="welcome-image-container">
         <div class="welcome-text-main">
-            <p>FROM OUR <br> <span id="coloured-word">GREENHOUSE</span> <br>TO YOUR HOUSE</p>
+            <p>DIN <br> <span id="coloured-word">SERELE NOASTRE</span> <br>direct LA TINE ACASĂ</p>
         </div>
         <div class="welcome-text-second">
-            <p>Bring spring in with green & blooming plants.</p>
+            <p>Adu primăvara în casa ta cu plante verzi și înflorite.</p>
         </div>
-            <a type="button" class="btn welcome-button" routerLink="/products">Shop now</a>
+            <a type="button" class="btn welcome-button" routerLink="/products">Cumpărați acum</a>
         </div>
     <div class="welcome-categories-wrapper">
         <div class='column'>
             <a routerLink="/products">
                 <div class='first-column'>
+                    <img >
                 </div>
             </a>
         </div>
@@ -34,15 +35,79 @@
         <div class="text-container">
           <div class="hr-sect"><p class="text-title">Shop new in</p></div>
         </div>
-        <div class="welcome-new-in-container">
-            <a routerLink="/productdetail"><div class="new-in-product">One</div></a>
-            <a routerLink="/productdetail"><div class="new-in-product">Two</div></a>
-            <a routerLink="/productdetail"><div class="new-in-product">Three</div></a>
-            <a routerLink="/productdetail"><div class="new-in-product">Four</div></a>
-            <a routerLink="/productdetail"><div class="new-in-product">One</div></a>
-            <a routerLink="/productdetail"><div class="new-in-product">Two</div></a>
-            <a routerLink="/productdetail"><div class="new-in-product">Three</div></a>
-            <a routerLink="/productdetail"><div class="new-in-product">Four</div></a>
+        <div class="welcome-new-in-container" *ngIf='products' >
+            <a [routerLink] = "['/products/p', products[0].name]" class="link">
+                <div class="new-in-product">
+                    <img class="image"  [src]="products[0].urlImage1" width=100% heigth=100% >
+                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                        <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[0].name}}</div>
+                        <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[0].price}}  RON</div>
+                    </div>
+                </div>
+            </a>
+            <a [routerLink] = "['/products/p', products[1].name]">
+                <div class="new-in-product">
+                    <img class="image"  [src]="products[1].urlImage1" width=100% heigth=100%>
+                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                        <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[1].name}}</div>
+                        <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[1].price}}  RON</div>
+                    </div>
+                </div>
+            </a>
+            <a [routerLink] = "['/products/p', products[2].name]">
+                <div class="new-in-product">
+                    <img class="image" [src]="products[2].urlImage1" width=100% heigth=100%>
+                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                        <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[2].name}}</div>
+                        <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[2].price}}  RON</div>
+                    </div>
+                </div>
+            </a>
+            <a [routerLink] = "['/products/p', products[3].name]">
+                <div class="new-in-product">
+                    <img class="image"  [src]="products[3].urlImage1" width=100% heigth=100%>
+                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                        <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[3].name}}</div>
+                        <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[3].price}}  RON</div>
+                    </div>
+                </div>
+            </a>
+            <a [routerLink] = "['/products/p', products[4].name]">
+                <div class="new-in-product">
+                    <img class="image"  [src]="products[4].urlImage1" width=100% heigth=100%>
+                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                        <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[4].name}}</div>
+                        <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[4].price}}  RON</div>
+                    </div>
+                </div>
+            </a>
+            <a [routerLink] = "['/products/p', products[5].name]">
+                <div class="new-in-product">
+                    <img class="image"  [src]="products[5].urlImage1" width=100% heigth=100%>
+                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                        <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[5].name}}</div>
+                        <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[5].price}}  RON</div>
+                    </div>
+                </div>
+            </a>
+            <a [routerLink] = "['/products/p', products[6].name]">
+                <div class="new-in-product">
+                    <img class="image"  [src]="products[6].urlImage1" width=100% heigth=100%>
+                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                        <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[6].name}}</div>
+                        <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[6].price}}  RON</div>
+                    </div>
+                </div>
+            </a>
+            <a [routerLink] = "['/products/p', products[7].name]">
+                <div class="new-in-product">
+                    <img class="image"  [src]="products[7].urlImage1" width=100% heigth=100%>
+                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                        <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[7].name}}</div>
+                        <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[7].price}}  RON</div>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
     <div class="text-container">
@@ -51,22 +116,18 @@
     <div class="welcome-plants-you-love">
         <div class='slide-column'>
             <div class='slider-first-column'>
-                Some Text in Column One
             </div>
         </div>
         <div class='slide-column'>
             <div class='slider-second-column'>
-                Some Text in Column Two
             </div>
         </div>
         <div class='slide-column'>
             <div class='slider-third-column'>
-                Some Text in Column Three
             </div>
         </div>
             <div class='slide-column'>
               <div class='slider-fourth-column'>
-                  Some Text in Column One
               </div>
             </div>
        </div>

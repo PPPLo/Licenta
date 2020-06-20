@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatIconRegistry } from "@angular/material/icon"; 
 import { DomSanitizer } from "@angular/platform-browser";
+import { ProductService } from 'src/app/product/product-service/product.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-welcome',
@@ -8,10 +10,15 @@ import { DomSanitizer } from "@angular/platform-browser";
   styleUrls: ['./welcome.component.css']
 })
 
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent implements OnInit,OnDestroy {
+
+  products:any[8];
+  sub: Subscription;
+
 
   constructor(private matIconRegistry : MatIconRegistry,
-    private domSanitizer: DomSanitizer) { 
+              private domSanitizer: DomSanitizer,
+              private productService:ProductService) { 
       this.matIconRegistry.addSvgIcon(
         "box-icon",
         this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/FooterIcons/box.svg")
@@ -32,9 +39,15 @@ export class WelcomeComponent implements OnInit {
         "gardening-icon",
         this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/FooterIcons/gardening.svg")
       );
-    }
+      }
 
   ngOnInit(): void {
-  }
+    this.sub=this.productService.getNewInProducts().subscribe({next:products=>{
+      this.products=products;
+    }})
+  } 
 
+  ngOnDestroy(){
+    this.sub.unsubscribe();
+  }
 }

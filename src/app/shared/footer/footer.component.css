@@ -1,9 +1,8 @@
 .footer-wrapper{
   background-color:rgba(240, 242, 245, 0.5);
-  position: relative;
   left: 0;
-  bottom: 0;
   width: 100%;
+  height: 40vh;
 }
 .footer-info-container{
     max-width:960px;
@@ -13,16 +12,14 @@
 .footer-flex-container{
     display: flex;
     flex-wrap: wrap;
-    margin:0;
-    justify-content:center;
-    align-items:center;
+    margin-bottom:0;
 }
 
 .footer-flex-column{
     flex: 25%;
     max-width: 25%;
-    padding-top:15px;
-    padding-bottom:15px;
+    padding-top:10px;
+    padding-bottom:10px;
     text-align: center;
 }
 .h-separator{
@@ -30,6 +27,8 @@
     background-position: bottom;
     background-size: 5px 5px;
     background-repeat: repeat-x;
+    margin-top:0px;
+    margin-bottom:0px;
 }
 
 .hr{
@@ -105,6 +104,14 @@ h2{
 
 .icon:hover{
   color:grey;
+}
+
+.footer-extra-info{
+  margin-top:0px;
+}
+
+.separator-align{
+  margin-bottom: 15px !important;
 }
 
 @media (max-width: 960px) {

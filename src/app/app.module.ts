@@ -15,7 +15,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { AngularFireModule} from '@angular/fire';
 import {environment} from 'src/environments/environment';
 import { AngularFireDatabaseModule} from '@angular/fire/database';
-import { AngularFireAuthModule} from '@angular/fire/auth'; 
+import { AngularFireAuthModule} from '@angular/fire/auth';
  
 @NgModule({
   declarations: [

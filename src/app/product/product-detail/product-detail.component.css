@@ -22,6 +22,11 @@
     margin-left:5px;
 }
 
+.info-container{
+    height: 400px;
+    position:relative;
+}
+
 .image-container{
     margin:5px;
     height: 110px;
@@ -34,30 +39,17 @@
 
 .select-element{
     width:35px;
+    height: 10px;
+    border:red;
 }
 
 .hr-sect {
     border-top: 1px solid black;
-  }
-
-  .inline-element
-  {
-
-  }
-
-  .qty-text{
-      text-align: center;
-      padding-top:20px;
-      font-size:0.9em;
-      font-weight: bold;
-  }
-
-  .qty-selector{
-    text-align:left;
+    margin:0;
   }
 
   .delivery-info-text p{
-    font-size:0.9em;
+    font-size:0.8em;
     font-weight: bold; 
     margin-top:12px; 
   }
@@ -67,22 +59,39 @@
     background-color:greenyellow;
     font-family: 'Anton', sans-serif;
     border-radius: 0 !important;
-    margin-top:15px;
+    margin-top:13px;
     text-align: center;
     padding-bottom:30px;
-    font-weight: boldș;
+    font-weight: bold;
+    margin-bottom:0px;
+  }
+
+  .button-container{
+    position:relative;
+    margin:0;
+    padding:0;
   }
 
   .product-title h1{
-      font-size: 1.3em;
+      font-size: 1.2em;
       font-weight: bold;
-      padding-top:10px;
       margin-bottom:0px;
       padding-bottom:0px;
   }
 
+  .product-title-botanical h2{
+    padding-top:10px;
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-bottom:0px;
+}
+
+.product-price{
+    margin:0px;
+    padding:0px;
+}
   .product-price h2{
-    font-size: 1.0em;
+    font-size: 1.2em;
     font-weight: bold;
     padding-top:0px;
     margin-top:0px;
@@ -94,6 +103,10 @@
     text-align:justify; 
     padding-bottom: 0px;
     margin-bottom: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    padding-top:10px;
 }
 
 .details-content{
@@ -102,10 +115,45 @@
 
 .plant-quantity{
     margin-top:0px;
+    font-size: 0.8rem;
+    padding-bottom: 10px;
+}
+
+.inline-element
+{
+  padding:0px;
+  text-align: top;
+  margin:0px;
+}
+
+.qty-text{
+    font-size:1em;
+    font-weight: bold;
+    text-align: left;
+    padding:0;
+    padding-top:3px;
+}
+
+.qty-text p{
+    margin:0px;
+    padding:0px;
+}
+
+.qty-selector{
+    text-align: top;
+}
+
+.form-control{
+    width:40px;
 }
 
 .product-information p{
     font-size:0.7rem;
+    text-align: left;
+}
+
+.product-information ul{
+    font-size:0.8rem;
     text-align: left;
 }
 
@@ -115,13 +163,33 @@
 
 .product-rating{
     font-size: small;
+    padding-top:10px;
 }
 
 .inline-element-rating{
     display:inline;
+    margin:0;
+    padding:0;
+    height: 15px;
 }
 
 .product-rating{
     height: 20px;
     margin-bottom: 10px;
+}
+
+.details-content p{
+    font-size: 0.8rem ;
+} 
+
+.details{
+    list-style-type: none;
+}
+
+.product-information ul{
+    margin-top:15px;
+}
+
+.product-information li{
+    padding:1px;
 }

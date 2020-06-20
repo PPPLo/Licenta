@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './header/search/search.component';
 import { AccountComponent } from './header/account/account.component';
 import { CartComponent } from './header/cart/cart.component';
 import { CustomerServiceComponent } from './footer/customer-service/customer-service.component';
@@ -22,7 +21,6 @@ import { RatingComponent } from './rating/rating.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SearchComponent,
     AccountComponent,
     CartComponent,
     CustomerServiceComponent,
@@ -41,7 +39,6 @@ import { RatingComponent } from './rating/rating.component';
   exports:[
     HeaderComponent,
     FooterComponent,
-    SearchComponent,
     AccountComponent,
     CartComponent,
     CustomerServiceComponent,

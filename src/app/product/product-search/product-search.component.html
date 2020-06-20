@@ -1,0 +1,27 @@
+<div class="search-page-wrapper">
+    <div class="search-page-container">
+        <div class="search-form">
+            <form class="search-form">
+                <mat-form-field color='accent' class="input-full-width">
+                <input matInput placeholder="CAUTĂ UN PRODUS"  [(ngModel)]='listFilter' type='text' [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="product-list">
+        </div>
+    <div class="search-page-container" fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="start top" fxLayout.xs="column">
+        <div class="empty-list" *ngIf="listFilter && filteredProducts.length == 0 ">
+            <p>Căutarea dvs. pentru {{listFilter}} nu a returnat nici un rezultat. </p>
+        </div>
+        <ng-container *ngFor="let products of filteredProducts" >     
+            <mat-card class="cardListItem"  [routerLink] = "['/products/p', products.name]" fxFlex="0 1 calc(25% -15px)" fxFlex.xs="0 0 100%"  >
+                <img class="image" mat-card-image [src]="products.urlImage1">
+                <mat-card-content  fxLayout="row" fxLayoutAlign="space-between center"  >
+                    <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products.name}}</div>
+                    <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products.price}}  RON</div>
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
+
+    </div>
+</div>
