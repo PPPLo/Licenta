@@ -1,0 +1,92 @@
+<div class="login-page-wrapper">
+    <div class="content-wrapper">
+        <div class="flex-container" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="space-between start">
+            <div class = "flex-item">
+                <div class="login-text" *ngIf="componentViewLogin">
+                    <div class="block-text-item">
+                        <p>INTRĂ ÎN CONTUL TĂU.</p>
+                    </div>
+                    <div class="switch-text-item">
+                        <p>Nu ai cont? <a (click)="toggleView()">Creează un cont nou.</a></p>
+                    </div>
+                </div>
+                <div class="subscribe-text" *ngIf="!componentViewLogin">
+                    <div class="block-text-item">
+                        <p>CREEAZĂ UN CONT NOU.</p>
+                    </div>
+                    <div class="switch-text-item">
+                        <p>Ai deja un cont? <a (click)="toggleView()">Loghează-te în contul tău.</a></p>
+                    </div>
+                </div>
+            </div>
+        <div class = "flex-item">
+           <div class="login-form" *ngIf="componentViewLogin">
+                <form class="login-form">
+                    <p>
+                        <mat-form-field appearance="outline" color="accent" [style.width.px]=400>
+                            <mat-label>Email</mat-label>
+                            <input matInput  required [(ngModel)]="email" [ngModelOptions]="{standalone: true}" >
+                            <!--<input matInput formControl="emailFormControl" [errorStateMatcher]="matcher" required [(ngModel)]="email" [ngModelOptions]="{standalone: true}" >
+                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Introduceți o adresă de email validă.
+                            </mat-error>!
+                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                Introduceți o adresă de email.
+                            </mat-error>
+                            -->
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field class="password-input" appearance="outline" color="accent" [style.width.px]=400>
+                            <mat-label>Parolă</mat-label>
+                            <input matInput type="password" required [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </p>
+                  
+                    <div>
+                        <a type="button" class="btn welcome-button" (click) = "onLogin()" >Autentificare</a>
+                    </div>
+                </form>
+            </div>
+            <div class="subscribe-form" *ngIf="!componentViewLogin" >
+                <form class="subscribe-form">
+                    <p>
+                        <mat-form-field appearance="outline" color="accent" [style.width.px]=400>
+                            <mat-label>Nume</mat-label>
+                            <input matInput required [(ngModel)]="userFirstName" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field  appearance="outline" color="accent" [style.width.px]=400>
+                            <mat-label>Prenume</mat-label>
+                            <input matInput required [(ngModel)]="userLastName" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field appearance="outline" color="accent" [style.width.px]=400>
+                            <mat-label>Email</mat-label>
+                            <input matInput required class="input" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+                            <!--<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Introduceți o adresă de email validă.
+                            </mat-error>
+                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                Introduceți o adresă de email.
+                            </mat-error>
+                        -->
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field class="password-input" appearance="outline" color="accent" [style.width.px]=400>
+                            <mat-label>Parolă</mat-label>
+                            <input matInput type="password" required [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </p>                 
+                    <div>
+                        <a type="button" class="btn welcome-button" (click) = "onSignUp()" >Înregistrare</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+.login-page-wrapper{
+    min-height:74vh;
+    margin:0;
+}
+
+.content-wrapper{
+    margin:0 auto;
+    max-width: 960px;
+}
+
+.flex-item{
+    padding:20px;
+}
+
+.block-text-item{
+    font-family: 'Bebas Neue', cursive;
+    font-weight: bold;
+    font-size: 50px;
+    width:150px;
+    height: 220px;
+}
+
+.switch-text-item p{
+    font-family: 'Anton', sans-serif;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.switch-text-item a:link{}
+.switch-text-item a:visited{}
+.switch-text-item a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.login-form{
+}
+
+.login-form p{
+    margin:0;
+}
+
+.welcome-button{
+    width: 200px;
+    height: 40px;
+    background-color:greenyellow;
+    font-family: 'Anton', sans-serif;
+    border-radius: 0 !important;
+  }

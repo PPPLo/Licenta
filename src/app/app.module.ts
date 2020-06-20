@@ -16,12 +16,20 @@ import { AngularFireModule} from '@angular/fire';
 import {environment} from 'src/environments/environment';
 import { AngularFireDatabaseModule} from '@angular/fire/database';
 import { AngularFireAuthModule} from '@angular/fire/auth';
+import { LoginComponent } from './login/login.component';
+import { AngularUiModule } from './shared/angularmaterial/angular-ui.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsersComponent } from './users/users.component';
+import { AdminComponent } from './admin/admin.component';
  
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
-  ],
+    WelcomeComponent,
+    LoginComponent,
+    UsersComponent,
+    AdminComponent
+    ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
@@ -32,7 +40,11 @@ import { AngularFireAuthModule} from '@angular/fire/auth';
     NgbModule,
     BsDropdownModule.forRoot(),
     BrowserModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AngularUiModule,
+    AngularFireAuthModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

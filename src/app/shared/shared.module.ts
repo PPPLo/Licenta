@@ -5,8 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { AccountComponent } from './header/account/account.component';
-import { CartComponent } from './header/cart/cart.component';
 import { CustomerServiceComponent } from './footer/customer-service/customer-service.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -21,8 +19,6 @@ import { RatingComponent } from './rating/rating.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    AccountComponent,
-    CartComponent,
     CustomerServiceComponent,
     RatingComponent
   ],
@@ -39,8 +35,6 @@ import { RatingComponent } from './rating/rating.component';
   exports:[
     HeaderComponent,
     FooterComponent,
-    AccountComponent,
-    CartComponent,
     CustomerServiceComponent,
     HttpClientModule,
     BsDropdownModule,

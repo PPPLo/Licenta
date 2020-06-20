@@ -3,6 +3,8 @@ import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
 import { EventEmitter } from 'protractor';
 import { ProductService } from 'src/app/product/product-service/product.service';
+import { LoginService } from 'src/app/login/login.service';
+import { FirebaseApp } from '@angular/fire';
 
 
 @Component({
@@ -12,9 +14,12 @@ import { ProductService } from 'src/app/product/product-service/product.service'
 })
 export class HeaderComponent implements OnInit {
 
+    user:firebase.User;
+
     constructor(private matIconRegistry : MatIconRegistry,
     private domSanitizer: DomSanitizer,
-    private productService: ProductService) {
+    private productService: ProductService,
+    private loginService: LoginService) {
     this.matIconRegistry.addSvgIcon(
       "user-icon",
       this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/Icons/user-icon.svg")
@@ -29,7 +34,12 @@ export class HeaderComponent implements OnInit {
     );
    }
 
+   logout(){
+     this.loginService.signOut();
+   }
+
   ngOnInit(): void {
+    this.loginService.getCurrentUser().subscribe(user=>this.user=user)
   }
 
 }
