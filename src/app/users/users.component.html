@@ -1,2 +1,64 @@
-<p>users works!</p>
-<a (click) = onSignOut()> Iesire din cont</a>
+<div class="user-page-wrapper">
+    <div class="content-wrapper">
+        <div class="flex-container" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="space-between start"  *ngIf="user">
+            <div class="flex-item">
+                <h1 *ngIf="user" > Hello, <span *ngIf="user.isAdmin">ADMIN</span> {{user.lastname}} ! </h1>
+            </div>
+            <div class="flex-item">
+                <a (click) = onSignOut()> Ieșire din cont</a>
+            </div>
+        </div>
+        <div class="user-info-container" *ngIf="user && !user.isAdmin">
+            <mat-tab-group  animationDuration="0ms">
+                <mat-tab label="Profilul meu" >
+                    <div class="my-profile-data" >
+                        <p class="profile-label" *ngIf="user">Nume: <span class="user-info">{{user.firstname | uppercase}}</span></p>
+                        <p class="profile-label" *ngIf="user">Prenume: <span class="user-info">{{user.lastname |titlecase}}</span></p>
+                        <p class="profile-label" *ngIf="user">Email: <span class="user-info">{{user.email |lowercase}}</span></p>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Comenzile mele" >
+                    <div class="details-content" >
+                    </div>
+                </mat-tab>
+                <mat-tab label="Modificare parolă" >
+                    <div class="details-content" >
+                    </div>
+                </mat-tab>
+                <mat-tab label="Contact" >
+                    <div class="details-content" >
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <div class="admin-info-container" *ngIf="user && user.isAdmin">
+            <mat-tab-group  animationDuration="0ms">
+                <mat-tab label="Comenzi" >
+                    <div class="details-content" >
+                    </div>
+                </mat-tab>
+                <mat-tab label="Mesaje" >
+                    <div class="details-content" >
+                    </div>
+                </mat-tab>
+                <mat-tab label="Adaugă produse" >
+                    <div class="details-content" >
+                    </div>
+                </mat-tab>
+                <mat-tab label="Sterge produse" >
+                    <div class="details-content" >
+                    </div>
+                </mat-tab>
+                <mat-tab label="Modifică stoc produse" >
+                    <div class="details-content" >
+                    </div>
+                </mat-tab>
+                <mat-tab label="Rapoarte" >
+                    <div class="details-content" >
+                    </div>
+                </mat-tab>
+
+            </mat-tab-group>
+        </div>
+    </div>
+</div>

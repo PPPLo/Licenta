@@ -46,7 +46,11 @@
                     <div>
                         <a type="button" class="btn welcome-button" (click) = "onLogin()" >Autentificare</a>
                     </div>
+                    <div class="error-text">
+                        <p *ngIf="!connectionSuccess" id="error-text-id" >Adresa de e-mail sau parola nu este corectă, încearcă din nou.</p>
+                    </div>
                 </form>
+                
             </div>
             <div class="subscribe-form" *ngIf="!componentViewLogin" >
                 <form class="subscribe-form">

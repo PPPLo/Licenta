@@ -12,7 +12,8 @@ export class UsersService {
   
   saveUser(user: firebase.User, firstName:String, lastName:String)
   {
-    this.db.object('/users/' + user.uid).update({name:user.displayName, email:user.email, firstname:firstName, lastname:lastName})
+    if (!user) return;
+    this.db.object('/users/' + user.uid).update({name:user.displayName, email:user.email, firstname:firstName, lastname:lastName});
   }
 
   getUserByuid(uid:string)

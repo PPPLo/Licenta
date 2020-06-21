@@ -30,6 +30,7 @@
     font-weight: 100;
 }
 
+
 .switch-text-item a:link{}
 .switch-text-item a:visited{}
 .switch-text-item a:hover{
@@ -50,4 +51,11 @@
     background-color:greenyellow;
     font-family: 'Anton', sans-serif;
     border-radius: 0 !important;
+  }
+
+  #error-text-id {
+      padding-top: 15px;
+      color:red;
+      font-size:1em;
+
   }

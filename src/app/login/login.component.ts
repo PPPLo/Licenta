@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   componentViewLogin : boolean = true;
+  connectionSuccess :boolean = true;
+
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -39,7 +41,9 @@ export class LoginComponent implements OnInit {
   onLogin() {
     console.log("login");
     this.loginService.signIn(this.email, this.password);
-    this.route.navigate(['/welcome']);
+    this.connectionSuccess = this.loginService.getLoginResults();
+    console.log(this.connectionSuccess);
+    this.route.navigate(['/profile']);
   }
 
   onSignUp(){
@@ -47,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.loginService.signUp(this.email, this.password);
     this.loginService.saveUserToDatabase(this.userFirstName, this.userLastName);
 
-    this.route.navigate(['/welcome']);
+    this.route.navigate(['/profile']);
   }
 
   toggleView(){
