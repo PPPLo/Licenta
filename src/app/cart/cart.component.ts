@@ -18,7 +18,10 @@ export class CartComponent implements OnInit {
   totalPrice: number;
   transportPrice: number;
   
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['product', 'name', 'quantity', 'price'];
+
+  constructor( private cartService: CartService,
+    private route:Router) { }
 
   getTotalPrice(){
     this.totalPrice=0;
@@ -40,6 +43,13 @@ export class CartComponent implements OnInit {
     return this.transportPrice+this.totalPrice;
   }
 
+  onContinueShopping(){
+    this.route.navigate(['/welcome']);
+  }
+  onCheckoutCart(){
+    this.route.navigate(['/orders']);
+  }
+
   onChange(value,product)
   {
     console.log(value);
@@ -47,8 +57,10 @@ export class CartComponent implements OnInit {
     this.cartService.updateNrOfItems(product,value);
   }
 
-  constructor( private cartService: CartService,
-                private route:Router) { }
+  onDelete(product){
+    console.log('on delete');
+    this.cartService.deleteProductFromShoppingCart(product.key);
+  }
 
   ngOnInit(): void {
     this.cartSub=this.cartService.getListItemsShoppingCartMapProducts().subscribe(products=>{

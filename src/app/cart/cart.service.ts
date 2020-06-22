@@ -46,6 +46,7 @@ export class CartService {
     {
       this.db.object('/shoppingCart/'+localStorage.getItem('cartId')+'/items/' + product.key + '/product').update({itemsnumber:numberOfItems});
     }
+
     getListItemsShoppingCart()
     {
       let cartId=localStorage.getItem('cartId');
@@ -69,6 +70,11 @@ export class CartService {
                                key: c.payload.key, ...(c.payload.val() as any).product
                              }
                              ))))
+    }
+
+    deleteProductFromShoppingCart(id:string){
+      let cartId=localStorage.getItem('cartId');
+      return this.db.object('/shoppingCart/'+cartId+'/items/'+id).remove();
     }
   }
 

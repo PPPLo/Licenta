@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersComponent } from './users/users.component';
 import { AdminComponent } from './admin/admin.component';
 import { CartComponent } from './cart/cart.component';
+import { OrdersComponent } from './orders/orders.component';
  
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CartComponent } from './cart/cart.component';
     LoginComponent,
     UsersComponent,
     AdminComponent,
-    CartComponent
+    CartComponent,
+    OrdersComponent
     ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

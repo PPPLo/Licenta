@@ -14,6 +14,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminService } from './admin/admin.service';
 import { LoginService } from './login/login.service';
 import { CartComponent } from './cart/cart.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [
   {path: 'welcome', component: WelcomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'products/p/:name', component: ProductDetailComponent},
   {path: 'search', component: ProductSearchComponent},
   {path: 'cart', component:CartComponent},
+  {path: 'orders', component:OrdersComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminComponent, canActivate:[AdminService,LoginService]},
   {path: 'profile', component: UsersComponent,  canActivate:[LoginService]},

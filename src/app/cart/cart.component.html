@@ -7,19 +7,18 @@
             <div class="flex-item">
                 <div class="flex-container-button" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="space-between start">
                     <div class="flex-item-button"> 
-                        <a class="btn add-button" > CONTINUĂ CUMPĂRĂTURILE</a>
+                        <a class="btn add-button" (click)=onContinueShopping()> CONTINUĂ CUMPĂRĂTURILE</a>
                     </div>
                     <div class="flex-item-button"> 
-                        <a class="btn add-button" > CĂTRE FINALIZAREA COMENZII</a>
+                        <a class="btn add-button" (click)=onCheckoutCart()> CĂTRE FINALIZAREA COMENZII</a>
                     </div>
                 </div>
             </div>
         </div>
        
         <div class="products-table">        
-         <table mat-table [dataSource]="productsInCart" class="mat-elevation-z8">
-         
-            <ng-container matColumnDef="position">
+         <table mat-table [dataSource]="productsInCart" class="mat-elevation-z8">        
+            <ng-container matColumnDef="product">
               <th mat-header-cell *matHeaderCellDef class ="table-header-name"> Produs </th>
               <td mat-cell *matCellDef="let element"  style="width: 25%;"  class ="table-data-image">
                 <div class="image-container">
@@ -27,7 +26,7 @@
                     <img mat-card-image [src]="element.urlImage1"  width="100%" height="100%"> </a>
                 </div>
                 <div class="button-container">
-                    <a>Ștergere </a>
+                    <a (click)=onDelete(element)>Ștergere </a>
                 </div>               
               </td>
             </ng-container>
@@ -37,9 +36,9 @@
               <td mat-cell *matCellDef="let element" class ="table-data-name" style="width: 25%;"> {{element.name}} </td>
             </ng-container>
           
-            <ng-container matColumnDef="weight">
+            <ng-container matColumnDef="quantity">
               <th mat-header-cell *matHeaderCellDef class="table-header-quantity"> Cantitate </th>
-              <td mat-cell *matCellDef="let element" style="width: 25%;"  class ="table-data-quantity">                               
+              <td mat-cell *matCellDef="let element" style="width: 25%;"  class ="table-data-quantity">                              
                     <select class="form-control form-control-sm" [(ngModel)]="element.itemsnumber" (change)="onChange($event.target.value,element)">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -50,11 +49,11 @@
                         <option value="7">7</option>
                         <option value="8">8</option>
                         <option value="9">9</option>
-                    </select>   
-             </td>
+                    </select>  
+            </td>
             </ng-container>
           
-            <ng-container matColumnDef="symbol">
+            <ng-container matColumnDef="price">
               <th mat-header-cell *matHeaderCellDef class="table-header-price"> Preț </th>
               <td mat-cell *matCellDef="let element" style="width: 25%;"  class ="table-data-price"> {{element.price}} LEI</td>
             </ng-container>
@@ -79,10 +78,10 @@
             <div class="flex-item">
                 <div class="flex-container-button" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="space-between start">
                     <div class="flex-item-button"> 
-                        <a class="btn add-button" > CONTINUĂ CUMPĂRĂTURILE</a>
+                        <a class="btn add-button" (click)=onContinueShopping()> CONTINUĂ CUMPĂRĂTURILE</a>
                     </div>
                     <div class="flex-item-button"> 
-                        <a class="btn add-button" > CĂTRE FINALIZAREA COMENZII</a>
+                        <a class="btn add-button" (click)=onCheckoutCart()> CĂTRE FINALIZAREA COMENZII</a>
                     </div>
                 </div>
             </div>
