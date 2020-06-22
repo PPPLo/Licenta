@@ -21,6 +21,7 @@ import { AngularUiModule } from './shared/angularmaterial/angular-ui.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersComponent } from './users/users.component';
 import { AdminComponent } from './admin/admin.component';
+import { CartComponent } from './cart/cart.component';
  
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AdminComponent } from './admin/admin.component';
     WelcomeComponent,
     LoginComponent,
     UsersComponent,
-    AdminComponent
+    AdminComponent,
+    CartComponent
     ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

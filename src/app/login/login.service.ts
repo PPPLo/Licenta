@@ -22,11 +22,10 @@ export class LoginService implements CanActivate {
    {
       return this.login.signInWithEmailAndPassword(email, password).then(value => {
         this.loginStatus = true;
-        console.log('Nice, it worked!');
       })
       .catch(err => {
         this.loginStatus = false;
-        console.log('Something went wrong:',err.message);
+        console.log('Something went wrong on login:',err.message);
       });
    }
 
@@ -49,7 +48,6 @@ export class LoginService implements CanActivate {
    {
      return this.login.authState.pipe(switchMap(user=>{
                          try{
-                           console.log(this.userService.getUserByuid(user.uid));
                           return   this.userService.getUserByuid(user.uid)
                          }
                          catch(error){

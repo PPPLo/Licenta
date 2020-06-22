@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product-service/product.service';
 import { ViewEncapsulation} from '@angular/core';
 import { Subscription } from 'rxjs';
+import { CartService } from 'src/app/cart/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,7 +13,6 @@ import { Subscription } from 'rxjs';
 })
 
 export class ProductDetailComponent implements OnInit {
-  selected:any;
   product:any;
   retrieved_product:any;
   careinstructions:string[];
@@ -20,13 +20,19 @@ export class ProductDetailComponent implements OnInit {
   currentImageUrl:string;
   productspecs: string[];
   sub: Subscription;
+  nrOfItems:number;
 
   constructor(private route: ActivatedRoute,
-    private productService:ProductService) {
+    private productService:ProductService,
+    private cartService: CartService) {
    }
 
   showImage(urlImage){
     this.currentImageUrl=urlImage;
+  }
+
+  addProductToCart(product,quantity){
+    this.cartService.addToCart(product,quantity);
   }
 
   ngOnInit(): void {
@@ -35,12 +41,10 @@ export class ProductDetailComponent implements OnInit {
     console.log(name);
 
     this.sub=this.productService.getProduct(name).subscribe({next:product=>{
-      console.log(product);
       this.product=product[0];
       this.currentImageUrl=this.product.urlImage1;
       this.careinstructions=this.product.careinstructions.split("\n", 4);
       this.productspecs=this.product.productspecs.split("\n");
-      console.log(this.sub);
     }}); 
   }
 

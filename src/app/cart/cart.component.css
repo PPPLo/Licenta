@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.cart-page-wrapper{
+    min-height:74vh;
+    margin:0;
+}
+.content-wrapper{
+    margin:0 auto;
+    max-width: 960px;
+}
+
+.flex-item{
+    padding:20px;
+}
+
+.flex-item h1{
+    font-size: 1.5em;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.add-button{
+    width: 220px;
+    height: 25px;
+    background-color:greenyellow;
+    border-radius: 0 !important;
+    text-align: center;
+    padding-bottom:30px;
+    font-weight: bold;
+    margin-bottom:0px;
+    font-size: 0.8em;
+  }
+
+  .add-button a{
+    font-family: 'Anton', sans-serif;
+  }
+
+  .flex-item-button{
+      padding:0px;
+      margin-top:0px;
+  }
+.flex-container-button{
+    padding:0;
+    margin:0;
+}
+
+table{
+    width:100%;
+}
+
+.image-container{
+    width:200px;
+    height: 200px;
+    padding:15px;
+}
+.button-container{
+    padding:15px;
+    padding-top:0px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1em;
+}
+
+.button-container a{
+    text-decoration: underline;
+}
+.button-container a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+th{
+    font-size:1.0em;
+    text-align: left;
+    color:black;
+}
+
+.form-control{
+    width:50px;
+    font-size: 1em;
+    margin-left:30px!important;
+}
+
+.table-data-name{
+    font-size: 1.0em;
+    font-weight: 300;
+}
+
+.table-data-price{
+    text-align: right;
+    font-weight: bold;
+}
+
+.table-header-price{
+    text-align:right;
+}
+
+.table-data-quantity{
+}
+
+.table-data-image{
+    padding-top:20px;
+    padding-bottom:0px;
+    margin-bottom:0px;
+}
+
+.table-header-quantity{
+padding-left:30px;
+}
+
+.table-header-name{
+}
+
+.card-container-left{
+    margin:0;
+}

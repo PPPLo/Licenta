@@ -5,6 +5,8 @@ import { EventEmitter } from 'protractor';
 import { ProductService } from 'src/app/product/product-service/product.service';
 import { LoginService } from 'src/app/login/login.service';
 import { FirebaseApp } from '@angular/fire';
+import { CartService } from 'src/app/cart/cart.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -15,11 +17,17 @@ import { FirebaseApp } from '@angular/fire';
 export class HeaderComponent implements OnInit {
 
     user:firebase.User;
+    cartItemsNumber:number = 0;
+    cartItemsProducts:any[];
+
+    cartSub :Subscription;
+    loginSub : Subscription;
 
     constructor(private matIconRegistry : MatIconRegistry,
     private domSanitizer: DomSanitizer,
     private productService: ProductService,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private cartService: CartService) {
     this.matIconRegistry.addSvgIcon(
       "user-icon",
       this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/Icons/user-icon.svg")
@@ -39,7 +47,17 @@ export class HeaderComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.loginService.getCurrentUser().subscribe(user=>this.user=user)
+    this.loginSub=this.loginService.getCurrentUser().subscribe(user=>this.user=user);
+    this.cartSub=this.cartService.getListItemsShoppingCartMapProducts().subscribe(products=>{
+      this.cartItemsNumber=0;
+      for (var i=0; i < products.length; i++ ){
+        this.cartItemsNumber+=parseInt(products[i].itemsnumber);
+      }
+      })
   }
 
+  ngOnDestroy():void{
+    this.loginSub.unsubscribe();
+    this.cartSub.unsubscribe();
+  }
 }
