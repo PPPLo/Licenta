@@ -64,10 +64,10 @@ export class CartService {
       return this.db.list('/shoppingCart/'+cartId+'/items/')
               .snapshotChanges()
               .pipe(
-                 map(courses =>
-                        courses.map(c => (
+                 map(products =>
+                        products.map(p => (
                              {                               
-                               key: c.payload.key, ...(c.payload.val() as any).product
+                               key: p.payload.key, ...(p.payload.val() as any).product
                              }
                              ))))
     }
@@ -75,6 +75,12 @@ export class CartService {
     deleteProductFromShoppingCart(id:string){
       let cartId=localStorage.getItem('cartId');
       return this.db.object('/shoppingCart/'+cartId+'/items/'+id).remove();
+    }
+
+    clearShpoppingCart()
+    {
+      let cartId=localStorage.getItem('cartId');
+      this.db.object('/shoppingCart/'+cartId+'/items/').remove();
     }
   }
 

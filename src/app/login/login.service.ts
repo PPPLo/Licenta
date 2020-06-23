@@ -34,10 +34,11 @@ export class LoginService implements CanActivate {
      console.log("signup service reached");
      console.log(email);
      console.log(password);
-      return this.login.createUserWithEmailAndPassword(email,password);
+     return this.login.createUserWithEmailAndPassword(email,password);
    }
 
    saveUserToDatabase(firstName: string, lastName:string){
+    console.log("save user database reached reached");;
     this.login.authState.subscribe(user=>{this.userService.saveUser(user, firstName, lastName)});
    }
    signOut(){

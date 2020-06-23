@@ -12,7 +12,9 @@ export class UsersService {
   
   saveUser(user: firebase.User, firstName:String, lastName:String)
   {
+    console.log("user service reached");
     if (!user) return;
+    console.log("user service change database reached");
     this.db.object('/users/' + user.uid).update({name:user.displayName, email:user.email, firstname:firstName, lastname:lastName});
   }
 
@@ -27,5 +29,11 @@ export class UsersService {
                     return objectUser
                   })
                )
+  }
+
+  addDeliveryInformationToUser(loggedUser,deliveryInfo){
+    if (!loggedUser) return;
+      this.db.object('/users/' + loggedUser.id+'/deliveryInfo').update(deliveryInfo);
+
   }
 }

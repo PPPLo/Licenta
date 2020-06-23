@@ -3,6 +3,7 @@ import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
 import { ProductService } from 'src/app/product/product-service/product.service';
 import { Subscription } from 'rxjs';
+import { LoginService } from 'src/app/login/login.service';
 
 @Component({
   selector: 'app-welcome',
@@ -18,7 +19,8 @@ export class WelcomeComponent implements OnInit,OnDestroy {
 
   constructor(private matIconRegistry : MatIconRegistry,
               private domSanitizer: DomSanitizer,
-              private productService:ProductService) { 
+              private productService:ProductService,
+              private login:LoginService) { 
       this.matIconRegistry.addSvgIcon(
         "box-icon",
         this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/FooterIcons/box.svg")

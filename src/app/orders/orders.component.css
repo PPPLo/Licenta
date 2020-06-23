@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+.orders-page-wrapper{
+    min-height:74vh;
+    margin:0;
+}
+.content-wrapper{
+    margin:0 auto;
+    max-width: 960px;
+}
+
+.continue-button{
+    height: 60px;
+    font-size:1rem;
+    text-align: center;
+    font-weight: bolder!important;
+    border-radius: 28px;
+    color:black;
+    background-color:greenyellow;
+    border-color: greenyellow;
+}
+
+.mat-container{
+}
+
+h1{
+    font-family:'Bebas Neue', cursive;
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size:0.9rem;
+}
+
+.title {
+    font-weight: 500;
+}
+
+.button{
+    font-family:'Bebas Neue', cursive;
+    text-decoration: underline;
+}
+
+ a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color:grey;
+}
+
+.delivery-info, .payment-options, .delivery-options{
+    padding-bottom: 30px;
+}
+
+.radio-button{
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size:0.9rem;
+}
+
+.product-details{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size:0.9rem;
+}
+
+.product-name{
+    font-weight: 500;
+}
+
+.product-price, .product-quantity, .product-name{
+    padding-bottom:5px;
+}
+
+.product-element{
+    padding-bottom:10px;
+}
+
+.title-cart{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.total{
+    font-size: 1.1rem;
+}
+
+span{
+    font-weight: 500;
+}
+

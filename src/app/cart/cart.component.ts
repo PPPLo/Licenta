@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from './cart.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { LoginService } from '../login/login.service';
 
 
 @Component({
@@ -13,15 +14,20 @@ export class CartComponent implements OnInit {
 
   user:firebase.User;
   productsInCart:any[];
+  emptyCartFlag: boolean=true;
   cartSub :Subscription;
+  loginSub: Subscription;
+
   cartItemsNumber: number;
   totalPrice: number;
   transportPrice: number;
   
   displayedColumns: string[] = ['product', 'name', 'quantity', 'price'];
 
+
   constructor( private cartService: CartService,
-    private route:Router) { }
+                private route:Router,
+                private loginService: LoginService) { }
 
   getTotalPrice(){
     this.totalPrice=0;
@@ -47,7 +53,14 @@ export class CartComponent implements OnInit {
     this.route.navigate(['/welcome']);
   }
   onCheckoutCart(){
+
+    if(!this.user){
+      //implement notification
+      this.route.navigate(['/login']);
+    }
+    else{
     this.route.navigate(['/orders']);
+    }
   }
 
   onChange(value,product)
@@ -63,11 +76,17 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loginSub=this.loginService.getCurrentUser().subscribe(user=>this.user=user);
     this.cartSub=this.cartService.getListItemsShoppingCartMapProducts().subscribe(products=>{
+      if(!products) this.emptyCartFlag=true;
+      else{ 
       this.productsInCart=products;
       this.cartItemsNumber=0;
       for (var i=0; i < products.length; i++ ){
         this.cartItemsNumber+=parseInt(products[i].itemsnumber);
+        this.emptyCartFlag=false;
+      }
       }})
+    
   }
 }

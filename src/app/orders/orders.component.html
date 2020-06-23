@@ -1,0 +1,162 @@
+<div class="orders-page-wrapper">
+    <div class="content-wrapper">
+        <mat-drawer-container class="mat-container" >
+            <mat-drawer-content class="main-content" style="width:70%; padding-left:20px; padding-top:20px;">
+                <div class="client-info">                    
+                    <div class="delivery-information">
+                        <div class="container-ifnoInfo" *ngIf="!orderDeliveryInfoExistsFlag" >
+                            <div class="top-buttons" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="space-between center">
+                                <h1>Adresa de livrare</h1>
+                                <div>
+                                    <a style="padding:20px" (click)="onAuthentification()">Autentificare + </a>
+                                </div>
+                            </div>
+                            <div class="fields-container" fxLayout="row"  fxLayoutGap="30px" fxLayoutAlign="start start">
+                                <mat-form-field class="lastname-input" appearance="outline" color="accent" [style.width.px]=300>
+                                    <mat-label>Prenume</mat-label>
+                                    <input matInput type="text" required [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}">
+                                </mat-form-field>
+                
+                                <mat-form-field class="firstname-input" appearance="outline" color="accent" [style.width.px]=300>
+                                    <mat-label>Nume</mat-label>
+                                    <input matInput type="text" required [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}">
+                                </mat-form-field>
+                            </div>
+                
+                            <mat-form-field class="address-input" appearance="outline" color="accent" [style.width.px]=630>
+                                <mat-label>Adresă</mat-label>
+                                <input matInput type="text" required [(ngModel)]="address" [ngModelOptions]="{standalone: true}" >
+                            </mat-form-field>
+                
+                            <mat-form-field class="city-input" appearance="outline" color="accent" [style.width.px]=630>
+                                <mat-label>Localitate</mat-label>
+                                <input matInput type="text" required [(ngModel)]="location" [ngModelOptions]="{standalone: true}">
+                            </mat-form-field>
+                
+                            
+                            <div class="fields-container" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="start start">
+                                <mat-form-field class="country-input" appearance="outline" color="accent" [style.width.px]=200>
+                                    <mat-label>Țara</mat-label>
+                                    <input matInput type="text" required [(ngModel)]="country" [ngModelOptions]="{standalone: true}">
+                                </mat-form-field>
+                
+                                <mat-form-field class="state-input" appearance="outline" color="accent" [style.width.px]=200>
+                                    <mat-label>Județ</mat-label>
+                                    <input matInput type="text" required [(ngModel)]="state" [ngModelOptions]="{standalone: true}">
+                                </mat-form-field>
+                            
+                                <mat-form-field class="postal-input" appearance="outline" color="accent" [style.width.px]=200>
+                                    <mat-label>Cod poștal</mat-label>
+                                    <input matInput type="text" required [(ngModel)]="postalCode" [ngModelOptions]="{standalone: true}">
+                                </mat-form-field>
+                            </div>
+                
+                            <mat-form-field class="phone-input" appearance="outline" color="accent" [style.width.px]=630>
+                                <mat-label>Telefon</mat-label>
+                                <input matInput type="text" required [(ngModel)]="phoneNumber" [ngModelOptions]="{standalone: true}">
+                            </mat-form-field>
+                            <div class="checkbox-container">
+                                <mat-checkbox [checked]="saveUserAddress" (change)="toggle($event)" > Salvează informațiile pentru data viitoare </mat-checkbox>
+                            </div>
+                            <div class="button-container">
+                                <button class="mt-4 mb-4 btn btn-primary btn-lg continue-button" (click)="onGoToDelivery()">Către modalitățile de livrare</button>
+                            </div>
+                        </div>
+                        <div class="second-page" *ngIf="orderDeliveryInfoExistsFlag">
+                            <div class="delivery-info">
+                                <h1>DATELE MELE </h1>
+                                <div class="email-field" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start none">
+                                    <p class="title">E-mail: </p>
+                                    <p> {{loggedUser.email}} </p>
+                                </div>
+                                <div class="address-field" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start none">
+                                    <p class="title">Adresa de livrare:</p>
+                                    <p>{{loggedUser.deliveryInfo.address}},{{loggedUser.deliveryInfo.location}}, {{loggedUser.deliveryInfo.state}}  </p>
+                                </div>
+                                <div class="phone-field" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start none">
+                                    <p class="title">Număr de telefon: </p>
+                                    <p>{{loggedUser.deliveryInfo.phoneNumber}}</p>
+                                </div>
+                                <a class="button" (click)="onDeliveryOptionsEdit()">EDITARE</a>
+                            </div>
+                            <div class="delivery-options">
+                    
+                                <h1>LIVRARE </h1>
+                    
+                                <mat-radio-group aria-label="Select an option" [(ngModel)]="deliveryOption">
+                                    <div class="radio-button">
+                                        <mat-radio-button [value]="1" [checked]="deliveryOption==1" >Livrare standard 24/48h - <span>20 RON</span></mat-radio-button>
+                                    </div>
+                                    <div class="radio-button">
+                                        <mat-radio-button [value]="2" >Livrare a doua zi 24h - <span>45 RON</span></mat-radio-button>
+                                    </div>
+                                    <div class="radio-button">
+                                        <mat-radio-button [value]="3" >Ridicare de la sediu - <span>GRATUIT</span> </mat-radio-button>
+                                    </div>
+                                </mat-radio-group>
+                    
+                            </div>                   
+                            <div class="payment-options" >
+                                <h1>PLĂȚI </h1>
+                                <mat-radio-group aria-label="Select an option">
+                                    <div>
+                                        <mat-radio-button class="radio-button" value="1" [checked]=true >Ramburs</mat-radio-button>
+                                    </div>
+                                </mat-radio-group>
+                                <div class="button-container">
+                                    <button class="mt-4 mb-4 btn btn-primary btn-lg continue-button" (click)="onOrderFinalization()">Finalizare comandă</button>
+                                </div>   
+                                <div class="button-container" *ngIf="orderFlag">
+                                    <p>COMANDA A FOST FINALIZATA!!!!</p>
+                                </div>                 
+                            </div>
+                        </div>
+                        
+                    </div>
+                    </div>
+            
+                    
+            </mat-drawer-content>
+            <mat-drawer mode="side" opened class="cart-content" style="width:30%; padding:20px;">
+                <h1>Comanda dvs.</h1>
+                <div class="product-table" fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="start center">
+                    <div class="product-element" *ngFor="let products of cartProducts" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between start">
+                        <div class="product-image" style="width:50%" >
+                            <mat-card class="cardListItem" style="padding-bottom:0;">
+                                <img class="image" mat-card-image [src]="products.urlImage1">
+                            </mat-card>
+                        </div>
+                        <div class="product-details" style="width:50%">
+                            <div class="product-name">
+                                {{products.name}}
+                            </div>
+                            <div class="product-price">
+                                {{products.price}} RON
+                            </div>
+                            <div class="product-quantity">
+                                {{products.itemsnumber}} buc.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-info">
+                    <div class="order-value" fxLayout="row" fxLayoutAlign="space-between none">
+                        <p class="title-cart" style="text-align: left;">Valoare comandă:</p>
+                        <p style="text-align: right;">{{getTotalPrice()}} RON</p>
+                    </div>
+                    <div class="delivery-value" fxLayout="row" fxLayoutAlign="space-between none">
+                        <p class="title-cart" style="text-align: left;">Livrare:</p>
+                        <p style="text-align: right;">{{getTransportPrice()}} RON</p>
+                    </div>
+                    <div class="total-value" fxLayout="row" fxLayoutAlign="space-between none">
+                        <p class="title-cart total" style="text-align: left;">Total:</p>
+                        <p class="title-cart total" style="text-align: right;">{{getFinalPrice()}} RON</p>
+                    </div>
+                    <div>
+                        <a class="button" (click)="onBackToCart()">Înapoi la coș</a>
+                    </div>
+                </div>
+            </mat-drawer>
+        </mat-drawer-container>
+    </div>
+</div>

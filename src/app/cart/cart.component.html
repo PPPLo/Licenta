@@ -7,16 +7,18 @@
             <div class="flex-item">
                 <div class="flex-container-button" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="space-between start">
                     <div class="flex-item-button"> 
-                        <a class="btn add-button" (click)=onContinueShopping()> CONTINUĂ CUMPĂRĂTURILE</a>
+                        <a class="btn add-button btn-grey" (click)=onContinueShopping()> CONTINUĂ CUMPĂRĂTURILE</a>
                     </div>
-                    <div class="flex-item-button"> 
+                    <div class="flex-item-button" *ngIf="!emptyCartFlag"> 
                         <a class="btn add-button" (click)=onCheckoutCart()> CĂTRE FINALIZAREA COMENZII</a>
                     </div>
                 </div>
             </div>
         </div>
-       
-        <div class="products-table">        
+       <div class="empty-cart" *ngIf="emptyCartFlag">
+           <p>COȘUL DVS. DE CUMPĂRĂTURI ESTE GOL!</p>
+       </div>
+        <div class="products-table" *ngIf="!emptyCartFlag">        
          <table mat-table [dataSource]="productsInCart" class="mat-elevation-z8">        
             <ng-container matColumnDef="product">
               <th mat-header-cell *matHeaderCellDef class ="table-header-name"> Produs </th>
@@ -62,29 +64,27 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
 
-          <mat-card class="example-card " fxFlexLayout="row" fxLayoutAlign="end none">
-                <mat-card-header class="card-container-left">
-                    <mat-card-title  class="card-container-title" *ngIf="productsInCart" fxLayout="row"  fxLayoutGap="20px" fxLayoutAlign="space-between none" >
-                        <p>SubTotal:</p> <p> {{getTotalPrice()}} RON<p></mat-card-title>
-                    <mat-card-title  class="card-container-title" *ngIf="productsInCart" fxLayout="row"  fxLayoutGap="20px" fxLayoutAlign="space-between none">
-                        <p>Livrare Standard:</p> <p>{{getTransportPrice()}} RON </p></mat-card-title>
-                    <mat-card-title  class="card-container-title" *ngIf="productsInCart" fxLayout="row"  fxLayoutGap="20px" fxLayoutAlign="space-between none">
-                        <p>Total: </p> <p> {{getFinalPrice()}} RON</p>
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                </mat-card-content>
-            </mat-card>
-            <div class="flex-item">
-                <div class="flex-container-button" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="space-between start">
-                    <div class="flex-item-button"> 
-                        <a class="btn add-button" (click)=onContinueShopping()> CONTINUĂ CUMPĂRĂTURILE</a>
+          <div class="container-price" fxFlexLayout="row" fxLayoutAlign="end none">
+                <div class="card-container-left">
+                    <div  class="card-container-title" *ngIf="productsInCart" fxLayout="row"  fxLayoutGap="60px" fxLayoutAlign="space-between none" >
+                        <p class="title-left">Subtotal:</p> 
+                        <p class="value-right"> {{getTotalPrice()}} RON</p>
                     </div>
+                    <div  class="card-container-title" *ngIf="productsInCart" fxLayout="row"  fxLayoutGap="60px" fxLayoutAlign="space-between none">
+                        <p class="title-left">Livrare Standard:</p> 
+                        <p class="value-right">{{getTransportPrice()}} RON </p>
+                    </div>
+                    <div  class="card-container-title" *ngIf="productsInCart" fxLayout="row"  fxLayoutGap="60px" fxLayoutAlign="space-between none">
+                        <p class="title-left total">Total: </p> 
+                        <p class="value-right total"> {{getFinalPrice()}} RON</p>
+                    </div>
+                </div>
+         </div>        
+                <div class="flex-container-button" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="end start">
                     <div class="flex-item-button"> 
                         <a class="btn add-button" (click)=onCheckoutCart()> CĂTRE FINALIZAREA COMENZII</a>
                     </div>
-                </div>
-            </div>
+                </div>        
         </div> 
     </div>
 </div>

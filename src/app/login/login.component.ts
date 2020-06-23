@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
   componentViewLogin : boolean = true;
   connectionSuccess :boolean = true;
 
-
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,

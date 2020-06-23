@@ -15,11 +15,59 @@
                         <p class="profile-label" *ngIf="user">Nume: <span class="user-info">{{user.firstname | uppercase}}</span></p>
                         <p class="profile-label" *ngIf="user">Prenume: <span class="user-info">{{user.lastname |titlecase}}</span></p>
                         <p class="profile-label" *ngIf="user">Email: <span class="user-info">{{user.email |lowercase}}</span></p>
+                        <div class="delivery-address">
+                            <p class="profile-label" *ngIf="user">Adresă de livrare: <span class="user-info">{{user.deliveryInfo.address | uppercase}}, 
+                                                                                                    {{user.deliveryInfo.location | uppercase}},
+                                                                                                    {{user.deliveryInfo.state |uppercase}}
+                                                                           </span>
+                            </p>
+                            <p class="profile-label" *ngIf="user">Telefon: <span class="user-info">{{user.deliveryInfo.phoneNumber }}</span></p>                                                                                   
+                        </div>
                     </div>
                 </mat-tab>
                 <mat-tab label="Comenzile mele" >
-                    <div class="details-content" >
+                    <mat-card *ngFor="let order of userOrders">
+                        <div class="details-content" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between none">
+                            <div class="left-content" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start none">
+                                <div>Status comanda: {{order.status}}</div>
+                                <div>id comanda {{order.key}}</div>
+                            </div>
+                            <mat-card class="cardListItem" style="padding-bottom:0;" *ngFor="let i of order.length">
+                                <img class="image" mat-card-image [src]="order[i].urlImage1">
+                            </mat-card>
+                            <div class="right-content" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start none">
+                                <div>{{order.dateCreated}}</div>
+                                <div>{{order.total}}</div>
+                            </div>
+                        </div>
+                    </mat-card>
+                    <div>
+                     tabel produse
+                    
+<!--
+                     <div class="product-table" fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="start center">
+                        <div class="product-element" *ngFor="let order of cartProducts" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between start">
+                            <div class="product-image" style="width:50%" >
+                                <mat-card class="cardListItem" style="padding-bottom:0;">
+                                    <img class="image" mat-card-image [src]="products.urlImage1">
+                                </mat-card>
+                            </div>
+                            <div class="product-details" style="width:50%">
+                                <div class="product-name">
+                                    {{products.name}}
+                                </div>
+                                <div class="product-price">
+                                    {{products.price}} RON
+                                </div>
+                                <div class="product-quantity">
+                                    {{products.itemsnumber}} buc.
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    -->
+
+                  </div>
                 </mat-tab>
                 <mat-tab label="Modificare parolă" >
                     <div class="details-content" >

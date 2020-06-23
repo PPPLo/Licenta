@@ -28,7 +28,7 @@
     text-decoration: underline;
 }
 
-.my-profile-data {
+.my-profile-data, .delivery-address {
     padding-top:15px;
     font-size:1em;
 }
@@ -38,11 +38,12 @@
 }
 
 .profile-label{
-    color:grey;
+    color:black;
+    font-weight: 700;
 }
 
 .user-info{
-    font-weight: bold;
+    font-weight: 200;
     color:black;
 }
 
