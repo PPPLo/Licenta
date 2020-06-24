@@ -20,7 +20,9 @@ export class UsersComponent implements OnInit {
   userOrderItems:any[];
   subUser: Subscription;
   subOrders: Subscription;
-  subOrderItems: Subscription;
+
+  viewOrdersFlag:boolean=true;
+  orderKey:string;
 
   constructor(private login: LoginService,
               private route:Router,
@@ -38,22 +40,20 @@ export class UsersComponent implements OnInit {
     )
     .subscribe(user=>{
       if(user!='e') {this.user=user;
-        this.subOrderItems=this.orders.getOrdersMapItems(this.userUid).subscribe(orders=>
-          {
-            this.userOrderItems=orders;
-            console.log(orders);}); 
-
         this.subOrders=this.orders.getOrders(this.userUid).subscribe(orders=>
           {
-            this.userOrders=orders;
-          console.log(orders);}); 
+          this.userOrders=orders;}); 
       }
       else
       this.user=null;
       
     },erreur=> console.log); 
   }
- 
+
+  toggleLink(orderKey){
+    this.viewOrdersFlag=!this.viewOrdersFlag;
+    this.orderKey=orderKey;
+  }
 
   onSignOut(){
     this.login.signOut();
@@ -63,7 +63,6 @@ export class UsersComponent implements OnInit {
   ngOnDestroy(): void {
     this.subUser.unsubscribe();
     this.subOrders.unsubscribe();
-    this.subOrderItems.unsubscribe();
   }
 
 

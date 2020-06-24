@@ -140,7 +140,6 @@ export class OrdersComponent implements OnInit {
 
   async onOrderFinalization(){
   {
-
     var d = new Date();
     var curr_date = d.getDate();
     var curr_month = d.getMonth();

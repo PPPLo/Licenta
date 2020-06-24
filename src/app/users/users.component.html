@@ -26,55 +26,68 @@
                     </div>
                 </mat-tab>
                 <mat-tab label="Comenzile mele" >
-                    <mat-card *ngFor="let order of userOrders">
-                        <div class="details-content" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between none">
-                            <div class="left-content" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start none">
-                                <div>Status comanda: {{order.status}}</div>
-                                <div>id comanda {{order.key}}</div>
-                            </div>
-                            <mat-card class="cardListItem" style="padding-bottom:0;" *ngFor="let i of order.length">
-                                <img class="image" mat-card-image [src]="order[i].urlImage1">
-                            </mat-card>
-                            <div class="right-content" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start none">
-                                <div>{{order.dateCreated}}</div>
-                                <div>{{order.total}}</div>
-                            </div>
-                        </div>
-                    </mat-card>
+                    <ng-container *ngFor="let order of userOrders">
+                        <div class="details-content" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start none"  >
+                            <div class="top-info" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between none" >
+                                <div class="left-content" fxLayout="column" fxLayoutGap="px" fxLayoutAlign="start none">
+                                    <div class="profile-label text-padding">Status comandă: <span class="user-info">{{order.status}}</span></div>
+                                    <div class="profile-label text-padding" >Id comandă: <span class="user-info">#{{order.key}}</span></div>
+                                    <div class="simple-button">
+                                        <a *ngIf="viewOrdersFlag " (click)="toggleLink(order.key)">Vezi detalii comandă</a>
+                                    </div>
+                                    <div class="simple-button">
+                                        <a *ngIf="!viewOrdersFlag && order.key==orderKey" (click)="toggleLink(order.key)">Ascunde detalii comandă </a>
+                                    </div>
+                                </div>
+                                <div class="right-content" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start none">
+                                    <div class="profile-label text-padding">{{order.dateCreated}}</div>
+                                    <div class="profile-label text-padding">{{order.total}} RON</div>
+                                </div>
+                            </div>                           
+                            <ng-container *ngFor="let product of order.items" >
+                                <div class="product-table" fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="start center" *ngIf="!viewOrdersFlag && order.key==orderKey ">
+                                    <div class="product-element"  fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start start">
+                                        <div class="product-image" style="width:15%" >
+                                            <mat-card class="cardListItem" style="padding-bottom:0;">
+                                                <img class="image" mat-card-image [src]="product.urlImage1">
+                                            </mat-card>
+                                        </div>
+                                        <div class="product-details" fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="space-between none" style="width:45%">
+                                            <div class="flex">
+                                                <div class="product-name user-info">
+                                                    {{product.name}}
+                                                </div>
+                                                <div class="product-price user-info">
+                                                    {{product.price}} RON
+                                                </div>
+                                                <div class="product-quantity user-info">
+                                                    {{product.itemsnumber}} buc.
+                                                </div>
+                                            </div>
+                                            <div class="rate-button" >
+                                                <a class="simple-button evaluate-button">Evaluează produsul</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>                       
+                            </ng-container>                           
+                        </div>           
+                    </ng-container>
                     <div>
-                     tabel produse
                     
 <!--
-                     <div class="product-table" fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="start center">
-                        <div class="product-element" *ngFor="let order of cartProducts" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between start">
-                            <div class="product-image" style="width:50%" >
-                                <mat-card class="cardListItem" style="padding-bottom:0;">
-                                    <img class="image" mat-card-image [src]="products.urlImage1">
-                                </mat-card>
-                            </div>
-                            <div class="product-details" style="width:50%">
-                                <div class="product-name">
-                                    {{products.name}}
-                                </div>
-                                <div class="product-price">
-                                    {{products.price}} RON
-                                </div>
-                                <div class="product-quantity">
-                                    {{products.itemsnumber}} buc.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                     
                     -->
 
                   </div>
                 </mat-tab>
                 <mat-tab label="Modificare parolă" >
-                    <div class="details-content" >
+                    <div class="password-content" >
                     </div>
                 </mat-tab>
                 <mat-tab label="Contact" >
-                    <div class="details-content" >
+                    <div class="contact-content" >
                     </div>
                 </mat-tab>
             </mat-tab-group>
