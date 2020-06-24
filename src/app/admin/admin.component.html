@@ -1,1 +1,95 @@
-<p>admin works!</p>
+<div class="admin-page-wrapper">
+    <div class="content-wrapper">
+        <div class="flex-container" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="space-between start"  *ngIf="admin">
+            <div class="flex-item">
+                <h1 *ngIf="admin" > Hello, ADMIN {{admin.lastname}} ! </h1>
+            </div>
+            <div class="flex-item">
+                <a (click) = onSignOut()> Ieșire din cont</a>
+            </div>
+        </div>
+        <div class="admin-info-container" >
+            <mat-tab-group  animationDuration="0ms">
+                <mat-tab label="Comenzi" >
+                    <div class="admin-content" >
+                        <ng-container *ngFor="let order of newOrders">
+                            <div class="details-content" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start none"  >
+                                <div class="top-info" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between none" >
+                                    <div class="left-content" fxLayout="column"  fxLayoutAlign="start none">
+                                        <div class="profile-label text-padding" >Id comandă: <span class="user-info">#{{order.key}}</span></div>
+                                        <div class="profile-label text-padding" > Client: <span class="user-info">userName</span></div>
+                                        <div class="profile-label text-padding" > Adresa de livrare: <span class="user-info">DeliveryAddress</span></div>
+                                        <div class="simple-button">
+                                            <a *ngIf="viewOrdersFlag " (click)="toggleLink(order.key)">Vezi detalii comandă</a>
+                                        </div>
+                                        <div class="simple-button">
+                                            <a *ngIf="!viewOrdersFlag && order.key==orderKey" (click)="toggleLink(order.key)">Ascunde detalii comandă </a>
+                                        </div>
+                                    </div>
+                                    <div class="right-content" fxLayout="column" fxLayoutAlign="start none">
+                                        <div class="profile-label text-padding">{{order.dateCreated}}</div>
+                                        <div class="profile-label text-padding">{{order.total}} RON</div>
+                                        <div class="profile-label text-padding">Status comandă: <span class="user-info">{{order.status}}</span></div>
+                                        <div class="simple-button">
+                                            <a >Modifică status comandă</a>
+                                        </div>
+                                    </div>
+                                </div>                           
+                                <ng-container *ngFor="let product of order.items" >
+                                    <div class="product-table" fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="start center" *ngIf="!viewOrdersFlag && order.key==orderKey ">
+                                        <div class="product-element"  fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start start">
+                                            <div class="product-image" style="width:15%" >
+                                                <mat-card class="cardListItem" style="padding-bottom:0;">
+                                                    <img class="image" mat-card-image [src]="product.urlImage1">
+                                                </mat-card>
+                                            </div>
+                                            <div class="product-details" fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="space-between none" style="width:45%">
+                                                <div class="flex">
+                                                    <div class="product-name user-info">
+                                                        {{product.name}}
+                                                    </div>
+                                                    <div class="product-price user-info">
+                                                        {{product.price}} RON
+                                                    </div>
+                                                    <div class="product-quantity user-info">
+                                                        {{product.itemsnumber}} buc.
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                        </div>
+                                    </div>                       
+                                </ng-container>                           
+                            </div>           
+                        </ng-container>
+                        id comaanda, user, adresa de livrare, produse, nr. bucati, pret
+                        tabel comenzi noi - buton modifica status
+                        buton vezi comenzi trimise
+                        vezi comenzi livrate
+                    </div>
+                </mat-tab>
+                <mat-tab label="Mesaje" >
+                    <div class="admin-content" >
+                        mesaj, user 
+                        raspunde pe mail
+                        vezi mesaje noi
+                    </div>
+                </mat-tab>
+                <mat-tab label="Gestionare produse" >
+                    <div class="admin-content" >
+                        Sterge produse
+                        Adauga
+                        Modifica stoc
+                    </div>
+                </mat-tab>
+                <mat-tab label="Rapoarte" >
+                    <div class="admin-content" >
+                        cele mai vandute produse disk space.
+                        grafic vanzari - zile
+                    </div>
+                </mat-tab>
+
+            </mat-tab-group>
+        </div>
+    </div>
+</div>

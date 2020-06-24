@@ -7,6 +7,7 @@ import { LoginService } from 'src/app/login/login.service';
 import { FirebaseApp } from '@angular/fire';
 import { CartService } from 'src/app/cart/cart.service';
 import { Subscription } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 
-    user:firebase.User;
+    user:any;
     cartItemsNumber:number = 0;
     cartItemsProducts:any[];
 
@@ -47,7 +48,24 @@ export class HeaderComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.loginSub=this.loginService.getCurrentUser().subscribe(user=>this.user=user);
+    this.loginSub=this.loginService.getCurrentUser()
+    .pipe(
+      switchMap(user=>{
+        if(!user) return 'e';
+          return  this.loginService.getCurrentUserDb();
+      }),
+      map(user=>user)
+    )
+    .subscribe(user=>{
+      if(user!='e' ) {this.user=user;
+      }
+      else
+      this.user=null;     
+    },erreur=> console.log);
+    
+    
+    
+    
     this.cartSub=this.cartService.getListItemsShoppingCartMapProducts().subscribe(products=>{
       this.cartItemsNumber=0;
       for (var i=0; i < products.length; i++ ){

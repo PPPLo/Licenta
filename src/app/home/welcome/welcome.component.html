@@ -1,4 +1,5 @@
-<div class="welcome-content-wrapper">
+<div class="page-wrapper">
+<div class="welcome-content-wrapper" >
     <div class="welcome-image-container">
         <div class="welcome-text-main">
             <p>DIN <br> <span id="coloured-word">SERELE NOASTRE</span> <br>direct LA TINE ACASĂ</p>
@@ -6,34 +7,46 @@
         <div class="welcome-text-second">
             <p>Adu primăvara în casa ta cu plante verzi și înflorite.</p>
         </div>
-            <a type="button" class="btn welcome-button"  routerLink="/products">Cumpărați acum</a>
-        </div>
+            <a type="button" class="btn welcome-button"   [routerLink] = "['/products/c', 'all']">Cumpărați acum</a>
+    </div>
     <div class="welcome-categories-wrapper">
         <div class='column'>
-            <a routerLink="/products">
-                <div class='first-column'>
-                    <img >
+            <a  [routerLink] = "['/products/c', 'easycare']">
+                <div class='first-column' fxLayout="row" fxLayoutAlign="center center">
+                    <div class="rectangle" style="width:70%; height: 70%;" fxLayout="row" fxLayoutAlign="center center">
+                        <div class="inner-rectangle" style="width:80%; height: 80%;" fxLayout="row" fxLayoutAlign="center center">
+                            <p class="category-title" style="text-align:center">PLANTE PT. ÎNCEPĂTORI</p>
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
         <div class='column'>
-            <a routerLink="/products">
-                <div class='second-column'>
-                  <img>
+            <a [routerLink] = "['/products/c', 'vining']">
+                <div class='second-column' fxLayout="row" fxLayoutAlign="center center">
+                    <div class="rectangle" style="width:70%; height: 70%;" fxLayout="row" fxLayoutAlign="center center">
+                        <div class="inner-rectangle" style="width:80%; height: 80%;" fxLayout="row" fxLayoutAlign="center center">
+                            <p class="category-title" style="text-align:center">PLANTE CURGĂTOARE</p>
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
         <div class='column'>
-            <a routerLink="/products">
-                <div class='third-column'>
-                  <img>
+            <a [routerLink] = "['/products/c', 'airpurifying']">
+                <div class='third-column' fxLayout="row" fxLayoutAlign="center center">
+                    <div class="rectangle" style="width:70%; height: 70%;" fxLayout="row" fxLayoutAlign="center center">
+                        <div class="inner-rectangle" style="width:80%; height: 80%;" fxLayout="row" fxLayoutAlign="center center">
+                            <p class="category-title" style="text-align:center">PLANTE PURIFICATOARE DE AER</p>
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
     </div>
     <div class="welcome-new-in-wrapper">
         <div class="text-container">
-          <div class="hr-sect"><p class="text-title">Shop new in</p></div>
+          <div class="hr-sect"><p class="text-title">CELE MAI NOI PLANTE</p></div>
         </div>
         <div class="welcome-new-in-container" *ngIf='products' >
             <a [routerLink] = "['/products/p', products[0].name]" class="link">
@@ -110,8 +123,27 @@
             </a>
         </div>
     </div>
+</div>
+<div class="get-to-know" >
+    <div class="video-wrapper" fxLayout="row" fxLayoutAlign="center center">
+        <div class="text" fxLayout="column" fxLayoutAlign="space-between center" style="width:30%;">
+            <div class="text">
+                <h4>SĂ NE CUNOAȘTEM</h4>
+            </div>
+            <div class="text">       
+                <p>La plantes.com, misiunea noastră este să cultivăm fericirea. Este un fapt dovedit din punct de vedere medical că stările noastre de spirit, comportamentele, sănătatea fizică și psihică sunt influențate foarte mult de mediul în care trăim.</p>
+            </div> 
+        </div>
+        <div class="video" style="width:70%;">
+            <video  height="350px" controls>
+                <source src="../../../assets/Video/plants_intro_final.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</div>
+<div class="welcome-content-wrapper">
     <div class="text-container">
-      <div class="hr-sect"><p class="text-title">Plants you love</p></div>
+      <div class="hr-sect"><p class="text-title">TRIMITE-NE PLANTA TA PREFERATĂ #plantsyoulove </p></div>
     </div>
     <div class="welcome-plants-you-love">
         <div class='slide-column'>
@@ -126,12 +158,12 @@
             <div class='slider-third-column'>
             </div>
         </div>
-            <div class='slide-column'>
-              <div class='slider-fourth-column'>
-              </div>
+        <div class='slide-column'>
+            <div class='slider-fourth-column'>
             </div>
-       </div>
-  </div>
+        </div>
+    </div>
+</div>
   <div class="shopping-facilities-wrapper">
     <div class="size-container">
         <div class="shopping-facilities-container" >
@@ -164,6 +196,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

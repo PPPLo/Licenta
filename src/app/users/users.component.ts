@@ -40,7 +40,7 @@ export class UsersComponent implements OnInit {
     )
     .subscribe(user=>{
       if(user!='e') {this.user=user;
-        this.subOrders=this.orders.getOrders(this.userUid).subscribe(orders=>
+        this.subOrders=this.orders.getOrdersByUser(this.userUid).subscribe(orders=>
           {
           this.userOrders=orders;}); 
       }

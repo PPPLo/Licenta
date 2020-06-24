@@ -74,13 +74,6 @@
                             </ng-container>                           
                         </div>           
                     </ng-container>
-                    <div>
-                    
-<!--
-                     
-                    -->
-
-                  </div>
                 </mat-tab>
                 <mat-tab label="Modificare parolă" >
                     <div class="password-content" >
@@ -95,27 +88,31 @@
         <div class="admin-info-container" *ngIf="user && user.isAdmin">
             <mat-tab-group  animationDuration="0ms">
                 <mat-tab label="Comenzi" >
-                    <div class="details-content" >
+                    <div class="admin-content" >
+                        id comaanda, user, adresa de livrare, produse, nr. bucati, pret
+                        tabel comenzi noi - buton modifica status
+                        buton vezi comenzi trimise
+                        vezi comenzi livrate
                     </div>
                 </mat-tab>
                 <mat-tab label="Mesaje" >
-                    <div class="details-content" >
+                    <div class="admin-content" >
+                        mesaj, user 
+                        raspunde pe mail
+                        vezi mesaje noi
                     </div>
                 </mat-tab>
-                <mat-tab label="Adaugă produse" >
-                    <div class="details-content" >
-                    </div>
-                </mat-tab>
-                <mat-tab label="Sterge produse" >
-                    <div class="details-content" >
-                    </div>
-                </mat-tab>
-                <mat-tab label="Modifică stoc produse" >
-                    <div class="details-content" >
+                <mat-tab label="Gestionare produse" >
+                    <div class="admin-content" >
+                        Sterge produse
+                        Adauga
+                        Modifica stoc
                     </div>
                 </mat-tab>
                 <mat-tab label="Rapoarte" >
-                    <div class="details-content" >
+                    <div class="admin-content" >
+                        cele mai vandute produse disk space.
+                        grafic vanzari - zile
                     </div>
                 </mat-tab>
 

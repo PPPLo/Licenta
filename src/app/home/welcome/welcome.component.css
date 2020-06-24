@@ -1,14 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
+.page-wrapper{
+  width:100%;
+  margin:0px;
+  padding:0px;
+}
 .welcome-content-wrapper{
   margin: 0 auto;
   max-width:960px;
   background-color: white;
 }
 
+.video-wrapper{
+  margin: 0 auto;
+  max-width:960px;
+  padding:20px;
+}
+
 .welcome-image-container{
-  /*background-image: url('../../../assets/Welcome/background.jpeg'); */
-  background:lightblue;
+  background-image: url('../../../assets/Welcome/MAIN.jpg'); 
+  background-size:auto 100% ;
   margin: 0 auto;
   max-width:960px;
   height: 400px;
@@ -25,6 +36,14 @@
 
 #coloured-word{
   color:greenyellow;
+}
+
+.get-to-know{
+  background-color: greenyellow;
+  height: 390px;
+  width:100%;
+  margin:0px;
+  padding:0px;
 }
 
 .welcome-text-second{
@@ -70,29 +89,70 @@
   max-width: 31%;
   margin-bottom: 20px;
   height: 300px;
-  border:solid;
+  overflow: hidden;
 }
 
-.first-column {
-  height: 300px;
+.category-title{
+  color:white;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+
 }
   
+.first-column {
+  background-image: url('../../../assets/Welcome/AIRPURIGYING2.jpg'); 
+  background-size:100% auto ;
+  height: 300px;
+}
+
+.rectangle{
+  background-color: rgba(72, 72, 72, 0.5);
+}
+
+.inner-rectangle{
+  border:1px solid white;
+}
+
 .second-column {
+  background-image: url('../../../assets/Welcome/VINING.jpg'); 
+  background-size:100% auto ;
   height: 300px;
 }
   
 .third-column {
+  background-image: url('../../../assets/Welcome/AIRPURIGYING.jpg'); 
+  background-size:100% auto ;
   height: 300px;
 }
-
+.welcome-new-in-wrapper{
+  padding-bottom:20px;
+}
 .welcome-new-in-container{
+  margin-top:10px;
   display:grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 20px;
   row-gap: 70px;
   grid-template-rows: 200px 200px;
   height: 500px;
-  margin-bottom:20px;
+  margin-bottom:30px;
+}
+
+.text h4{
+  font-family: 'Anton', sans-serif;
+  font-size:1.5rem;
+  font-weight: bold;
+}
+
+.text p{
+  font-family: 'Anton', sans-serif;
+  font-size:0.7rem;
+  font-weight: 0;
+}
+
+.text{
+width: 70%;
 }
 
 .details{
@@ -133,6 +193,7 @@ a:hover{
   flex-wrap: wrap;
   margin:0;
   justify-content:space-between;
+  margin-top:10px;
 }
 
 .slide-column {
@@ -140,7 +201,11 @@ a:hover{
   max-width: 23%;
   margin-bottom: 20px;
   height: 250px;
-  border:solid;
+}
+
+.get-to-know{
+  width:100%;
+  background-attachment: lightgreen;
 }
 
 .shopping-facilities-wrapper{

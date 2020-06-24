@@ -31,6 +31,15 @@ export class UsersService {
                )
   }
 
+  getUserById(id:string){
+    return this.db.list('/users/'+id +'/deliveryInfo').snapshotChanges().pipe(map(
+      products =>products.map(c => (
+                          {                            
+                            key: c.payload.key, ...c.payload.val() as {} 
+                          }
+                          ))))  ;
+  }
+
   addDeliveryInformationToUser(loggedUser,deliveryInfo){
     if (!loggedUser) return;
       this.db.object('/users/' + loggedUser.id+'/deliveryInfo').update(deliveryInfo);

@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+.admin-page-wrapper{
+    margin:0;
+    min-height:74vh;
+    font-family: 'Roboto', sans-serif;
+    font-size:0.9rem;
+}
+
+.content-wrapper{
+    margin:0 auto;
+    max-width: 960px;
+}
+
+.flex-item{
+    padding:20px;
+    font-family: 'Bebas Neue', cursive;
+}
+.flex-item h1{
+    font-size:2em;
+}
+
+.flex-item a{
+    text-decoration: underline;
+}
+.flex-item a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+my-profile-data, .delivery-address {
+    padding-top:15px;
+    font-size:1em;
+}
+
+.my-profile-data p {
+    font-size:0.9em;
+}
+
+.profile-label{
+    color:black;
+    font-weight: 700;
+}
+
+.user-info{
+    font-weight: 200;
+    color:black;
+    font-size: 0.9em;
+}
+
+.admin-info-container{
+}
+
+.simple-button{
+    font-family: 'Bebas Neue', cursive;
+    font-size:0.9rem;
+    text-decoration: underline;
+}
+.simple-button a{
+    text-decoration: underline;
+}
+.simple-button, .evaluate-button a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.text-padding{
+    padding-bottom: 20px;
+}
+
+.evaluate-button{
+    text-decoration: underline;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    font-size:0.8rem;
+}
+.details-content{
+    border:1px solid lightgrey;
+    margin:15px 0px;
+    padding:20px;
+}
