@@ -53,10 +53,18 @@
                       <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'small']">Plante Mici</a></li>
                       <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'mini']">Plante Mini</a></li>
                     </ul>
-                </li>             
+                </li> 
+                <li class="nav-item dropdown dmenu" dropdown>
+                  <a dropdownToggle role="button" class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" >
+                  SFATURI DE ÎNGRIJIRE
+                  </a>
+                    <ul *dropdownMenu class="dropdown-menu sm-menu">
+                      <li><a class="dropdown-item"  href="https://www.plants.com/greenhouse/">GREENHOUSE Blog</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'medium']">Cere sfatul unui expert</a></li>
+                    </ul>
+                </li>            
           </ul>
         </div>
-
         <div class="menu-social" >
           <ul class="nav navbar-nav">
             <li class="nav-item" style="margin:auto">
@@ -69,13 +77,13 @@
 
             <li class="nav-item" style="margin:auto" >
               <div class="nav-link">
-                  <a  *ngIf="!user" [routerLink] = "['/login']" > 
+                  <a  *ngIf="!user" [routerLink] = "['/login']" class="icon"> 
                     <mat-icon svgIcon="user-icon" ></mat-icon>
                   </a> 
-                  <a *ngIf="user && !user.isAdmin" [routerLink] = "['/profile']" > 
+                  <a *ngIf="user && !user.isAdmin" [routerLink] = "['/profile']" class="icon"> 
                     <mat-icon svgIcon="user-icon" ></mat-icon>
                   </a>
-                  <a *ngIf="user && user.isAdmin" [routerLink] = "['/admin']" > 
+                  <a *ngIf="user && user.isAdmin" [routerLink] = "['/admin']" class="icon"> 
                     <mat-icon svgIcon="user-icon" ></mat-icon>
                   </a>
 

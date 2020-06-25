@@ -15,6 +15,7 @@
   margin: 0 auto;
   max-width:960px;
   padding:20px;
+  margin-bottom:20px;
 }
 
 .welcome-image-container{
@@ -244,7 +245,7 @@ a:hover{
 .info-column p{
   font-size:0.8rem;
   text-align:center;
-  padding:15px;
+  padding:10px 40px;
 }
 
 .hr-sect {
@@ -272,8 +273,7 @@ a:hover{
 .icons{
   text-align: center;
   padding-top:20px;
-  padding-bottom: 5px;
-  height:80px;
+  height:60px;
 }
 
 @media (max-width: 960px) {

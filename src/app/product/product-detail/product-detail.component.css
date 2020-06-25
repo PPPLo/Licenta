@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 .page-wrapper{
     margin-top:15px;
     margin-bottom:5px;
-    font-family: 'Anton', sans-serif;
 }
 .content-wrapper{
     margin:0 auto;
@@ -43,7 +44,7 @@
     border:red;
 }
 
-.hr-sect {
+.hr {
     border-top: 1px solid black;
     margin:0;
   }
@@ -107,6 +108,7 @@
     text-overflow: ellipsis;
     overflow:hidden;
     padding-top:10px;
+    font-weight: 200!important;
 }
 
 .details-content{
@@ -194,3 +196,58 @@
 .product-information li{
     padding:1px;
 }
+
+.hr-sect {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgba(0, 0, 0,1);
+    margin: 8px 0px;
+  }
+  
+  .hr-sect::before,
+  .hr-sect::after {
+    content: "";
+    flex-grow: 1;
+    background-image: linear-gradient(90deg,#000 30%,hsla(0,0%,100%,0) 0);
+    background-position: bottom;
+    background-size: 5px 5px;
+    background-repeat: repeat-x;
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px 8px;
+  }
+
+  .text-container{
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    position:relative;
+    top:10px;
+    text-align:center;
+    margin-top:0;
+  }
+
+  .related-item{
+      height: 240px;
+      border:solid;
+  }
+
+  .our-story{
+      font-size:0.8rem;
+      text-align:center;
+      padding:25px;
+
+  }
+
+  .comment{
+      border: 1px solid lightgrey;
+      height: 100px;
+  }
+
+  .reviews-container{
+      margin-top:20px;
+  }
+
+
+  

@@ -12,7 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularUiModule } from './angularmaterial/angular-ui.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { RatingComponent } from './rating/rating.component';
-
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { SwiperComponent } from './swiper/swiper.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RatingComponent } from './rating/rating.component';
     HeaderComponent,
     FooterComponent,
     CustomerServiceComponent,
-    RatingComponent
+    RatingComponent,
+    SwiperComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { RatingComponent } from './rating/rating.component';
     BrowserAnimationsModule,
     NgbModule,
     AngularUiModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxUsefulSwiperModule
 
   ],
   exports:[
@@ -39,7 +42,9 @@ import { RatingComponent } from './rating/rating.component';
     HttpClientModule,
     BsDropdownModule,
     AngularUiModule,
-    RatingComponent 
+    RatingComponent,
+    NgxUsefulSwiperModule,
+    SwiperComponent
   ]
 })
 export class SharedModule { }

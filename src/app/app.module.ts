@@ -46,7 +46,6 @@ import { OrdersComponent } from './orders/orders.component';
     BrowserModule,
     FlexLayoutModule,
     AngularUiModule,
-    AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule
   ],

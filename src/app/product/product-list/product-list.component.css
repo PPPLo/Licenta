@@ -2,6 +2,14 @@
     margin-top:0px;
 }
 
+.home-link{
+   font-weight: bold;
+}
+
+.home-link:hover{
+    text-decoration: underline;
+}
+
 .left-info{
 }
 .category-title h1{

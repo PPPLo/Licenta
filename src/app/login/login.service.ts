@@ -38,7 +38,7 @@ export class LoginService implements CanActivate {
    }
 
    saveUserToDatabase(firstName: string, lastName:string){
-    console.log("save user database reached reached");;
+    console.log("save user database reached reached");
     this.login.authState.subscribe(user=>{this.userService.saveUser(user, firstName, lastName)});
    }
    signOut(){
