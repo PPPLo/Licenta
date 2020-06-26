@@ -1,3 +1,4 @@
+
     <div class="navbarwrapper">
     <nav class="navbar nav-fill navbar-expand-lg sticky-top navbar-light bg-light">
         <a class = "brand"  [routerLink]="['/welcome']" > <img src="../assets/Logo/logo.PNG" width="40" height="40"><span id="CompaName">LOGO</span></a>       
@@ -83,10 +84,6 @@
                   <a *ngIf="user && !user.isAdmin" [routerLink] = "['/profile']" class="icon"> 
                     <mat-icon svgIcon="user-icon" ></mat-icon>
                   </a>
-                  <a *ngIf="user && user.isAdmin" [routerLink] = "['/admin']" class="icon"> 
-                    <mat-icon svgIcon="user-icon" ></mat-icon>
-                  </a>
-
                 </div>        
             </li>
             <li class="nav-item" style="margin:auto">
@@ -100,6 +97,9 @@
         </div>
     </nav>
   </div>
+
+
+
 
 
     

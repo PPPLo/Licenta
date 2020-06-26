@@ -23,6 +23,7 @@ import { UsersComponent } from './users/users.component';
 import { AdminComponent } from './admin/admin.component';
 import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
+import { OrderSuccessComponent } from './orders/order-success/order-success.component';
  
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { OrdersComponent } from './orders/orders.component';
     UsersComponent,
     AdminComponent,
     CartComponent,
-    OrdersComponent
+    OrdersComponent,
+    OrderSuccessComponent
     ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

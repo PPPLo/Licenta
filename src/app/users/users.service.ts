@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { LoginService } from '../login/login.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router, CanActivate } from '@angular/router';
  
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class UsersService implements CanActivate {
 
-  constructor(private db:AngularFireDatabase ) { }
+  constructor(private db:AngularFireDatabase,
+               private login:AngularFireAuth,
+               private router:Router ) { }
   
   saveUser(user: firebase.User, firstName:String, lastName:String)
   {
@@ -43,6 +49,16 @@ export class UsersService {
   addDeliveryInformationToUser(loggedUser,deliveryInfo){
     if (!loggedUser) return;
       this.db.object('/users/' + loggedUser.id+'/deliveryInfo').update(deliveryInfo);
+  }
 
+  canActivate():Observable<boolean>
+  {
+   return this.login.authState.pipe(map(user=>{if(!user) return true
+                                               else
+                                               {
+                                                 this.router.navigate(['/profile']);
+                                                 console.log("can't activate login");
+                                                 return false;
+                                               }}))
   }
 }

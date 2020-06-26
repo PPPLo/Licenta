@@ -57,13 +57,12 @@ export class HeaderComponent implements OnInit {
       map(user=>user)
     )
     .subscribe(user=>{
+      console.log(user);
       if(user!='e' ) {this.user=user;
       }
       else
       this.user=null;     
     },erreur=> console.log);
-    
-    
     
     
     this.cartSub=this.cartService.getListItemsShoppingCartMapProducts().subscribe(products=>{

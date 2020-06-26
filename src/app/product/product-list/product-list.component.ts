@@ -31,6 +31,7 @@ export class ProductListComponent implements OnInit {
   paramOption :Subscription;
   productListChanges: Subscription;
   category : string;
+  categoryParam: string;
   
   constructor(private productService:ProductService,
               private route: ActivatedRoute,
@@ -40,6 +41,7 @@ export class ProductListComponent implements OnInit {
     
     this.paramOption=this.route.params.subscribe(
          (params) => {
+          this.categoryParam=params.option;
           this.category=this.translateParam(params.option);
           this.productListChanges=this.productService.getFilteredProductsByOptionFlag(params.option).subscribe({next:products=>{
                                   this.filteredProducts = products;         

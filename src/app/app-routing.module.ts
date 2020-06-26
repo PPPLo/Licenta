@@ -15,17 +15,20 @@ import { AdminService } from './admin/admin.service';
 import { LoginService } from './login/login.service';
 import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
+import { UsersService } from './users/users.service';
+import { OrderSuccessComponent } from './orders/order-success/order-success.component';
 
 const routes: Routes = [
   {path: 'welcome', component: WelcomeComponent},
   {path: 'products/c/:option', component: ProductListComponent},
-  {path: 'products/p/:name', component: ProductDetailComponent},
+  {path: 'products/p/:name/:option', component: ProductDetailComponent},
   {path: 'search', component: ProductSearchComponent},
   {path: 'cart', component:CartComponent},
-  {path: 'orders', component:OrdersComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'admin', component: AdminComponent, canActivate:[AdminService,LoginService]},
-  {path: 'profile', component: UsersComponent,  canActivate:[LoginService]},
+  {path: 'orders', component:OrdersComponent, canActivate:[LoginService]},
+  {path: 'order-status/:status', component:OrderSuccessComponent, canActivate:[LoginService]},
+  {path: 'login', component: LoginComponent },
+  {path: 'admin', component: AdminComponent, canActivate:[AdminService]},
+  {path: 'profile', component: UsersComponent },
   {path: 'customerservice', component: CustomerServiceComponent},
   {path:'', redirectTo:'welcome', pathMatch:'full'},
   //{path:'**', redirectTo:'welcome', pathMatch:'full'}

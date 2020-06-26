@@ -67,15 +67,15 @@
                                 <h1>DATELE MELE </h1>
                                 <div class="email-field" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start none">
                                     <p class="title">E-mail: </p>
-                                    <p> {{loggedUser.email}} </p>
+                                    <p *ngIf="loggedUser"> {{loggedUser.email}} </p>
                                 </div>
                                 <div class="address-field" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start none">
                                     <p class="title">Adresa de livrare:</p>
-                                    <p>{{loggedUser.deliveryInfo.address}},{{loggedUser.deliveryInfo.location}}, {{loggedUser.deliveryInfo.state}}  </p>
+                                    <p *ngIf="loggedUser">{{loggedUser.deliveryInfo.address}},{{loggedUser.deliveryInfo.location}}, {{loggedUser.deliveryInfo.state}}  </p>
                                 </div>
                                 <div class="phone-field" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start none">
                                     <p class="title">Număr de telefon: </p>
-                                    <p>{{loggedUser.deliveryInfo.phoneNumber}}</p>
+                                    <p *ngIf="loggedUser">{{loggedUser.deliveryInfo.phoneNumber}}</p>
                                 </div>
                                 <a class="button" (click)="onDeliveryOptionsEdit()">EDITARE</a>
                             </div>
@@ -105,10 +105,7 @@
                                 </mat-radio-group>
                                 <div class="button-container">
                                     <button class="mt-4 mb-4 btn btn-primary btn-lg continue-button" (click)="onOrderFinalization()">Finalizare comandă</button>
-                                </div>   
-                                <div class="button-container" *ngIf="orderFlag">
-                                    <p>COMANDA A FOST FINALIZATA!!!!</p>
-                                </div>                 
+                                </div>                    
                             </div>
                         </div>
                         

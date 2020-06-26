@@ -16,16 +16,19 @@
                         <p class="profile-label" *ngIf="user">Prenume: <span class="user-info">{{user.lastname |titlecase}}</span></p>
                         <p class="profile-label" *ngIf="user">Email: <span class="user-info">{{user.email |lowercase}}</span></p>
                         <div class="delivery-address">
-                            <p class="profile-label" *ngIf="user">Adresă de livrare: <span class="user-info">{{user.deliveryInfo.address | uppercase}}, 
+                            <p class="profile-label" *ngIf="user && user.deliveryInfo">Adresă de livrare: <span class="user-info">{{user.deliveryInfo.address | uppercase}}, 
                                                                                                     {{user.deliveryInfo.location | uppercase}},
                                                                                                     {{user.deliveryInfo.state |uppercase}}
                                                                            </span>
                             </p>
-                            <p class="profile-label" *ngIf="user">Telefon: <span class="user-info">{{user.deliveryInfo.phoneNumber }}</span></p>                                                                                   
+                            <p class="profile-label" *ngIf="user && user.deliveryInfo">Telefon: <span class="user-info">{{user.deliveryInfo.phoneNumber }}</span></p>                                                                                   
                         </div>
                     </div>
                 </mat-tab>
                 <mat-tab label="Comenzile mele" >
+                    <ng-container *ngIf="userOrders==null">
+                        <p class="no-order-notification">Nu aveți nici o comandă. </p>
+                    </ng-container>
                     <ng-container *ngFor="let order of userOrders">
                         <div class="details-content" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start none"  >
                             <div class="top-info" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between none" >
@@ -79,9 +82,37 @@
                     <div class="password-content" >
                     </div>
                 </mat-tab>
-                <mat-tab label="Contact" >
-                    <div class="contact-content" >
-                    </div>
+                <mat-tab label="Contact" >                   
+                        <div class="contact-content" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="space-between start"  >
+                        <div class="container-left">
+                            <h4 class="text-h4">CU CE TE PUTEM AJUTA?</h4>
+                            <p class="user-info">Îți stăm la dispoziție oricând.<br><br>
+
+                                PROGRAM DE LUCRU<br>
+                                Luni - Vineri: 08:00 - 17:00<br>
+                                Sâmbătă - Duminică: Închis<br><br>
+                                ADRESA<br>
+                                Bulevardul Constantin Diaconovici Loga, nr.1, Timișoara<br><br>
+                                TELEFON<br>
+                                0800 89 7777 (apel gratuit)<br><br>
+                            </p>
+                            <a class="simple-button">TRANSPORT ȘI LIVRARE</a><br>
+                            <a class="simple-button">PLATA</a><br>
+                            <a class="simple-button">RETURURI</a><br>
+                        </div>
+                        <div class="contanier-right">
+                            <div class="user-message">
+                                <form>
+                                <mat-form-field class="comment-input" [style.width.px]=400>
+                                    <mat-label>Lasă-ne un mesaj</mat-label>
+                                    <textarea matInput ></textarea>
+                                </mat-form-field>
+                                </form>
+                                <a class="simple-button evaluate-button">Trimite mesaj</a><br>
+
+                            </div>
+                        </div>
+                  </div>
                 </mat-tab>
             </mat-tab-group>
         </div>

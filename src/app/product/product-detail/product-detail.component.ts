@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product-service/product.service';
 import { ViewEncapsulation} from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -16,6 +16,7 @@ export class ProductDetailComponent implements OnInit {
   product:any;
   products:any[];
   retrieved_product:any;
+  relatedProducts:any[];
 
   careinstructions:string[];
   nrOfItems:number;
@@ -23,11 +24,14 @@ export class ProductDetailComponent implements OnInit {
   productspecs: string[];
 
   productSub: Subscription;
+  relatedSub: Subscription;
+  param:string;
  
 
-  constructor(private route: ActivatedRoute,
+  constructor(private activatedRoute: ActivatedRoute,
     private productService:ProductService,
-    private cartService: CartService) {
+    private cartService: CartService,
+    private route:Router) {
    }
 
   showImage(urlImage){
@@ -38,20 +42,45 @@ export class ProductDetailComponent implements OnInit {
     this.cartService.addToCart(product,quantity);
   }
 
+  onChange(productName, param){
+    this.productSub.unsubscribe();
+    this.relatedSub.unsubscribe();
+
+    this.relatedSub=this.productService.getSuggestedProducts(this.param).subscribe(products=>
+      {this.relatedProducts=products
+      console.log(this.relatedProducts);});
+
+    this.productSub=this.productService.getProduct(productName).subscribe({next:product=>{
+      this.product=product[0];
+      this.currentImageUrl=this.product.urlImage1;
+      this.careinstructions=this.product.careinstructions.split("\n", 4);
+      this.productspecs=this.product.productspecs.split("\n");
+    }});
+    this.route.navigate(['/products/p', productName, param]);
+  }
+
   ngOnInit(): void {
 
-    let name = this.route.snapshot.paramMap.get('name');
+    let name = this.activatedRoute.snapshot.paramMap.get('name');
+    this.param= this.activatedRoute.snapshot.paramMap.get('option');
+
+    if (this.param=="") this.param="all";
+    
+    this.relatedSub=this.productService.getSuggestedProducts(this.param).subscribe(products=>
+      {this.relatedProducts=products
+      console.log(this.relatedProducts);});
+    
 
     this.productSub=this.productService.getProduct(name).subscribe({next:product=>{
       this.product=product[0];
       this.currentImageUrl=this.product.urlImage1;
       this.careinstructions=this.product.careinstructions.split("\n", 4);
       this.productspecs=this.product.productspecs.split("\n");
-
     }}); 
   }
 
   ngOnDestroy(){
     this.productSub.unsubscribe();
+    this.relatedSub.unsubscribe();
   }
 }

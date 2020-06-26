@@ -39,10 +39,16 @@ export class UsersComponent implements OnInit {
       map(user=>user)
     )
     .subscribe(user=>{
+      console.log(user, "from users");
       if(user!='e') {this.user=user;
         this.subOrders=this.orders.getOrdersByUser(this.userUid).subscribe(orders=>
           {
-          this.userOrders=orders;}); 
+          if(orders.length){
+            this.userOrders=orders;
+          }
+          else this.userOrders==null;
+          
+          }); 
       }
       else
       this.user=null;

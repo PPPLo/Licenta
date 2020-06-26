@@ -74,7 +74,7 @@
                 <mat-tab-group  animationDuration="0ms">
                     <mat-tab label="Detalii produs" >
                         <div class="details-content" >
-                            <ul class="details" *ngFor='let specs of productspecs '>
+                            <ul  *ngFor='let specs of productspecs '>
                             <li *ngIf=' specs.length!==0 && specs!=="" '>{{specs}}</li>
                             </ul>
                         </div>
@@ -118,14 +118,17 @@
             <div class="hr-sect"><p class="text-title">Produse sugerate</p></div>
         </div>
 
-        <div class="related-products" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start">
-            <div class="related-item" fxFlex="0 0 calc(25% -20px)">
-            </div>
-            <div class="related-item" fxFlex="0 0 calc(25% -20px)">
-            </div>
-            <div class="related-item" fxFlex="0 0 calc(25% -20px)">
-            </div>
-            <div class="related-item" fxFlex="0 0 calc(25% -20px)">
+        <div class="related-products" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start" *ngIf="relatedProducts && relatedProducts.length==4">
+            <div class="related-item" fxFlex="0 0 calc(25% -20px)" *ngFor="let products of relatedProducts">
+                <a  class="related-p-link" (click)="onChange(products.name, param )">
+                    <div class="rel-product">
+                        <img class="image"  [src]="products.urlImage1" width=100% heigth=100%>
+                        <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                            <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products.name}}</div>
+                            <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products.price}}  RON</div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
 

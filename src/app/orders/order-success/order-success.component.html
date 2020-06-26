@@ -1,0 +1,11 @@
+<div class="page-wrapper">
+    <div class="content-wrapper" fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="space-between start">
+        <div class="text-message">
+            <p class="order-message" *ngIf="orderId"> Comanda cu id-ul #{{orderId}} a fost înregistrată!</p>
+            <p class="order-message" *ngIf="!orderId"> Comanda a eșuat!</p>
+        </div>
+        <div class="item-button"> 
+            <a class="btn add-button btn-grey" (click)=onContinueShopping()> CONTINUĂ CUMPĂRĂTURILE</a>
+        </div>
+    </div>
+</div>

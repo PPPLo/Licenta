@@ -10,7 +10,7 @@
                         <a class="btn add-button btn-grey" (click)=onContinueShopping()> CONTINUĂ CUMPĂRĂTURILE</a>
                     </div>
                     <div class="flex-item-button" *ngIf="!emptyCartFlag"> 
-                        <a class="btn add-button" (click)=onCheckoutCart()> CĂTRE FINALIZAREA COMENZII</a>
+                        <a class="btn add-button" [routerLink] = "['/orders']"> CĂTRE FINALIZAREA COMENZII</a>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
          </div>        
                 <div class="flex-container-button" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="end start">
                     <div class="flex-item-button"> 
-                        <a class="btn add-button" (click)=onCheckoutCart()> CĂTRE FINALIZAREA COMENZII</a>
+                        <a class="btn add-button" [routerLink] = "['/orders']"> CĂTRE FINALIZAREA COMENZII</a>
                     </div>
                 </div>        
         </div> 

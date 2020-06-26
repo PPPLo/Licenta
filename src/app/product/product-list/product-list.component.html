@@ -8,19 +8,15 @@
                 <div class="left-info" fxFlex="1 1 calc(25% -15px)" fxFlex.xs="0 0 100%">
                     <div class="left-selection-wrapper">
                         <div class="category-title">
-                            <h1>Plant Category Title </h1>
+                            <h1>{{category | uppercase}} </h1>
                         </div>
                         <div class="description-container show more">
                             <div>
                                 <p class="pb-0 description mb-0 mb-md-4">
-                                    With so many plants online to choose from and grow with,
-                                    it’s hard to pick just one for plant delivery! From bamboo to 
-                                    herb gardens to large indoor plants -- each one is ready to fit 
-                                    in with your (or a friend’s) personality, space or occasion.
+                                    Cu o colecție atât de mare de plante, este greu de ales ! De la plante mini la
+                                    cele mai mari și bogate plante - fiecare este gata să se potrivească
+                                    cu personalitatea, spațiul sau momentul tău special. (sau a unui prieten).
                                 </p>
-                                <div class="read-more">
-                                    Citește mai mult >>
-                                </div>
                             </div>
                          </div>
                         <div class="sort-options options">
@@ -64,7 +60,7 @@
                 <div class="product-list" [style.height.px]='rowHeight' fxFlex="1 1 calc(75% -15px)"  fxFlex.xs="0 0 100%">              
                     <div class="cardList" fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="left top" fxLayout.xs="column">
                         <ng-container *ngFor="let products of filteredProducts" >     
-                            <mat-card class="cardListItem"  [routerLink] = "['/products/p', products.name]" fxFlex="0 1 calc(33% -15px)" fxFlex.xs="0 0 100%"  >
+                            <mat-card class="cardListItem"  [routerLink] = "['/products/p', products.name, categoryParam]" fxFlex="0 1 calc(33% -15px)" fxFlex.xs="0 0 100%"  >
                                 <img class="image" mat-card-image [src]="products.urlImage1">
                                 <mat-card-content  fxLayout="row" fxLayoutAlign="space-between center"  >
                                     <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products.name}}</div>

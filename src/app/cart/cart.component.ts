@@ -52,6 +52,8 @@ export class CartComponent implements OnInit {
   onContinueShopping(){
     this.route.navigate(['/welcome']);
   }
+
+  /*
   onCheckoutCart(){
 
     if(!this.user){
@@ -62,6 +64,7 @@ export class CartComponent implements OnInit {
     this.route.navigate(['/orders']);
     }
   }
+  */
 
   onChange(value,product)
   {
@@ -76,7 +79,7 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loginSub=this.loginService.getCurrentUser().subscribe(user=>this.user=user);
+    this.loginSub=this.loginService.getCurrentUser().subscribe(user=>{this.user=user; console.log(this.user)});
     this.cartSub=this.cartService.getListItemsShoppingCartMapProducts().subscribe(products=>{
       if(!products) this.emptyCartFlag=true;
       else{ 

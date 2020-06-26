@@ -67,15 +67,15 @@ export class LoginService implements CanActivate {
 
    canActivate():Observable<boolean>
    {
+     console.log("can activate");
     return this.login.authState.pipe(map(user=>{if(user) return true
                                                 else
                                                 {
                                                   this.router.navigate(['/login']);
-                                                  console.log("can't activate");
+                                                  console.log("can't activate login");
                                                   return false;
                                                 }}))
    }
-
    getLoginResults (): boolean{
      return this.loginStatus;
    }

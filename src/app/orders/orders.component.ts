@@ -45,8 +45,6 @@ export class OrdersComponent implements OnInit {
 
   orderDeliveryInfoExistsFlag:boolean;
 
-  orderFlag:boolean = false;
-
   constructor(private cartService: CartService,
               private userService: UsersService,
               private loginService: LoginService,
@@ -61,9 +59,6 @@ export class OrdersComponent implements OnInit {
       {this.loggedUser=user;
         if (user.deliveryInfo) this.orderDeliveryInfoExistsFlag=true;
         else this.orderDeliveryInfoExistsFlag = false;
-        console.log(this.loggedUser);
-        console.log(this.loggedUser.email);
-        console.log(this.loggedUser.deliveryInfo.address);
       })
   }
 
@@ -160,12 +155,14 @@ export class OrdersComponent implements OnInit {
       status:"În pregătire"
     }
 
-    let orderResult:any= await this.orderService.createOrder(order);
+    let orderResult:any;
+    
+
+    orderResult=await this.orderService.createOrder(order);
 
     this.cartService.clearShpoppingCart();
-
-    this.orderFlag=true;
-
+    console.log(orderResult.key);
+    this.router.navigate(['/order-status', orderResult.key]);
   }
   }
 

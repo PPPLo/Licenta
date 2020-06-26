@@ -14,7 +14,7 @@
             <p>Căutarea dvs. pentru {{listFilter}} nu a returnat nici un rezultat. </p>
         </div>
         <ng-container *ngFor="let products of filteredProducts" >     
-            <mat-card class="cardListItem"  [routerLink] = "['/products/p', products.name]" fxFlex="0 1 calc(25% -15px)" fxFlex.xs="0 0 100%"  >
+            <mat-card class="cardListItem"  [routerLink] = "['/products/p', products.name, '']" fxFlex="0 1 calc(25% -15px)" fxFlex.xs="0 0 100%"  >
                 <img class="image" mat-card-image [src]="products.urlImage1">
                 <mat-card-content  fxLayout="row" fxLayoutAlign="space-between center"  >
                     <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products.name}}</div>
