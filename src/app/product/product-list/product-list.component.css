@@ -51,7 +51,6 @@ li{
     margin: 8px 0px;
     content: "";
     flex-grow: 1;
-    /*background: rgba(0, 0, 0, 0.35);*/
     background-image: linear-gradient(90deg,#000 100%,hsla(0,0%,100%,0) 0);
     background-position: bottom;
     background-size: 5px 5px;
@@ -152,4 +151,47 @@ ul{
 .link-detail{
     padding-left:10px;
 }
+
+.text-container{
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    position:relative;
+    top:10px;
+    text-align:center;
+    margin-top:0;
+  }
+
+  .our-story{
+    font-size:0.8rem;
+    text-align:center;
+    padding:25px;
+
+}
+
+.hr {
+    border-top: 1px solid black;
+    margin:0;
+  }
+
+  .hr-sect {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgba(0, 0, 0,1);
+    margin: 8px 0px;
+  }
+  
+  .hr-sect::before,
+  .hr-sect::after {
+    content: "";
+    flex-grow: 1;
+    background-image: linear-gradient(90deg,#000 30%,hsla(0,0%,100%,0) 0);
+    background-position: bottom;
+    background-size: 5px 5px;
+    background-repeat: repeat-x;
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px 8px;
+  }
 

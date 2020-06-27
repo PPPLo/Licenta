@@ -63,7 +63,6 @@
     margin-top:13px;
     text-align: center;
     padding-bottom:30px;
-    font-weight: bold;
     margin-bottom:0px;
   }
 
@@ -112,7 +111,6 @@
 }
 
 .details-content{
-    height: 200px;
 }
 
 .plant-quantity{
@@ -203,6 +201,7 @@
     align-items: center;
     color: rgba(0, 0, 0,1);
     margin: 8px 0px;
+    margin-top:20px;
   }
   
   .hr-sect::before,
@@ -236,7 +235,6 @@
       font-size:0.8rem;
       text-align:center;
       padding:25px;
-
   }
 
   .comment{
@@ -278,6 +276,9 @@
     color:black;
  }
 
+ .related-products{
+     margin-top:20px;
+ }
 
 
 

@@ -53,28 +53,12 @@ export class CartComponent implements OnInit {
     this.route.navigate(['/welcome']);
   }
 
-  /*
-  onCheckoutCart(){
-
-    if(!this.user){
-      //implement notification
-      this.route.navigate(['/login']);
-    }
-    else{
-    this.route.navigate(['/orders']);
-    }
-  }
-  */
-
   onChange(value,product)
   {
-    console.log(value);
-    console.log(product);
     this.cartService.updateNrOfItems(product,value);
   }
 
   onDelete(product){
-    console.log('on delete');
     this.cartService.deleteProductFromShoppingCart(product.key);
   }
 
@@ -91,5 +75,10 @@ export class CartComponent implements OnInit {
       }
       }})
     
+  }
+
+  ngOnDestroy(): void {
+    this.loginSub.unsubscribe();
+    this.cartSub.unsubscribe();
   }
 }

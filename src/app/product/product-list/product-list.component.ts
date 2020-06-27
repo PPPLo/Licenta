@@ -134,7 +134,6 @@ export class ProductListComponent implements OnInit {
   ngOnDestroy(): void {
     this.paramOption.unsubscribe();
     this.productListChanges.unsubscribe();
-    console.log("unsubscribed");
   } 
 }    
 

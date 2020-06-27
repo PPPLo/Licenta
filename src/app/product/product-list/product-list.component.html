@@ -10,7 +10,7 @@
                         <div class="category-title">
                             <h1>{{category | uppercase}} </h1>
                         </div>
-                        <div class="description-container show more">
+                        <div class="description-container">
                             <div>
                                 <p class="pb-0 description mb-0 mb-md-4">
                                     Cu o colecție atât de mare de plante, este greu de ales ! De la plante mini la
@@ -20,9 +20,9 @@
                             </div>
                          </div>
                         <div class="sort-options options">
-                            <div class="hr-sect"></div>
+                            <div class="hr"></div>
                             <h3>Sortare</h3>
-                            <div class="hr-sect"></div>
+                            <div class="hr"></div>
                             <mat-radio-group class="radio-group" aria-label="Select an option" [(ngModel)]="sortOption" (change)="sortProducts()">
                                 <mat-radio-button class="radio-button-first" value="atoz" >Nume: A la Z</mat-radio-button>
                                 <mat-radio-button class="radio-button-first" value="ztoa">Nume: Z la A</mat-radio-button>
@@ -32,9 +32,9 @@
 
                         </div>
                         <div class="price-options options">
-                            <div class="hr-sect"></div>
+                            <div class="hr"></div>
                             <h3>Preț</h3>
-                            <div class="hr-sect"></div>
+                            <div class="hr"></div>
                             <mat-radio-group class="radio-group" aria-label="Select an option" [(ngModel)]="priceOption" (change)="sortProductsByPrice()">
                                 <mat-radio-button class="radio-button-second" [value]="1">Sub 50 RON</mat-radio-button>
                                 <mat-radio-button class="radio-button-second" [value]="2">50 RON - 100 RON</mat-radio-button>
@@ -70,6 +70,17 @@
                         </ng-container>
                     </div>
                 </div>
+                <div class="text-container">
+                    <div class="hr-sect"><p class="text-title">Povestea noastră</p></div>
+                </div>
+                <div class="our-story">
+                    <p>Bună! Suntem planteria.ro, o echipă dornică de a livra fericire și a ne împărtăși iubirea față de plante. Echipa noastră este tânără dar cu experiență în aprovizionarea plantelor și este mereu în căutarea celor mai noi plante și tendințe.<br><br>
+        
+                        Colaborăm cu cultivatorii din toată Europa pentru a aduna o mare varietate de plante proaspete și frumoase, de la standarde clasice până la favoare în tendințe, expediere direct din sera noastră pentru a ajunge la ușa ta. Avem soiuri selectate manual pentru a ne decora spațiile de locuit și de muncă și pentru a ne antrena buna dispoziție.<br><br>
+                        
+                        Scopul nostru este de a ajuta la răspândirea bucuriei plantelor și de a face experiența tuturor să fie una pozitivă. Știm că unele plante și medii din locuință pot fi dificile (salut dulap de birou, despre tine vorbim!), Dar nu vă faceți griji. Suntem aici pentru a ajuta la demitificarea experienței plantelor și a vă face o bucurie. Gata. Am stabilit. Se dezvolta!
+                </div>
+        
         </div>
     </div>
 </div>

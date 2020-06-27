@@ -48,14 +48,14 @@
 }
 
 .welcome-text-second{
-  width:250px;
+  width:400px;
   height:30px;
   font-family: 'Anton', sans-serif;
-  font-size: 20px;
+  font-size: 30px;
   margin:auto;
   position:relative;
-  top:150px;
-  left:-45px;
+  top:45px;
+  left:0px;
 }
 
 .welcome-button{
@@ -65,8 +65,8 @@
   font-family: 'Anton', sans-serif;
   border-radius: 0 !important;
   position:relative;
-  top:200px;
-  left:310px;
+  top:110px;
+  left:280px;
 }
 
 .welcome-categories-wrapper {

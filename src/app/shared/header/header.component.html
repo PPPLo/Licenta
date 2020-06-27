@@ -1,7 +1,7 @@
 
     <div class="navbarwrapper">
     <nav class="navbar nav-fill navbar-expand-lg sticky-top navbar-light bg-light">
-        <a class = "brand"  [routerLink]="['/welcome']" > <img src="../assets/Logo/logo.PNG" width="40" height="40"><span id="CompaName">LOGO</span></a>       
+        <a class = "brand"  [routerLink]="['/welcome']" ><span id="CompaName">planteria<span id="brand-small">.ro</span></span></a>       
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,7 +46,7 @@
           
                 <li class="nav-item dropdown dmenu" dropdown>
                   <a dropdownToggle role="button" class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" >
-                  DUPĂ MARIME
+                  DUPĂ MĂRIME
                   </a>
                     <ul *dropdownMenu class="dropdown-menu sm-menu">
                       <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'large']">Plante Mari</a></li>
@@ -81,7 +81,7 @@
                   <a  *ngIf="!user" [routerLink] = "['/login']" class="icon"> 
                     <mat-icon svgIcon="user-icon" ></mat-icon>
                   </a> 
-                  <a *ngIf="user && !user.isAdmin" [routerLink] = "['/profile']" class="icon"> 
+                  <a *ngIf="user" [routerLink] = "['/profile']" class="icon"> 
                     <mat-icon svgIcon="user-icon" ></mat-icon>
                   </a>
                 </div>        
@@ -89,7 +89,7 @@
             <li class="nav-item" style="margin:auto">
               <div class="nav-link">
                 <a routerLink="/cart" class="icon">
-                  <mat-icon svgIcon="cart-icon" matBadge={{cartItemsNumber}} matBadgeSize="small" matBadgePosition="below" matBadgeOverlap="true"  ></mat-icon>
+                  <mat-icon svgIcon="cart-icon" matBadge={{cartItemsNumber}} matBadgeSize="small" matBadgePosition="below" matBadgeOverlap="true"></mat-icon>
                 </a>
               </div>
             </li>
