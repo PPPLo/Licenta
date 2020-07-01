@@ -29,10 +29,19 @@
                         </div>    
                         <div class="product-rating" fxLayout="row"  fxLayoutAlign="start none">
                             <div class="inline-element-rating">
-                                <app-rating> </app-rating> 
+                                <ng-container *ngIf="product.reviewCount>0">
+                                    <app-rating [rating]= 'product.totalScore'> </app-rating> 
+                                </ng-container>
+                                <ng-container *ngIf="!product.reviewCount">
+                                    <app-rating [rating]= 'product.totalScore' style="color:rgba(0,0,0,0.3);"> </app-rating> 
+                                </ng-container>
                             </div>
                             <div class="inline-element-rating">
-                                <a class="go-to-reviews" [routerLink]='"."' [fragment]="link" fragment="contactTypes"><p>| {{product.numberofreviews}} 0 comentarii </p></a>
+                                <a class="go-to-reviews" [routerLink]='"."' [fragment]="link" fragment="contactTypes">
+                                    <p> <ng-container *ngIf="product.reviewCount>0"> {{product.totalScore | number : '1.2-2'}} | {{product.reviewCount}} comentarii </ng-container>
+                                        <ng-container *ngIf="!product.reviewCount" style="color:rgba(0,0,0,0.3)!important;">  | 0 comentarii </ng-container>
+                                    </p>
+                                </a>
                             </div>
                         </div>               
                         <div class="product-text">
@@ -46,8 +55,8 @@
                                 <p>Cantitate</p>
                             </div>
                             <div class="inline-element qty-selector" fxFlex="0 0 calc(65% -15px)">  
-                                    <select class="form-control form-control-sm" [(ngModel)]="nrOfItems">
-                                        <option value="1">1</option>
+                                    <select class="form-control form-control-sm" [(ngModel)]="nrOfItems" value="1"  >
+                                        <option value="1" selected="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -147,28 +156,25 @@
             <div class="hr-sect" [attr.id]='link'>Review-uri</div>
         </div>
         <div class="our-story">
-        <p>Nu există review-uri pentru acest produs!</p>
-        <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start"> 
-            <div class="total-rating-box" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start start">
-                <div class="numeric-rating-container">{{rating | number : '1.2-2'}}</div>
-                <div class= " star-rating-container">
-                    <app-rating [rating]= 'rating'> </app-rating>
-                </div>
-                <div class="nr-of-reviews-container">{{rating}}</div>
-            </div>
-            <div class="add-rating-box" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start start">
-                <p> Ai achiziționat această plantă?</p>
-                <a><p>Adaugă un review </p></a>              
+        <p *ngIf="product && !product.reviewCount">Nu există review-uri pentru acest produs!</p>
+        <div class="reviews-container" *ngIf="product" >
+            <div *ngFor="let rev of reviews" >
+                <mat-card class="card" >
+                    <mat-card-content>
+                        <div class="row">
+
+                            <app-rating [rating]= 'rev.rating'> </app-rating> 
+                           
+                        </div>
+                        <p class="reviewAuthor"> {{rev.userFirstname}} {{rev.userLastname}} <span class="reviewDate">{{rev.dateCreated}}</span></p>
+
+                        <div class="row">
+                            {{rev.comment}} 
+                        </div>
+                    </mat-card-content>
+                </mat-card>
             </div>
         </div>
-        <!--<div class="reviews-container" >
-            <div class="comment">
-                <app-rating> </app-rating>
-                Name - date
-                Comment
-
-            </div>
-            </div>
-        -->
+    
     </div>
 </div>

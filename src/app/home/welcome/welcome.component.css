@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
+.width-container{
+  width:100%;
+  margin:0px;
+  padding:0px;
+}
 .page-wrapper{
   width:100%;
   margin:0px;
@@ -163,12 +168,13 @@ width: 70%;
   margin-bottom:5px;
   padding:0;
   margin:0;
-  font-family: 'Anton', sans-serif;
+  /*font-family: 'Anton', sans-serif;*/
   color:black;
 }
 
 .price{ 
-  text-align:end;    
+  text-align:end;
+  font-weight: bold;    
 }
 
 a:link{
@@ -233,6 +239,8 @@ a:hover{
 
 .shopping-facilities-wrapper{
   background-color: rgba(122, 163, 127, 0.5);
+  padding:0px;
+  margin:0px;
 }
 
 .info-column h4{

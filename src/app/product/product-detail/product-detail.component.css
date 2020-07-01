@@ -105,15 +105,14 @@
     margin-bottom: 0px;
     overflow: hidden;
     text-overflow: ellipsis;
-    overflow:hidden;
     padding-top:10px;
     font-weight: 200!important;
+    
 }
 
 .details-content{
 }
 .description{
-    border:solid;
 }
 .plant-quantity{
     margin-top:0px;
@@ -286,6 +285,37 @@
      text-decoration: underline!important;
      cursor:pointer;
  }
+
+ .go-to-reviews:visited{
+    color:black!important;    
+}
+
+.go-to-reviews:link{
+    color:black;    
+}
+
+.reviewAuthor{
+    font-size:1.1em;
+    font-weight: bold;
+    padding:10px 25px;
+    text-align: left;
+
+}
+.reviewDate {
+    font-weight: normal;
+    font-size:0.8em;
+    padding-left:10px;
+}
+
+.card{
+    margin-bottom:20px;
+}
+
+.row{
+    font-weight: normal;
+    font-size:1.1em;
+    margin:10px 25px;
+}
 
 
   

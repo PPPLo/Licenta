@@ -16,7 +16,8 @@ export class RatingDialogComponent implements OnInit {
   notify = new EventEmitter<{rating:number, comment:string}>();
 
   constructor( public dialogRef: MatDialogRef<RatingDialogComponent>,
-                @Inject(MAT_DIALOG_DATA) public idCourse) { }
+                @Inject(MAT_DIALOG_DATA) public idCourse) {
+                 }
 
   ngOnInit(): void {
   }

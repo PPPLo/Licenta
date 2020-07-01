@@ -16,19 +16,21 @@ import { CartService } from 'src/app/cart/cart.service';
 export class ProductDetailComponent implements OnInit {
   product:any;
   products:any[];
-  retrieved_product:any;
   relatedProducts:any[];
 
   careinstructions:string[];
   nrOfItems:number;
   currentImageUrl:string;
   productspecs: string[];
+  reviews: any[];
+  key:any;
 
   productSub: Subscription;
   relatedSub: Subscription;
+  reviewSub: Subscription;
+
   param:string;
   link: string="Reviews";
-  rating:number = 4.25;
 
   constructor(private activatedRoute: ActivatedRoute,
     private productService:ProductService,
@@ -42,6 +44,7 @@ export class ProductDetailComponent implements OnInit {
 
   addProductToCart(product,quantity){
     this.cartService.addToCart(product,quantity);
+   
   }
 
   onChange(productName, param){
@@ -69,20 +72,30 @@ export class ProductDetailComponent implements OnInit {
     if (this.param=="") this.param="all";
     
     this.relatedSub=this.productService.getSuggestedProducts(this.param).subscribe(products=>
-      {this.relatedProducts=products
-      console.log(this.relatedProducts);});
-    
+      {
+        this.relatedProducts=products;
+      });
 
     this.productSub=this.productService.getProduct(name).subscribe({next:product=>{
       this.product=product[0];
+      this.key=product[0].key;
       this.currentImageUrl=this.product.urlImage1;
       this.careinstructions=this.product.careinstructions.split("\n", 4);
       this.productspecs=this.product.productspecs.split("\n");
+
+      this.reviewSub=this.productService.getProductReviews(this.key).subscribe(reviews=>
+        {this.reviews=reviews;
+          console.log(reviews, "this they are");
+        });
     }}); 
+
+    
   }
 
   ngOnDestroy(){
     this.productSub.unsubscribe();
     this.relatedSub.unsubscribe();
+    this.reviewSub.unsubscribe();
+    
   }
 }

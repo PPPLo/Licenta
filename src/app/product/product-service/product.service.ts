@@ -23,6 +23,20 @@ export class ProductService {
     )))
   }
 
+  getProductReviews( productId : string)
+  {
+    return this.db.list('/products/'+productId+'/reviews/')
+            .snapshotChanges()
+            .pipe(
+               map(products =>
+                      products.map(p => (
+                           {                               
+                             key: p.payload.key, ...(p.payload.val() as any)
+                           }
+                           ))))
+  }
+ 
+
   getProductsByNameSearch(){
     return this.db.list('products').snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}})
     )))
@@ -121,7 +135,7 @@ export class ProductService {
           this.db.object('/products/' + productId ).update({reviewCount:newReviewCount, totalScore:totalScore});
 
       }})
-      this.db.list('/products/' + productId + '/reviews').push(review);
+      this.db.list('/products/' + productId + '/reviews').push(review).key;
     }
     
 }

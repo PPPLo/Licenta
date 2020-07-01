@@ -58,6 +58,7 @@ export class UsersComponent implements OnInit {
           {
           if(orders.length){
             this.userOrders=orders;
+            console.log(this.userOrders[0].items);
           }
           else this.userOrders==null;
           
