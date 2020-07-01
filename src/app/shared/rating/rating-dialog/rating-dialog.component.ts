@@ -31,4 +31,8 @@ export class RatingDialogComponent implements OnInit {
     this.notify.emit({rating:this.selectedValue,comment:this.commentValue});
     this.dialogRef.close();
   }
+
+  onClose(){
+    this.dialogRef.close();
+  }
 }

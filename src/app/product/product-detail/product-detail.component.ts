@@ -87,9 +87,11 @@ export class ProductDetailComponent implements OnInit {
         {this.reviews=reviews;
           console.log(reviews, "this they are");
         });
-    }}); 
+    }});    
+  }
 
-    
+  onClickToBack(){
+    this.route.navigate(['/products/c', this.param]);
   }
 
   ngOnDestroy(){

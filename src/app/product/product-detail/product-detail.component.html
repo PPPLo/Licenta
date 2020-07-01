@@ -1,6 +1,9 @@
 
 <div class="page-wrapper">
     <div class="content-wrapper">
+        <div class="row-link" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="space-between start">
+            <div class="link-detail"><a class="home-link" (click)="onClickToBack()"><< Înapoi</a></div>
+        </div>
         <div class="product-view" *ngIf='product'>
             <div class="product-detail" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="center none" fxLayout.xs="column" >
                 <div class='photo-galery' fxFlex="0 0 calc(15% -15px)" fxFlex.xs="0 0 0">

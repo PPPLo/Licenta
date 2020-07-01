@@ -317,5 +317,25 @@
     margin:10px 25px;
 }
 
+.row-link{
+    padding-top:5px;
+    padding-bottom:5px;
+    font-size:0.7rem;
+}
+
+.link-detail{
+    padding-left:10px;
+}
+
+.home-link{
+    font-weight: bold;
+    text-decoration: underline;
+ }
+ 
+ .home-link:hover{
+     text-decoration: underline;
+     cursor:pointer;
+ }
+
 
   
