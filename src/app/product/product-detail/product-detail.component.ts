@@ -1,9 +1,10 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product-service/product.service';
 import { ViewEncapsulation} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/cart/cart.service';
+
 
 @Component({
   selector: 'app-product-detail',
@@ -26,7 +27,8 @@ export class ProductDetailComponent implements OnInit {
   productSub: Subscription;
   relatedSub: Subscription;
   param:string;
- 
+  link: string="Reviews";
+  rating:number = 4.25;
 
   constructor(private activatedRoute: ActivatedRoute,
     private productService:ProductService,

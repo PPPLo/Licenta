@@ -20,8 +20,11 @@
     font-size:0.8rem;
     text-align: justify;
     padding:15px;
+    padding-bottom: 0px;
 }
 
+.description{
+}
 .row-link{
     width:100%;
     height: 20px;
@@ -42,7 +45,7 @@ li{
     margin: 0 auto;
     max-width:960px;
 }
-
+/*
 .hr-sect {
     display: flex;
     flex-basis: 100%;
@@ -59,7 +62,7 @@ li{
     line-height: 0px;
     margin: 0px 8px;
   }
-
+*/
 .left-selection-wrapper h3{
     font-size: 1rem;
     padding:5px 20px;
@@ -152,14 +155,6 @@ ul{
     padding-left:10px;
 }
 
-.text-container{
-    font-family: 'Anton', sans-serif;
-    font-size: 20px;
-    position:relative;
-    top:10px;
-    text-align:center;
-    margin-top:0;
-  }
 
   .our-story{
     font-size:0.8rem;
@@ -179,6 +174,7 @@ ul{
     align-items: center;
     color: rgba(0, 0, 0,1);
     margin: 8px 0px;
+    margin-top:20px;
   }
   
   .hr-sect::before,
@@ -193,5 +189,17 @@ ul{
     font-size: 0px;
     line-height: 0px;
     margin: 0px 8px;
+  }
+
+  .text-container{
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    position:relative;
+    top:10px;
+    text-align:center;
+    margin-top:0;
+  }
+  .nr-of-items{
+      margin-right:25px;
   }
 

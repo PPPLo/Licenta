@@ -18,7 +18,7 @@
                   </a>
                     <ul *dropdownMenu class="dropdown-menu sm-menu">
                       <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'all']" >Toate Plantele</a></li>
-                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'vining']" >Plante curgatoare</a></li>
+                      <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'vining']" >Plante curgătoare</a></li>
                       <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'airpurifying']" >Plante purificatoare de aer</a></li>
                       <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'lowlight']" >Plante pentru lumină redusă</a></li>
                       <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'easycare']" >Plante ușor de îngrijit</a></li>
@@ -89,7 +89,8 @@
             <li class="nav-item" style="margin:auto">
               <div class="nav-link">
                 <a routerLink="/cart" class="icon">
-                  <mat-icon svgIcon="cart-icon" matBadge={{cartItemsNumber}} matBadgeSize="small" matBadgePosition="below" matBadgeOverlap="true"></mat-icon>
+                  <mat-icon svgIcon="cart-icon"  *ngIf="cartItemsNumber==0" ></mat-icon>
+                  <mat-icon svgIcon="cart-icon" matBadge={{cartItemsNumber}} matBadgeSize="small" matBadgePosition="below"  matBadgeColor="accent" matBadgeOverlap="true" *ngIf="cartItemsNumber!==0" ></mat-icon>
                 </a>
               </div>
             </li>

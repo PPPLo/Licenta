@@ -98,6 +98,7 @@ export class ProductListComponent implements OnInit {
     {
     this.filteredProducts.sort((a,b) => b.price-a.price);
     }
+    this.nrOfItems = this.filteredProducts.length;
 
 
   }
@@ -127,6 +128,7 @@ export class ProductListComponent implements OnInit {
     if (this.priceOption=="4"){
       this.filteredProducts = this.filteredProducts.filter((product:any) => product.price>200 );
     }
+    this.nrOfItems = this.filteredProducts.length;
     console.log(this.priceOption);
 
   }

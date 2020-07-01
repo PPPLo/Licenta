@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { switchMap, map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { OrdersService } from '../orders/orders.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { RatingDialogComponent } from '../shared/rating/rating-dialog/rating-dialog.component';
+import { ProductService } from '../product/product-service/product.service';
 
 @Component({
   selector: 'app-users',
@@ -20,13 +23,23 @@ export class UsersComponent implements OnInit {
   userOrderItems:any[];
   subUser: Subscription;
   subOrders: Subscription;
+  subProduct: Subscription;
 
   viewOrdersFlag:boolean=true;
   orderKey:string;
 
+  productReview:number;
+  productComment:string;
+  productReviewCount:number;
+  productTotalScore: number;
+  reviewProduct:any;
+  review : any;
+
   constructor(private login: LoginService,
               private route:Router,
-              private orders:OrdersService) { }
+              private orders:OrdersService,
+              private serviceDialog: MatDialog,
+              private productService: ProductService) { }
 
   ngOnInit(): void {
     this.subUser=this.login.getCurrentUser()
@@ -71,5 +84,45 @@ export class UsersComponent implements OnInit {
     this.subOrders.unsubscribe();
   }
 
+  evaluateProduct(name, productId)
+  {
+    const dialogRef = this.serviceDialog.open(RatingDialogComponent,{
+      width:'650px',
+    });
 
+     const subscribeDialog = dialogRef.componentInstance.notify.subscribe((data) => {
+        this.productReview=data.rating;
+        this.productComment=data.comment; 
+        let i=0;
+        console.log(i++, "i");
+          this.review={
+          dateCreated:this.calculateDate(),
+          userFirstname:this.user.firstname,
+          userLastname:this.user.lastname,
+          userKey:this.user.id,
+          rating:this.productReview,
+          comment:this.productComment,
+        }       
+      });
+      
+      dialogRef.afterClosed().subscribe(result => {  
+          
+      subscribeDialog.unsubscribe();
+      console.log(this.review, 2);
+      this.productService.addProductReview(productId ,name,  this.review);  
+    });
+}
+
+calculateDate(){
+  var d = new Date();
+  var curr_date = d.getDate();
+  var curr_month = d.getMonth();
+  var curr_year = d.getFullYear()
+  var months = new Array("Ian", "Feb", "Mar",
+    "Apr", "Mai", "Iun", "Iul", "Aug", "Sep",
+    "Oct", "Nov", "Dec"); 
+
+  return  curr_date + "-" + months[curr_month] + "-" + curr_year ;
+
+}
 }

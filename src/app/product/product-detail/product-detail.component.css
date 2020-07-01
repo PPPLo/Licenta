@@ -112,7 +112,9 @@
 
 .details-content{
 }
-
+.description{
+    border:solid;
+}
 .plant-quantity{
     margin-top:0px;
     font-size: 0.8rem;
@@ -280,6 +282,10 @@
      margin-top:20px;
  }
 
+ .go-to-reviews:hover{
+     text-decoration: underline!important;
+     cursor:pointer;
+ }
 
 
   

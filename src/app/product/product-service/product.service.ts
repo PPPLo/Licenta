@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { AngularFireDatabase} from '@angular/fire/database';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class ProductService {
   }
 
   getProduct( name : string){
-    return this.db.list('products',list => list.orderByChild("name").equalTo(name)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}})
+    return this.db.list('products',list => list.orderByChild("name").equalTo(name)).snapshotChanges().pipe(take(1), map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}})
     )))
   }
 
@@ -96,4 +96,32 @@ export class ProductService {
       return this.db.list('products', list => list.orderByChild("size").equalTo(option).limitToLast(4)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}}))));
     }
   }
+
+  addProductReview(productId : string, name:string,  review: {
+                                                              dateCreated:string,
+                                                              userFirstname:string,
+                                                              userLastname:string,
+                                                              userKey:string,
+                                                              rating:number,
+                                                              comment:string
+                                                              } )
+  {   
+    this.getProduct(name).subscribe(product=> 
+      {  
+        let productDb : any = product[0];
+
+        if (!productDb.totalScore) {
+
+          this.db.object('/products/' + productId ).update({reviewCount:1, totalScore:review.rating});
+        }
+        else{
+          let newReviewCount = productDb.reviewCount+1;
+          let totalScore: number = (productDb.totalScore*productDb.reviewCount+review.rating)/newReviewCount;
+      
+          this.db.object('/products/' + productId ).update({reviewCount:newReviewCount, totalScore:totalScore});
+
+      }})
+      this.db.list('/products/' + productId + '/reviews').push(review);
+    }
+    
 }

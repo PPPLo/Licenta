@@ -32,7 +32,7 @@
                                 <app-rating> </app-rating> 
                             </div>
                             <div class="inline-element-rating">
-                                <p>| {{product.numberofreviews}} 25 comentarii <p>
+                                <a class="go-to-reviews" [routerLink]='"."' [fragment]="link" fragment="contactTypes"><p>| {{product.numberofreviews}} 0 comentarii </p></a>
                             </div>
                         </div>               
                         <div class="product-text">
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="product-information">
-                <mat-tab-group  animationDuration="0ms">
+                <mat-tab-group  animationDuration="0ms" color="accent">
                     <mat-tab label="Detalii produs" >
                         <div class="details-content" >
                             <ul  *ngFor='let specs of productspecs '>
@@ -144,22 +144,31 @@
         </div>
 
         <div class="text-container">
-            <div class="hr-sect">Review-uri</div>
+            <div class="hr-sect" [attr.id]='link'>Review-uri</div>
         </div>
-
-        <div class="reviews-container" >
+        <div class="our-story">
+        <p>Nu există review-uri pentru acest produs!</p>
+        <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start"> 
+            <div class="total-rating-box" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start start">
+                <div class="numeric-rating-container">{{rating | number : '1.2-2'}}</div>
+                <div class= " star-rating-container">
+                    <app-rating [rating]= 'rating'> </app-rating>
+                </div>
+                <div class="nr-of-reviews-container">{{rating}}</div>
+            </div>
+            <div class="add-rating-box" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start start">
+                <p> Ai achiziționat această plantă?</p>
+                <a><p>Adaugă un review </p></a>              
+            </div>
+        </div>
+        <!--<div class="reviews-container" >
             <div class="comment">
                 <app-rating> </app-rating>
                 Name - date
                 Comment
 
             </div>
-        </div>
-
-
-
-        
-        
-
+            </div>
+        -->
     </div>
 </div>

@@ -14,6 +14,9 @@ import { AppRoutingModule } from '../app-routing.module';
 import { RatingComponent } from './rating/rating.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { SwiperComponent } from './swiper/swiper.component';
+import { RatingDialogComponent } from './rating/rating-dialog/rating-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -22,7 +25,8 @@ import { SwiperComponent } from './swiper/swiper.component';
     FooterComponent,
     CustomerServiceComponent,
     RatingComponent,
-    SwiperComponent
+    SwiperComponent,
+    RatingDialogComponent
   ],
   imports: [
     CommonModule,
@@ -32,8 +36,9 @@ import { SwiperComponent } from './swiper/swiper.component';
     NgbModule,
     AngularUiModule,
     AppRoutingModule,
-    NgxUsefulSwiperModule
-
+    NgxUsefulSwiperModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     HeaderComponent,
