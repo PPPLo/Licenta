@@ -4,6 +4,8 @@ import { ProductService } from '../product-service/product.service';
 import { ViewEncapsulation} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/cart/cart.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CartDialogComponent } from 'src/app/shared/cart-dialog/cart-dialog.component';
 
 
 @Component({
@@ -19,7 +21,7 @@ export class ProductDetailComponent implements OnInit {
   relatedProducts:any[];
 
   careinstructions:string[];
-  nrOfItems:number;
+  nrOfItems:string ="1";
   currentImageUrl:string;
   productspecs: string[];
   reviews: any[];
@@ -35,7 +37,8 @@ export class ProductDetailComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
     private productService:ProductService,
     private cartService: CartService,
-    private route:Router) {
+    private route:Router,
+    private serviceDialog: MatDialog) {
    }
 
   showImage(urlImage){
@@ -44,6 +47,13 @@ export class ProductDetailComponent implements OnInit {
 
   addProductToCart(product,quantity){
     this.cartService.addToCart(product,quantity);
+
+    const dialogRef = this.serviceDialog.open(CartDialogComponent,{
+      width:'650px',
+      data: {name: this.product.name, price: this.product.price, number:quantity, image:this.product.urlImage1}
+    });
+
+    
    
   }
 
@@ -85,7 +95,6 @@ export class ProductDetailComponent implements OnInit {
 
       this.reviewSub=this.productService.getProductReviews(this.key).subscribe(reviews=>
         {this.reviews=reviews;
-          console.log(reviews, "this they are");
         });
     }});    
   }

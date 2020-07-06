@@ -26,28 +26,18 @@
                     <div class="info-container " >
                         <div class="product-title">
                             <h1>{{product.name}}</h1>
-                        </div>
-                        <div class="product-title-botanical">
-                            <h2>{{product.botanicalname}}</h2>
-                        </div>    
-                        <div class="product-rating" fxLayout="row"  fxLayoutAlign="start none">
-                            <div class="inline-element-rating">
-                                <ng-container *ngIf="product.reviewCount>0">
-                                    <app-rating [rating]= 'product.totalScore'> </app-rating> 
-                                </ng-container>
-                                <ng-container *ngIf="!product.reviewCount">
-                                    <app-rating [rating]= 'product.totalScore' style="color:rgba(0,0,0,0.3);"> </app-rating> 
-                                </ng-container>
-                            </div>
+                        </div>                        
+                        <app-rating [rating]= 'product.totalScore' > </app-rating>  
+                        <div class="product-rating" fxLayout="row"  fxLayoutAlign="start none" >                                                                                          
                             <div class="inline-element-rating">
                                 <a class="go-to-reviews" [routerLink]='"."' [fragment]="link" fragment="contactTypes">
-                                    <p> <ng-container *ngIf="product.reviewCount>0"> {{product.totalScore | number : '1.2-2'}} | {{product.reviewCount}} comentarii </ng-container>
-                                        <ng-container *ngIf="!product.reviewCount" style="color:rgba(0,0,0,0.3)!important;">  | 0 comentarii </ng-container>
+                                    <p> <ng-container *ngIf="product.reviewCount>0"> {{product.totalScore | number : '1.2-2'}} | {{product.reviewCount}} <span *ngIf="product.reviewCount!==1">comentarii</span> <span *ngIf="product.reviewCount==1">comentariu</span> </ng-container>
+                                        <ng-container *ngIf="!product.reviewCount" style="color:rgba(0,0,0,0.3)!important;">  | 0 comentarii </ng-container> 
                                     </p>
                                 </a>
                             </div>
                         </div>               
-                        <div class="product-text">
+                        <div class="product-text" >
                             <p>{{product.productdetail}}</p>
                         </div>
                         <div class="product-price">
@@ -58,8 +48,8 @@
                                 <p>Cantitate</p>
                             </div>
                             <div class="inline-element qty-selector" fxFlex="0 0 calc(65% -15px)">  
-                                    <select class="form-control form-control-sm" [(ngModel)]="nrOfItems" value="1"  >
-                                        <option value="1" selected="1">1</option>
+                                    <select class="form-control form-control-sm" [(ngModel)]="nrOfItems" value="1" selected="1" >
+                                        <option value="1" >1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -130,7 +120,7 @@
             <div class="hr-sect"><p class="text-title">Produse sugerate</p></div>
         </div>
 
-        <div class="related-products" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start" *ngIf="relatedProducts && relatedProducts.length==4">
+        <div class="related-products" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start" *ngIf="relatedProducts">
             <div class="related-item" fxFlex="0 0 calc(25% -20px)" *ngFor="let products of relatedProducts">
                 <a  class="related-p-link" (click)="onChange(products.name, param )">
                     <div class="rel-product">
@@ -163,15 +153,15 @@
         <div class="reviews-container" *ngIf="product" >
             <div *ngFor="let rev of reviews" >
                 <mat-card class="card" >
-                    <mat-card-content>
-                        <div class="row">
-
-                            <app-rating [rating]= 'rev.rating'> </app-rating> 
+                    <mat-card-content style="margin-left:20px;">
+                        
+                            <app-rating [rating]= 'rev.rating' > </app-rating> 
+                        
+                        <div class="line">
                            
+                            <p class="reviewAuthor"> {{rev.userFirstname}} {{rev.userLastname}} <span class="reviewDate">{{rev.dateCreated}}</span></p>
                         </div>
-                        <p class="reviewAuthor"> {{rev.userFirstname}} {{rev.userLastname}} <span class="reviewDate">{{rev.dateCreated}}</span></p>
-
-                        <div class="row">
+                        <div class="line">
                             {{rev.comment}} 
                         </div>
                     </mat-card-content>

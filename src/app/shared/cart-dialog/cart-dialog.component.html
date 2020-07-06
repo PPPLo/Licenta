@@ -1,0 +1,31 @@
+<mat-card>
+    <a class="close" (click)='onClose()'></a>
+    <mat-card-title>
+        <p class="dialog-title">1 Item adăugat în coș!</p>
+    </mat-card-title>
+    <mat-card-content>
+        <div >
+            <div class="product-image" style="width:50%; margin-left:20px;"  >
+                <mat-card class="cardListItem" style="padding-bottom:0;">
+                    <img class="image" mat-card-image [src]="data.image" width=100% heigth=100% >
+                </mat-card>
+            </div>
+            <div class="product-details" style="width:50%;margin-left:20px;" >
+                <div class="product-name">
+                    {{data.name}}
+                </div>
+                <div class="product-price">
+                    {{data.price}} RON
+                </div>
+                <div class="product-quantity">
+                    {{data.number}} buc.
+                </div>
+            </div>
+        </div>
+        <div >
+                <a class="btn add-button dialog-btn" (click)="onClose()" style="width: 250px;"> Continuă cumpărăturile</a>
+                <a class="btn add-button dialog-btn" (click)="onGoToCart()" style="background: white; border: 1px solid black"> Vezi coș</a>      
+        </div>
+    </mat-card-content>
+</mat-card>
+

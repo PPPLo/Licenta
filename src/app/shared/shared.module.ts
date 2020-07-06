@@ -17,6 +17,7 @@ import { SwiperComponent } from './swiper/swiper.component';
 import { RatingDialogComponent } from './rating/rating-dialog/rating-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     CustomerServiceComponent,
     RatingComponent,
     SwiperComponent,
-    RatingDialogComponent
+    RatingDialogComponent,
+    CartDialogComponent
   ],
   imports: [
     CommonModule,

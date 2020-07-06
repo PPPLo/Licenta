@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
 .content-wrapper{
     margin-top:0px;
 }
@@ -90,10 +92,12 @@ ul{
 
 .price{
     font-weight: 600;
+    
 }
 .product-list{ 
     margin-top:0px;
     height: auto;  
+    font-family: 'Roboto', sans-serif!important;
 }
 
 .cardList{
@@ -128,10 +132,12 @@ ul{
      margin-bottom:5px;
      padding:0;
      margin:0;
+     font-family: 'Roboto', sans-serif!important;
  }
 
  .price{
     text-align: end;
+    font-family: 'Roboto', sans-serif!important;
 
  }
 .radio-group{

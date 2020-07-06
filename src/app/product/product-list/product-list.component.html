@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-list" [style.height.px]='rowHeight' fxFlex="1 1 calc(75% -15px)"  fxFlex.xs="0 0 100%">              
+                <div class="product-list"  fxFlex="1 1 calc(75% -15px)"  fxFlex.xs="0 0 100%">              
                     <div class="cardList" fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="left top" fxLayout.xs="column">
                         <p class="no-products-text" *ngIf="filteredProducts && !filteredProducts.length">Nu avem disponibile produse din această categorie!</p>
                         <ng-container *ngFor="let products of filteredProducts" >     
@@ -53,7 +53,7 @@
                                     <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products.price}}  RON</div>
                                 </mat-card-content>
                             </mat-card>
-                        </ng-container>
+                        </ng-container> 
                     </div>
                 </div>
         </div>

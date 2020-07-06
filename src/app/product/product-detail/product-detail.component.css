@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 .page-wrapper{
     margin-top:15px;
     margin-bottom:5px;
@@ -75,7 +76,7 @@
   .product-title h1{
       font-size: 1.2em;
       font-weight: bold;
-      margin-bottom:0px;
+      margin-bottom:5px;
       padding-bottom:0px;
   }
 
@@ -165,7 +166,7 @@
 
 .product-rating{
     font-size: small;
-    padding-top:10px;
+    padding-top:5px;
 }
 
 .inline-element-rating{
@@ -295,9 +296,9 @@
 }
 
 .reviewAuthor{
-    font-size:1.1em;
+    font-size:1.0em;
     font-weight: bold;
-    padding:10px 25px;
+    padding:0px 0px;
     text-align: left;
 
 }
@@ -311,10 +312,11 @@
     margin-bottom:20px;
 }
 
-.row{
+.line{
     font-weight: normal;
-    font-size:1.1em;
-    margin:10px 25px;
+    font-size:0.9em;
+    margin:10px 0px;
+    text-align:left;
 }
 
 .row-link{

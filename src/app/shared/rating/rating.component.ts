@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, OnChanges } from '@angular/core';
 import { $ } from 'protractor';
 
 @Component({
@@ -6,17 +6,12 @@ import { $ } from 'protractor';
   templateUrl: './rating.component.html',
   styleUrls: ['./rating.component.css']
 })
-export class RatingComponent implements OnInit {
+export class RatingComponent implements OnChanges {
 
   @Input() rating: number;
   starWidth:number;
 
-  @Output() notify: EventEmitter<number> = new EventEmitter<number>();
-  onClick():void{
-      this.notify.emit(this.rating);
-  }
-
-  ngOnInit():void{
+  ngOnChanges():void{
     console.log(this.rating);
       this.starWidth = this.rating * 75 /5;
   }
