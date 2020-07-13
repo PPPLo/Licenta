@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/cart/cart.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CartDialogComponent } from 'src/app/shared/cart-dialog/cart-dialog.component';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -38,7 +39,10 @@ export class ProductDetailComponent implements OnInit {
     private productService:ProductService,
     private cartService: CartService,
     private route:Router,
-    private serviceDialog: MatDialog) {
+    private serviceDialog: MatDialog,
+    config: NgbRatingConfig) {
+      config.max = 5;
+      config.readonly = true;
    }
 
   showImage(urlImage){

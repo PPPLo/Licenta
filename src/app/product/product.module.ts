@@ -11,6 +11,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ProductSearchComponent } from './product-search/product-search.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -26,12 +27,14 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FlexLayoutModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   exports:[
     ProductDetailComponent,
     ProductListComponent,
-    CommonModule
+    CommonModule,
+    NgbModule
   ],
   providers: []
 })

@@ -26,8 +26,13 @@
                     <div class="info-container " >
                         <div class="product-title">
                             <h1>{{product.name}}</h1>
-                        </div>                        
-                        <app-rating [rating]= 'product.totalScore' > </app-rating>  
+                        </div>  
+                        <ng-template #t let-fill="fill">
+                            <span class="star" [class.full]="fill === 100">
+                              <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                            </span>
+                          </ng-template>
+                        <ngb-rating [rate]='product.totalScore' [starTemplate]="t" ></ngb-rating>     
                         <div class="product-rating" fxLayout="row"  fxLayoutAlign="start none" >                                                                                          
                             <div class="inline-element-rating">
                                 <a class="go-to-reviews" [routerLink]='"."' [fragment]="link" fragment="contactTypes">
@@ -154,9 +159,14 @@
             <div *ngFor="let rev of reviews" >
                 <mat-card class="card" >
                     <mat-card-content style="margin-left:20px;">
-                        
-                            <app-rating [rating]= 'rev.rating' > </app-rating> 
-                        
+                        <div class="star-container">
+                            <ng-template #t let-fill="fill">
+                                <span class="star" [class.full]="fill === 100">
+                                  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                                </span>
+                              </ng-template>
+                            <ngb-rating [rate]='rev.rating' [starTemplate]="t"></ngb-rating>
+                        </div>             
                         <div class="line">
                            
                             <p class="reviewAuthor"> {{rev.userFirstname}} {{rev.userLastname}} <span class="reviewDate">{{rev.dateCreated}}</span></p>
