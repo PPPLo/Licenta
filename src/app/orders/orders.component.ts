@@ -4,13 +4,13 @@ import { LoginService } from '../login/login.service';
 import { Router } from '@angular/router';
 import { UsersService } from '../users/users.service';
 import { OrdersService } from './orders.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export interface IDeliveryInfo {
   firstname:string;
   lastname:string;
   address:string;
   location:string;
-  country:string;
   state:string;
   postalCode:number;
   phoneNumber:number;
@@ -43,13 +43,16 @@ export class OrdersComponent implements OnInit {
 
   deliveryOption:number = 1;
 
+  addressForm : FormGroup;
+
   orderDeliveryInfoExistsFlag:boolean;
 
   constructor(private cartService: CartService,
               private userService: UsersService,
               private loginService: LoginService,
               private orderService: OrdersService,
-              private router:Router) { }
+              private router:Router,
+              private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.cartService.getListItemsShoppingCartMapProducts().subscribe(products=>
@@ -60,6 +63,37 @@ export class OrdersComponent implements OnInit {
         if (user.deliveryInfo) this.orderDeliveryInfoExistsFlag=true;
         else this.orderDeliveryInfoExistsFlag = false;
       })
+
+    this.addressForm = this.fb.group({
+      firstname:[null, [Validators.required, Validators.maxLength(15)]],
+      lastname: [null, [Validators.required, Validators.maxLength(15)]],
+      address: [null, [Validators.required, Validators.maxLength(30)]],
+      location: [null, [Validators.required, Validators.maxLength(15)]],
+      state: [null, [Validators.required, Validators.maxLength(15)]],
+      postalCode: [null, [Validators.required, Validators.pattern('[0-9]{6}'), Validators.maxLength(6)]],
+      phoneNumber: [null, [Validators.required, Validators.pattern('[0-9]{10}'), Validators.maxLength(10)]]
+    });
+
+  }
+
+  onSubmitAddress(form){
+
+    let deliveryInfo: IDeliveryInfo = {
+      firstname:this.addressForm.controls.firstname.value,
+      lastname:this.addressForm.controls.lastname.value,
+      address:this.addressForm.controls.address.value,
+      location:this.addressForm.controls.location.value,
+      state:this.addressForm.controls.state.value,
+      postalCode:this.addressForm.controls.postalCode.value,
+      phoneNumber:this.addressForm.controls.phoneNumber.value
+    }
+
+    if (this.saveUserAddress){
+      this.userService.addDeliveryInformationToUser(this.loggedUser,deliveryInfo);
+    }
+
+    this.orderDeliveryInfoExistsFlag=true;
+
   }
 
   getTotalPrice(){
@@ -106,27 +140,6 @@ export class OrdersComponent implements OnInit {
   toggle(event){
     this.saveUserAddress=!this.saveUserAddress;
     console.log(this.saveUserAddress);
-  }
-
-  onGoToDelivery(){
-
-    let deliveryInfo: IDeliveryInfo = {firstname:this.firstname,
-      lastname:this.lastname,
-      address:this.address,
-      location:this.location,
-      country:this.country,
-      state:this.state,
-      postalCode:this.postalCode,
-      phoneNumber:this.phoneNumber}
-
-
-    console.log(deliveryInfo);
-    console.log(this.firstname);
-    if (this.saveUserAddress){
-      this.userService.addDeliveryInformationToUser(this.loggedUser,deliveryInfo);
-    }
-
-    this.orderDeliveryInfoExistsFlag=true;
   }
 
   onDeliveryOptionsEdit(){

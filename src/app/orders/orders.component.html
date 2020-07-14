@@ -11,56 +11,84 @@
                                     <a style="padding:20px" (click)="onAuthentification()">Autentificare + </a>
                                 </div>
                             </div>
-                            <div class="fields-container" fxLayout="row"  fxLayoutGap="30px" fxLayoutAlign="start start">
-                                <mat-form-field class="lastname-input" appearance="outline" color="accent" [style.width.px]=300>
-                                    <mat-label>Prenume</mat-label>
-                                    <input matInput type="text" required [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}">
+                            <form [formGroup]="addressForm" (ngSubmit)="onSubmitAddress(addressForm)">
+                                <div class="fields-container" fxLayout="row"  fxLayoutGap="30px" fxLayoutAlign="start start">
+                                    <mat-form-field class="lastname-input" appearance="outline" color="accent" [style.width.px]=300>
+                                        <mat-label>Prenume</mat-label>
+                                        <input matInput type="text" required formControlName="firstname" maxlength="20">
+                                        <mat-error *ngIf=" addressForm.get('firstname').invalid && ( addressForm.get('firstname').dirty ||  addressForm.get('firstname').touched)">
+                                            <span *ngIf=" addressForm.get('firstname').errors.required">Acest camp este obligatoriu!</span>
+                                            <span *ngIf=" addressForm.get('firstname').errors.maxlength">Nr. maxim de caractere admis este 20!</span>
+                                        </mat-error>
+                                    </mat-form-field>
+                    
+                                    <mat-form-field class="firstname-input" appearance="outline" color="accent" [style.width.px]=300>
+                                        <mat-label>Nume</mat-label>
+                                        <input matInput type="text" required formControlName="lastname" maxlength="20" >
+                                        <mat-error *ngIf=" addressForm.get('lastname').invalid && ( addressForm.get('lastname').dirty ||  addressForm.get('lastname').touched)">
+                                            <span *ngIf=" addressForm.get('lastname').errors.required">Acest camp este obligatoriu!</span>
+                                            <span *ngIf=" addressForm.get('lastname').errors.maxlength">Nr. maxim de caractere admis este 20!</span>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                
+                                <mat-form-field class="address-input" appearance="outline" color="accent" [style.width.px]=630>
+                                    <mat-label>Adresă</mat-label>
+                                    <input matInput type="text" required formControlName="address" maxlength="50" >
+                                    <mat-error *ngIf=" addressForm.get('address').invalid && (  addressForm.get('address').dirty ||  addressForm.get('address').touched)">
+                                        <span *ngIf=" addressForm.get('address').errors.required">Acest camp este obligatoriu!</span>
+                                        <span *ngIf=" addressForm.get('address').errors.maxlength">Nr. maxim de caractere admis este 30!</span>
+                                    </mat-error>
                                 </mat-form-field>
-                
-                                <mat-form-field class="firstname-input" appearance="outline" color="accent" [style.width.px]=300>
-                                    <mat-label>Nume</mat-label>
-                                    <input matInput type="text" required [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}">
+                    
+                                <mat-form-field class="city-input" appearance="outline" color="accent" [style.width.px]=630>
+                                    <mat-label>Localitate</mat-label>
+                                    <input matInput type="text" required formControlName="location" maxlength="20"  >
+                                    <mat-error *ngIf=" addressForm.get('location').invalid && (  addressForm.get('location').dirty ||  addressForm.get('location').touched)">
+                                        <span *ngIf=" addressForm.get('location').errors.required">Acest camp este obligatoriu!</span>
+                                        <span *ngIf=" addressForm.get('location').errors.maxlength">Nr. maxim de caractere admis este 20!</span>
+                                    </mat-error>
                                 </mat-form-field>
-                            </div>
-                
-                            <mat-form-field class="address-input" appearance="outline" color="accent" [style.width.px]=630>
-                                <mat-label>Adresă</mat-label>
-                                <input matInput type="text" required [(ngModel)]="address" [ngModelOptions]="{standalone: true}" >
-                            </mat-form-field>
-                
-                            <mat-form-field class="city-input" appearance="outline" color="accent" [style.width.px]=630>
-                                <mat-label>Localitate</mat-label>
-                                <input matInput type="text" required [(ngModel)]="location" [ngModelOptions]="{standalone: true}">
-                            </mat-form-field>
-                
+                    
                             
-                            <div class="fields-container" fxLayout="row"  fxLayoutGap="15px" fxLayoutAlign="start start">
-                                <mat-form-field class="country-input" appearance="outline" color="accent" [style.width.px]=200>
-                                    <mat-label>Țara</mat-label>
-                                    <input matInput type="text" required [(ngModel)]="country" [ngModelOptions]="{standalone: true}">
+                                <div class="fields-container" fxLayout="row"  fxLayoutGap="30px" fxLayoutAlign="start start">
+                    
+                                    <mat-form-field class="state-input" appearance="outline" color="accent" [style.width.px]=300>
+                                        <mat-label>Județ</mat-label>
+                                        <input matInput type="text" required formControlName="state" maxlength="20" >
+                                        <mat-error *ngIf=" addressForm.get('state').invalid && (  addressForm.get('state').dirty ||  addressForm.get('state').touched)">
+                                            <span *ngIf=" addressForm.get('state').errors.required">Acest camp este obligatoriu!</span>
+                                            <span *ngIf=" addressForm.get('state').errors.maxlength">Nr. maxim de caractere admis este 20!</span>
+                                        </mat-error>
+                                    </mat-form-field>
+                                
+                                    <mat-form-field class="postal-input" appearance="outline" color="accent" [style.width.px]=300>
+                                        <mat-label>Cod poștal</mat-label>
+                                        <mat-error *ngIf=" addressForm.get('postalCode').invalid && (  addressForm.get('postalCode').dirty ||  addressForm.get('postalCode').touched)">
+                                            <span *ngIf=" addressForm.get('postalCode').errors.required">Acest camp este obligatoriu!</span>
+                                            <span *ngIf=" addressForm.get('postalCode').errors.maxlength">Nr. maxim de caractere admis este 6!</span>
+                                            <span *ngIf=" addressForm.get('postalCode').errors.pattern">Ati introdus un format gresit!</span>
+                                        </mat-error>
+                                        <input matInput type="text" required formControlName="postalCode" maxlength="6" >
+                                    </mat-form-field>
+                                </div>
+                    
+                                <mat-form-field class="phone-input" appearance="outline" color="accent" [style.width.px]=630>
+                                    <mat-label>Telefon</mat-label>
+                                    <mat-error *ngIf="addressForm.get('phoneNumber').invalid && ( addressForm.get('phoneNumber').dirty ||  addressForm.get('phoneNumber').touched)">
+                                        <span *ngIf="addressForm.get('phoneNumber').errors.required">Acest camp este obligatoriu!</span>
+                                        <span *ngIf="addressForm.get('phoneNumber').errors.maxlength">Nr. maxim de caractere admis este 10!</span>
+                                        <span *ngIf="addressForm.get('phoneNumber').errors.pattern">Ati introdus un format gresit!</span>
+                                    </mat-error>
+                                    <input matInput type="text" required formControlName="phoneNumber" maxlength="10" >
                                 </mat-form-field>
-                
-                                <mat-form-field class="state-input" appearance="outline" color="accent" [style.width.px]=200>
-                                    <mat-label>Județ</mat-label>
-                                    <input matInput type="text" required [(ngModel)]="state" [ngModelOptions]="{standalone: true}">
-                                </mat-form-field>
-                            
-                                <mat-form-field class="postal-input" appearance="outline" color="accent" [style.width.px]=200>
-                                    <mat-label>Cod poștal</mat-label>
-                                    <input matInput type="text" required [(ngModel)]="postalCode" [ngModelOptions]="{standalone: true}">
-                                </mat-form-field>
-                            </div>
-                
-                            <mat-form-field class="phone-input" appearance="outline" color="accent" [style.width.px]=630>
-                                <mat-label>Telefon</mat-label>
-                                <input matInput type="text" required [(ngModel)]="phoneNumber" [ngModelOptions]="{standalone: true}">
-                            </mat-form-field>
-                            <div class="checkbox-container">
-                                <mat-checkbox [checked]="saveUserAddress" (change)="toggle($event)" > Salvează informațiile pentru data viitoare </mat-checkbox>
-                            </div>
-                            <div class="button-container">
-                                <button class="mt-4 mb-4 btn btn-primary btn-lg continue-button" (click)="onGoToDelivery()">Către modalitățile de livrare</button>
-                            </div>
+                                <div class="checkbox-container">
+                                    <mat-checkbox [checked]="saveUserAddress" (change)="toggle($event)" > Salvează informațiile pentru data viitoare </mat-checkbox>
+                                </div>
+                                <div class="button-container">
+                                    <button type="submit" [disabled]="!addressForm.valid" class="mt-4 mb-4 btn btn-primary btn-lg continue-button" >Către modalitățile de livrare</button>
+                                </div>
+                            </form>
                         </div>
                         <div class="second-page" *ngIf="orderDeliveryInfoExistsFlag">
                             <div class="delivery-info">
@@ -110,10 +138,9 @@
                                     <button class="mt-4 mb-4 btn btn-primary btn-lg continue-button" (click)="onOrderFinalization()">Finalizare comandă</button>
                                 </div>                    
                             </div>
-                        </div>
-                        
+                        </div>                       
                     </div>
-                    </div>
+                </div>
             
                     
             </mat-drawer-content>

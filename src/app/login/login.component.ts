@@ -20,27 +20,16 @@ export class LoginComponent implements OnInit {
   componentViewLogin : boolean = true;
   connectionSuccess :boolean = true;
 
-  errorMessage: string = null;
+  loginErrorMessage: string = null;
+  subscribeErrorMessage: string = null;
 
   loginForm: FormGroup;
-
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  subscribeForm: FormGroup;
   
   constructor(private loginService: LoginService,
               private usersService: UsersService,
               private route: Router,
               private fb: FormBuilder) { }
-
-  onLogin() {
-    console.log("login");
-    this.loginService.signIn(this.email, this.password);
-    this.connectionSuccess = this.loginService.getLoginResults();
-    console.log(this.connectionSuccess);
-    
-  }
 
   onSignUp(){
     console.log(this.email, this.password, "login component");
@@ -54,38 +43,71 @@ export class LoginComponent implements OnInit {
     this.componentViewLogin=!this.componentViewLogin;
   }
 
+  onSubmitSubscribe(form){
+
+    this.subscribeErrorMessage = null;
+    this.loginService.signUp(this.subscribeForm.controls.email.value, this.subscribeForm.controls.password.value).then(value=>{
+      if (this.subscribeErrorMessage===null){
+        this.loginService.saveUserToDatabase(this.subscribeForm.controls.firstname.value, this.subscribeForm.controls.lastname.value);
+        this.route.navigate(['/profile']); 
+      }
+    }).catch(err=>{
+      switch (err.code){
+        case "auth/email-already-in-use":{
+          this.subscribeErrorMessage = "Aveti deja un cont!"
+          break;
+        }
+        default:{
+          this.subscribeErrorMessage = "Inregistrarea a esuat!"
+          break;
+        }          
+      }
+      console.log(err.code);
+
+    });
+    
+
+  }
+
   onSubmitLogin(form){
     console.log("entered");
-    this.errorMessage = null;
+    this.loginErrorMessage = null;
     this.loginService.signIn(this.loginForm.controls.email.value, this.loginForm.controls.password.value).then(value=>{      
-      if (this.errorMessage===null){
+      if (this.loginErrorMessage===null){
       this.route.navigate(['/profile']);      
     }}).catch(err=>{
       console.log(err.code);
       switch (err.code){
         case "auth/wrong-password":{
-          this.errorMessage = "Parola incorecta!"
+          this.loginErrorMessage = "Parola incorecta!"
           break;
         }
         case "auth/user-not-found":{
-          this.errorMessage = "Nu s-a gasit adresa de email!"
+          this.loginErrorMessage = "Nu s-a gasit adresa de email!"
           break;
         }
         default:{
-          this.errorMessage = "Autentificarea a esuat!"
+          this.loginErrorMessage = "Autentificarea a esuat!"
           break;
         }          
       }   
-      console.log(this.errorMessage); 
+      console.log(this.loginErrorMessage); 
     });
   }
 
   ngOnInit(): void {
+
     this.loginForm=this.fb.group({
-      email: [null, [Validators.required, Validators.email, Validators.maxLength]],
-      password: [null, [Validators.required, Validators.minLength]]
+      email: [null, [Validators.required, Validators.email, Validators.maxLength(25)]],
+      password: [null, [Validators.required, Validators.minLength(6)]]
     })
 
+    this.subscribeForm = this.fb.group({
+      firstname: [null, [Validators.required, Validators.maxLength(15)]],
+      lastname: [null, [Validators.required, Validators.maxLength(15)]],
+      email: [null, [Validators.required, Validators.email, Validators.maxLength(25)]],
+      password: [null, [Validators.required, Validators.minLength(6)]]
+    });
   }
 
 }
