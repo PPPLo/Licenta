@@ -57,7 +57,7 @@ export class UsersComponent implements OnInit {
         this.subOrders=this.orders.getOrdersByUser(this.userUid).subscribe(orders=>
           {
           if(orders.length){
-            this.userOrders=orders;
+            this.userOrders=orders.reverse();
             console.log(this.userOrders[0].items);
           }
           else this.userOrders==null;

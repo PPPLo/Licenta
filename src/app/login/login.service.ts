@@ -20,13 +20,7 @@ export class LoginService implements CanActivate {
 
    signIn(email:string, password:string)
    {
-      return this.login.signInWithEmailAndPassword(email, password).then(value => {
-        this.loginStatus = true;
-      })
-      .catch(err => {
-        this.loginStatus = false;
-        console.log('Something went wrong on login:',err.message);
-      });
+      return this.login.signInWithEmailAndPassword(email, password);
    }
 
    signUp(email:string, password:string)

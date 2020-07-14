@@ -21,33 +21,34 @@
             </div>
         <div class = "flex-item">
            <div class="login-form" *ngIf="componentViewLogin">
-                <form class="login-form">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin(loginForm)" class="login-form">
                     <p>
                         <mat-form-field appearance="outline" color="accent" [style.width.px]=400>
                             <mat-label>Email</mat-label>
-                            <input matInput  required [(ngModel)]="email" [ngModelOptions]="{standalone: true}" >
-                            <!--<input matInput formControl="emailFormControl" [errorStateMatcher]="matcher" required [(ngModel)]="email" [ngModelOptions]="{standalone: true}" >
-                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                            Introduceți o adresă de email validă.
-                            </mat-error>!
-                            <mat-error *ngIf="emailFormControl.hasError('required')">
-                                Introduceți o adresă de email.
+                            <input matInput  required  formControlName="email" maxlength="30" >
+                            <mat-error *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+                                <span *ngIf="loginForm.get('email').errors.required">Acest camp este obligatoriu!</span>
+                                <span *ngIf="loginForm.get('email').errors.email ">Introduceti o adresa de email valida!</span>
+                                <span *ngIf="loginForm.get('email').errors.maxlength">Nr. maxim de caractere admis este 30!</span>
                             </mat-error>
-                            -->
                         </mat-form-field>
                     </p>
                     <p>
                         <mat-form-field class="password-input" appearance="outline" color="accent" [style.width.px]=400>
                             <mat-label>Parolă</mat-label>
-                            <input matInput type="password" required [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+                            <input matInput type="password" required  formControlName="password" minlength="6" >
+                            <mat-error *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                                <span *ngIf="loginForm.get('password').errors.required">Acest camp este obligatoriu!</span>
+                                <span *ngIf="loginForm.get('password').errors.minlength">Nr. minim de caractere admis este 6!</span>
+                            </mat-error>
                         </mat-form-field>
                     </p>
                   
                     <div>
-                        <a type="button" class="btn welcome-button" (click) = "onLogin()" >Autentificare</a>
+                        <button type="submit" [disabled]="!loginForm.valid" class="btn welcome-button"  >Autentificare</button>
                     </div>
                     <div class="error-text">
-                        <p *ngIf="!connectionSuccess" id="error-text-id" >Adresa de e-mail sau parola nu este corectă, încearcă din nou.</p>
+                        <p *ngIf="errorMessage" id="error-text-id" >{{errorMessage}}</p>
                     </div>
                 </form>
                 
