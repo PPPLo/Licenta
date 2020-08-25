@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SwiperOptions } from 'swiper';
+import { IProduct } from 'src/app/product/product-interface';
 
 @Component({
-  selector: 'app-swiper',
-  templateUrl: './swiper.component.html',
-  styleUrls: ['./swiper.component.css']
+  selector: 'app-swiper-detail',
+  templateUrl: './swiper-detail.component.html',
+  styleUrls: ['./swiper-detail.component.css']
 })
-export class SwiperComponent implements OnInit {
+export class SwiperDetailComponent implements OnInit {
+
+  @Input () urlImage1 :string; 
+  @Input () urlImage2 :string;
+  @Input () urlImage3 :string;
 
   config: SwiperOptions = {
     pagination: { el: '.swiper-pagination', clickable: true },
@@ -17,16 +22,7 @@ export class SwiperComponent implements OnInit {
       disableOnInteraction: true
     },
     breakpoints: {
-      1024: {
-        slidesPerView: 4
-      },
-      500: {
-        slidesPerView: 3
-      },
-      400: {
-        slidesPerView: 2
-      },
-      300: {
+      600: {
         slidesPerView: 1
       }
     },
@@ -41,6 +37,6 @@ export class SwiperComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.urlImage1);
   }
-
 }

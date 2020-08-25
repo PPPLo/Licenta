@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
 .orders-page-wrapper{
-    min-height:74vh;
     margin:0;
 }
 .content-wrapper{

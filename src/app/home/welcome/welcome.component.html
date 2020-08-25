@@ -1,17 +1,14 @@
 <div class="width-container">
-<div class="page-wrapper">
-<div class="welcome-content-wrapper" >
-    <div class="welcome-image-container">
-        <!--
-        <div class="welcome-text-main">
-            <p>DIN <br> <span id="coloured-word">SERELE NOASTRE</span> <br>direct LA TINE ACASĂ</p>
-        </div>-->
-        <div class="welcome-text-second">
-            <p>Aducem vara în casa ta cu plante verzi și înflorite.</p>
-        </div>
-            <a type="button" class="btn welcome-button"   [routerLink] = "['/products/c', 'all']">Cumpărați acum</a>
-    </div>
-    <div class="welcome-categories-wrapper">
+<div class="page-wrapper">   
+    <div class="width-960"> 
+        <div class="welcome-image-container ">
+            <div class="welcome-text-second">
+                <p>Aducem vara în casa ta cu plante verzi și înflorite.</p>
+                <a type="button" class="btn welcome-button"   [routerLink] = "['/products/c', 'all']">Cumpărați acum</a>
+            </div>
+        </div> 
+    </div> 
+    <div class="welcome-categories-wrapper width-960 ">
         <div class='column'>
             <a  [routerLink] = "['/products/c', 'easycare']">
                 <div class='first-column' fxLayout="row" fxLayoutAlign="center center">
@@ -46,7 +43,7 @@
             </a>
         </div>
     </div>
-    <div class="welcome-new-in-wrapper">
+    <div class="welcome-new-in-wrapper width-960">
         <div class="text-container">
           <div class="hr-sect"><p class="text-title">CELE MAI NOI PLANTE</p></div>
         </div>
@@ -54,7 +51,7 @@
             <a [routerLink] = "['/products/p', products[0].name, '']" class="link">
                 <div class="new-in-product">
                     <img class="image"  [src]="products[0].urlImage1" width=100% heigth=100% >
-                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                    <div class="price-tag" fxLayout="row" fxLayoutAlign="space-between center"  >
                         <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[0].name}}</div>
                         <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[0].price}}  RON</div>
                     </div>
@@ -63,7 +60,7 @@
             <a [routerLink] = "['/products/p', products[1].name, '']">
                 <div class="new-in-product">
                     <img class="image"  [src]="products[1].urlImage1" width=100% heigth=100%>
-                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                    <div  class="price-tag" fxLayout="row" fxLayoutAlign="space-between center"  >
                         <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[1].name}}</div>
                         <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[1].price}}  RON</div>
                     </div>
@@ -72,7 +69,7 @@
             <a [routerLink] = "['/products/p', products[2].name, '' ]">
                 <div class="new-in-product">
                     <img class="image" [src]="products[2].urlImage1" width=100% heigth=100%>
-                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                    <div  class="price-tag" fxLayout="row" fxLayoutAlign="space-between center"  >
                         <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[2].name}}</div>
                         <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[2].price}}  RON</div>
                     </div>
@@ -81,7 +78,7 @@
             <a [routerLink] = "['/products/p', products[3].name, '']">
                 <div class="new-in-product">
                     <img class="image"  [src]="products[3].urlImage1" width=100% heigth=100%>
-                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                    <div  class="price-tag" fxLayout="row" fxLayoutAlign="space-between center"  >
                         <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[3].name}}</div>
                         <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[3].price}}  RON</div>
                     </div>
@@ -90,7 +87,7 @@
             <a [routerLink] = "['/products/p', products[4].name, '']">
                 <div class="new-in-product">
                     <img class="image"  [src]="products[4].urlImage1" width=100% heigth=100%>
-                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                    <div class="price-tag" fxLayout="row" fxLayoutAlign="space-between center"  >
                         <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[4].name}}</div>
                         <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[4].price}}  RON</div>
                     </div>
@@ -99,7 +96,7 @@
             <a [routerLink] = "['/products/p', products[5].name, '']">
                 <div class="new-in-product">
                     <img class="image"  [src]="products[5].urlImage1" width=100% heigth=100%>
-                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                    <div  class="price-tag" fxLayout="row" fxLayoutAlign="space-between center"  >
                         <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[5].name}}</div>
                         <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[5].price}}  RON</div>
                     </div>
@@ -108,7 +105,7 @@
             <a [routerLink] = "['/products/p', products[6].name, '']">
                 <div class="new-in-product">
                     <img class="image"  [src]="products[6].urlImage1" width=100% heigth=100%>
-                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                    <div class="price-tag" fxLayout="row" fxLayoutAlign="space-between center"  >
                         <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[6].name}}</div>
                         <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[6].price}}  RON</div>
                     </div>
@@ -117,7 +114,7 @@
             <a [routerLink] = "['/products/p', products[7].name, '']">
                 <div class="new-in-product">
                     <img class="image"  [src]="products[7].urlImage1" width=100% heigth=100%>
-                    <div  fxLayout="row" fxLayoutAlign="space-between center"  >
+                    <div class="price-tag" fxLayout="row" fxLayoutAlign="space-between center"  >
                         <div class="details name" fxFlex="0 1 calc(65% -15px)">{{products[7].name}}</div>
                         <div class="details price" fxFlex="0 1 calc(35% -15px)">{{products[7].price}}  RON</div>
                     </div>
@@ -125,65 +122,70 @@
             </a>
         </div>
     </div>
-</div>
-<div class="get-to-know" >
-    <div class="video-wrapper" fxLayout="row" fxLayoutAlign="center center">
-        <div class="text" fxLayout="column" fxLayoutAlign="space-between center" style="width:30%;">
-            <div class="text">
-                <h4>SĂ NE CUNOAȘTEM</h4>
+    <div class="get-to-know" >
+        <div class="width-960" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap = "10px" fxLayoutGap.sm="20px" fxLayoutAlign="center center" style="padding-top:30px; padding-bottom:50px;">
+            <div class="text" fxLayout="column" fxLayoutAlign="start start" >
+                <div>
+                    <h4>SĂ NE CUNOAȘTEM</h4>
+                </div>
+                <div>       
+                    <p>La Planteria.ro, misiunea noastră este să cultivăm fericirea. Este un fapt dovedit din punct de vedere medical că stările noastre de spirit, comportamentele, sănătatea fizică și psihică sunt influențate foarte mult de mediul în care trăim.</p>
+                </div> 
             </div>
-            <div class="text">       
-                <p>La Planteria.ro, misiunea noastră este să cultivăm fericirea. Este un fapt dovedit din punct de vedere medical că stările noastre de spirit, comportamentele, sănătatea fizică și psihică sunt influențate foarte mult de mediul în care trăim.</p>
-            </div> 
-        </div>
-        <div class="video" style="width:70%;">
-            <video  height="350px" controls poster="../../../assets/Welcome/MAIN3.jpg" > 
-                <source src="../../../assets/Video/plants_intro_final.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-</div>
-<div class="welcome-content-wrapper">
-    <div class="text-container">
-      <div class="hr-sect"><p class="text-title">TRIMITE-NE PLANTA TA PREFERATĂ #plantsyoulove </p></div>
-    </div>
-    <div class="welcome-plants-you-love">
-        <app-swiper></app-swiper>
-    </div>
-</div>
-  <div class="shopping-facilities-wrapper">
-    <div class="size-container">
-        <div class="shopping-facilities-container" >
-            <div class='info-column'> 
-                <div class='icons'>
-                    <mat-icon svgIcon="box-icon"></mat-icon>  
-                </div>            
-                <h4>Livrare flexibilă</h4> 
-                <p class = "description">
-                  Durata normală a livrării este 2-4 zile lucrătoare.
-                  Livrare gratuită pentru comenzi mai mari de 200 RON.</p>            
-            </div>
-            <div class='info-column'> 
-              <div class='icons'>
-                  <mat-icon svgIcon="plant-pot-icon"></mat-icon>
-                  <mat-icon svgIcon="cactus-icon"></mat-icon>
-                  <mat-icon svgIcon="growth-icon"></mat-icon>
-              </div>           
-              <h4>Plante direct din seră</h4> 
-              <p class = "description">Plantele sunt livrate direct din seră.
-                  Asigurăm calitatea și starea impecabilă a plantelor noastre la livrare.
-              </p>            
-            </div>
-            <div class='info-column'> 
-              <div class='icons'>  
-                <mat-icon svgIcon="gardening-icon"></mat-icon>            
-              </div>  
-                <h4>Semințele succesului</h4> 
-                <p class = "description">Garanție 30 de zile pentru toate plantele livrare + carduri cu instrucțiuni de îngrijire incluse.  </p>                         
+            <div class="video">
+                <video  controls poster="../../../assets/Welcome/MAIN3.jpg" > 
+                    <source src="../../../assets/Video/plants_intro_final.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </div>
-</div>
+    <div class="width-960">
+        <div class="text-container">
+        <div class="hr-sect"><p class="text-title">TRIMITE-NE PLANTA TA PREFERATĂ #plantsyoulove </p></div>
+        </div>
+        <div class="welcome-plants-you-love">
+            <app-swiper></app-swiper>
+        </div>
+    </div>
+    <div class="shopping-facilities-wrapper ">
+        <div class="width-960">
+            <div class="shopping-facilities-container" >
+                <div class='info-column'> 
+                    <div class='icons'>
+                        <mat-icon svgIcon="box-icon"></mat-icon>  
+                    </div> 
+                    <div class="description">          
+                        <h4>Livrare flexibilă</h4> 
+                        <p>
+                        Durata normală a livrării este 2-4 zile lucrătoare.
+                        Livrare gratuită pentru comenzi mai mari de 200 RON.</p> 
+                    </div>            
+                </div>
+                <div class='info-column'> 
+                    <div class='icons'>
+                        <mat-icon svgIcon="plant-pot-icon"></mat-icon>
+                        <mat-icon svgIcon="cactus-icon"></mat-icon>
+                        <mat-icon svgIcon="growth-icon"></mat-icon>
+                    </div>   
+                    <div  class="description">        
+                        <h4>Plante direct din seră</h4> 
+                        <p>Plantele sunt livrate direct din seră.
+                            Asigurăm calitatea și starea impecabilă a plantelor noastre la livrare.
+                        </p> 
+                    </div>           
+                </div>
+                <div class='info-column'> 
+                    <div class='icons'>  
+                        <mat-icon svgIcon="gardening-icon"></mat-icon>            
+                    </div> 
+                    <div  class="description"> 
+                        <h4>Semințele succesului</h4> 
+                        <p>Garanție 30 de zile pentru toate plantele livrare + carduri cu instrucțiuni de îngrijire incluse.  </p>                         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 

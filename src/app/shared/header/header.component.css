@@ -16,9 +16,9 @@ ul li a{
 
 .navbarwrapper{
     background-color: rgb(242, 242, 242) !important;
-    height: 70px;
     font-size:0.8em!important;
-
+    position : relative!important;
+    min-height: 65px;
 }
 
 .navbar{
@@ -65,6 +65,10 @@ ul li a{
 }
 .dropdown-item:hover{
     text-decoration: underline;
+}
+
+.nav-btn{
+    margin: 0 auto !important;
 }
 
 

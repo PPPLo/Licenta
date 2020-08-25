@@ -21,6 +21,8 @@ export class ProductDetailComponent implements OnInit {
   products:any[];
   relatedProducts:any[];
 
+  title : string = "this";
+
   careinstructions:string[];
   nrOfItems:string ="1";
   currentImageUrl:string;
@@ -66,10 +68,11 @@ export class ProductDetailComponent implements OnInit {
     this.relatedSub.unsubscribe();
 
     this.relatedSub=this.productService.getSuggestedProducts(this.param).subscribe(products=>
-      {this.relatedProducts=products
-      console.log(this.relatedProducts);});
+      {this.relatedProducts=products;
+      });
 
     this.productSub=this.productService.getProduct(productName).subscribe({next:product=>{
+      console.log(product);
       this.product=product[0];
       this.currentImageUrl=this.product.urlImage1;
       this.careinstructions=this.product.careinstructions.split("\n", 4);
@@ -92,6 +95,7 @@ export class ProductDetailComponent implements OnInit {
 
     this.productSub=this.productService.getProduct(name).subscribe({next:product=>{
       this.product=product[0];
+      console.log(product[0]);
       this.key=product[0].key;
       this.currentImageUrl=this.product.urlImage1;
       this.careinstructions=this.product.careinstructions.split("\n", 4);
@@ -99,6 +103,7 @@ export class ProductDetailComponent implements OnInit {
 
       this.reviewSub=this.productService.getProductReviews(this.key).subscribe(reviews=>
         {this.reviews=reviews;
+          console.log(reviews);
         });
     }});    
   }

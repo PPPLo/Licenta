@@ -1,11 +1,21 @@
 .search-page-wrapper{
-    min-height:74vh;
-    margin:0;
+  padding:0px;
+  margin:0px;
 }
 
 .search-page-container{
-    max-width: 960px;
-    margin:0 auto;
+  max-width:960px;
+  margin: 0 auto;
+}
+
+.product-list{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    column-gap:20px;
+    row-gap:5px;
+}
+
+.searched-product{
 }
 
 .search-form {
@@ -29,3 +39,25 @@
   .cardListItem{
       margin-bottom:30px;
   }
+
+  .details{
+    font-size: small;
+    height: 20px;
+    width:50px;
+    margin-bottom:5px;
+    padding:0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    color:black;
+  }
+
+  .price{ 
+    text-align:end;
+    font-weight: bold;   
+    font-family: 'Roboto', sans-serif; 
+  }
+
+  
+
+
+  

@@ -24,6 +24,8 @@ export class HeaderComponent implements OnInit {
     cartSub :Subscription;
     loginSub : Subscription;
 
+    toggleNavbar:any;
+
     constructor(private matIconRegistry : MatIconRegistry,
     private domSanitizer: DomSanitizer,
     private productService: ProductService,

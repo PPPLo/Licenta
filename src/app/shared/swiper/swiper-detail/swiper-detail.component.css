@@ -1,0 +1,8 @@
+.swiper-container{
+    max-width:960px;
+    margin-bottom:30px;
+}
+.swiper-slide{
+    width:250px;
+    overflow:hidden;
+}

@@ -23,21 +23,25 @@
            <div class="login-form" *ngIf="componentViewLogin">
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin(loginForm)" class="login-form">
                     <p>
-                        <mat-form-field appearance="outline" color="accent" [style.width.px]=400>
+                        <mat-form-field appearance="outline" color="accent" [style.width.px]=400 >
                             <mat-label>Email</mat-label>
-                            <input matInput  required  formControlName="email" maxlength="30" >
-                            <mat-error *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)">
-                                <span *ngIf="loginForm.get('email').errors.required">Acest camp este obligatoriu!</span>
-                                <span *ngIf="loginForm.get('email').errors.email ">Introduceti o adresa de email valida!</span>
-                                <span *ngIf="loginForm.get('email').errors.maxlength">Nr. maxim de caractere admis este 25!</span>
-                            </mat-error>
+                            <input matInput  required  formControlName="email" (click)="resetErrorMessage()" >
+                            <div *ngIf="loginForm.get('email').invalid && seeLoginValidations">
+                                <div id = 'test2'>
+                                    <span *ngIf="loginForm.get('email').errors.required">Acest camp este obligatoriu!</span>
+                                    <span *ngIf="loginForm.get('email').errors.pattern ">Introduceti o adresa de email valida!</span>
+                                    <span *ngIf="loginForm.get('email').errors.maxlength && !loginForm.get('email').errors.pattern !">Nr. maxim de caractere admis este 50!</span>
+                                </div>
+                            </div>
+                       
+                            
                         </mat-form-field>
                     </p>
                     <p>
                         <mat-form-field class="password-input" appearance="outline" color="accent" [style.width.px]=400>
                             <mat-label>Parolă</mat-label>
-                            <input matInput type="password" required  formControlName="password" minlength="6" >
-                            <mat-error *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                            <input matInput type="password" required  formControlName="password" (click)="resetErrorMessage()">
+                            <mat-error *ngIf="loginForm.get('password').invalid && seeLoginValidations">
                                 <span *ngIf="loginForm.get('password').errors.required">Acest camp este obligatoriu!</span>
                                 <span *ngIf="loginForm.get('password').errors.minlength">Nr. minim de caractere admis este 6!</span>
                             </mat-error>
@@ -45,31 +49,32 @@
                     </p>
                   
                     <div>
-                        <button type="submit" [disabled]="!loginForm.valid" class="btn welcome-button"  >Autentificare</button>
+                        <button type="submit"  class="btn welcome-button">Autentificare</button>
                     </div>
                     <div class="error-text">
-                        <p *ngIf="loginErrorMessage" id="error-text-id" >{{loginErrorMessage}}</p>
+                        <p *ngIf="loginErrorMessage && loginForm.valid " id="error-text-id" >{{loginErrorMessage}}</p>
                     </div>
                 </form>
                 
             </div>
+            <!--
             <div class="subscribe-form" *ngIf="!componentViewLogin" >
                 <form class="subscribe-form" [formGroup]="subscribeForm" (ngSubmit)="onSubmitSubscribe(subscribeForm)">
                     <p>
                         <mat-form-field appearance="outline" color="accent" [style.width.px]=400>
                             <mat-label>Nume</mat-label>
-                            <input matInput required formControlName="lastname" maxlength="20" >
+                            <input matInput required formControlName="lastname" >
                             <mat-error *ngIf="subscribeForm.get('lastname').invalid && (subscribeForm.get('lastname').dirty || subscribeForm.get('lastname').touched)">
                                 <span *ngIf="subscribeForm.get('lastname').errors.required">Acest camp este obligatoriu!</span>
                                 <span *ngIf="subscribeForm.get('lastname').errors.email ">Introduceti o adresa de email valida!</span>
-                                <span *ngIf="subscribeForm.get('lastname').errors.maxlength">Nr. maxim de caractere admis este 25!</span>
+                                <span *ngIf="subscribeForm.get('lastname').errors.maxlength">Nr. maxim de caractere admis este 15!</span>
                             </mat-error>
                         </mat-form-field>
                     </p>
                     <p>
                         <mat-form-field  appearance="outline" color="accent" [style.width.px]=400>
                             <mat-label>Prenume</mat-label>
-                            <input matInput required formControlName="firstname" maxlength="20" >
+                            <input matInput required formControlName="firstname">
                             <mat-error *ngIf="subscribeForm.get('firstname').invalid && (subscribeForm.get('firstname').dirty || subscribeForm.get('firstname').touched)">
                                 <span *ngIf="subscribeForm.get('firstname').errors.required">Acest camp este obligatoriu!</span>
                                 <span *ngIf="subscribeForm.get('firstname').errors.email ">Introduceti o adresa de email valida!</span>
@@ -84,14 +89,14 @@
                             <mat-error *ngIf="subscribeForm.get('email').invalid && (subscribeForm.get('email').dirty || subscribeForm.get('email').touched)">
                                 <span *ngIf="subscribeForm.get('email').errors.required">Acest camp este obligatoriu!</span>
                                 <span *ngIf="subscribeForm.get('email').errors.email ">Introduceti o adresa de email valida!</span>
-                                <span *ngIf="subscribeForm.get('email').errors.maxlength">Nr. maxim de caractere admis este 25!</span>
+                                <span *ngIf="subscribeForm.get('email').errors.maxlength">Nr. maxim de caractere admis este 50!</span>
                             </mat-error>
                         </mat-form-field>
                     </p>
                     <p>
                         <mat-form-field class="password-input" appearance="outline" color="accent" [style.width.px]=400>
                             <mat-label>Parolă</mat-label>
-                            <input matInput type="password" required formControlName="password" minlength="6" >
+                            <input matInput type="password" required formControlName="password" minlength="6">
                             <mat-error *ngIf="subscribeForm.get('password').invalid && (subscribeForm.get('password').dirty || subscribeForm.get('password').touched)">
                                 <span *ngIf="subscribeForm.get('password').errors.required">Acest camp este obligatoriu!</span>
                                 <span *ngIf="subscribeForm.get('password').errors.minlength">Nr. minim de caractere admis este 6!</span>
@@ -102,10 +107,11 @@
                         <button type="submit" class="btn welcome-button" [disabled]="!subscribeForm.valid" >Înregistrare</button>
                     </div>
                     <div class="error-text">
-                        <p *ngIf="subscribeErrorMessage" id="error-text-id" >{{subscribeErrorMessage}}</p>
+                        <p *ngIf="!loginForm.valid && subscribeErrorMessage" id="error-text-id" >{{subscribeErrorMessage}}</p>
                     </div>
                 </form>
             </div>
+            -->
         </div>
         </div>
     </div>

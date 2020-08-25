@@ -11,35 +11,30 @@
   margin:0px;
   padding:0px;
 }
-.welcome-content-wrapper{
+.width-960{
   margin: 0 auto;
   max-width:960px;
-  background-color: white;
+  padding:0px 15px;
 }
 
-.video-wrapper{
-  margin: 0 auto;
-  max-width:960px;
-  padding:20px;
-  margin-bottom:20px;
+.video{
+  max-width:60%;
+  max-height : 300px;
+  min-height: 150px;
+}
+
+video{
+  height: 100%;
+  width:100%;
 }
 
 .welcome-image-container{
   background-image: url('../../../assets/Welcome/MAIN.jpg'); 
   background-size:auto 100% ;
   margin: 0 auto;
-  max-width:960px;
   height: 400px;
   margin-bottom: 30px;
 } 
-
-.welcome-text-main {
-  width:350px;
-  height:50px;
-  font-family: 'Anton', sans-serif;
-  font-size: 40px;
-  margin:auto;
-}
 
 #coloured-word{
   color:greenyellow;
@@ -47,10 +42,9 @@
 
 .get-to-know{
   background-color: greenyellow;
-  height: 390px;
   width:100%;
   margin:0px;
-  padding:0px;
+  padding:0px 20px;
 }
 
 .welcome-text-second{
@@ -71,14 +65,11 @@
   font-family: 'Anton', sans-serif;
   border-radius: 0 !important;
   position:relative;
-  top:110px;
-  left:280px;
 }
 
 .welcome-categories-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin:0;
   justify-content:space-between;
 }
 
@@ -133,16 +124,16 @@
   height: 300px;
 }
 .welcome-new-in-wrapper{
-  padding-bottom:20px;
+  /*padding-bottom:20px;*/
 }
 .welcome-new-in-container{
   margin-top:10px;
   display:grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 20px;
-  row-gap: 70px;
-  grid-template-rows: 200px 200px;
-  height: 500px;
+  column-gap:20px;
+  row-gap: 20px;
+  /*grid-template-rows: 200px 200px;*/
+  /*min-height: 500px;*/
   margin-bottom:30px;
 }
 
@@ -159,7 +150,8 @@
 }
 
 .text{
-width: 70%;
+  max-width:40%;
+  text-align: justify;
 }
 
 .details{
@@ -179,6 +171,9 @@ width: 70%;
   font-family: 'Roboto', sans-serif; 
 }
 
+.price-tag{
+}
+
 a:link{
 }
       
@@ -193,15 +188,11 @@ a:hover{
  }
 
 .new-in-product{
-  height: 250px;
+  min-height: 250px;
   margin-bottom: 15px;
 }
 
 .welcome-plants-you-love {
-  display: flex;
-  flex-wrap: wrap;
-  margin:0;
-  justify-content:space-between;
   margin-top:10px;
 }
 
@@ -213,8 +204,8 @@ a:hover{
 }
 
 .get-to-know{
-  width:100%;
-  background-attachment: lightgreen;
+  /*width:100%;*/
+  background-color: lightgreen;
 }
 
 .shopping-facilities-wrapper{
@@ -222,10 +213,6 @@ a:hover{
   background-color:lightgreen;
 }
 
-.size-container{
-  margin:0 auto;
-  width:960px;
-}
 
 .shopping-facilities-container{
   display: flex;
@@ -286,10 +273,19 @@ a:hover{
   height:60px;
 }
 
+.description{
+
+
+}
+
 @media (max-width: 960px) {
   .column, .info-column {
     flex: 33.33%;
     max-width: 33.33%;
+  }
+  .text {
+    max-width: 60%;
+    text-align: justify;
   }
 }
 
@@ -305,7 +301,17 @@ a:hover{
     flex: 100%;
     max-width: 100%;
   }
+  .text {
+    max-width: 60%;
+    text-align: justify;
+  }
 }
 
 
+@media (max-width: 600px) {
+  .text {
+    max-width: 60%;
+    text-align: justify;
+  }
+}
 

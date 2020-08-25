@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormControl, FormGroupDirective, NgForm, FormGroup, FormBuilder } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { Validators,  FormGroup, FormBuilder } from '@angular/forms';
 import { LoginService } from './login.service';
 import { UsersService } from '../users/users.service';
 import { Router } from '@angular/router';
@@ -25,27 +24,18 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   subscribeForm: FormGroup;
+
+  seeLoginValidations:boolean = false;
   
   constructor(private loginService: LoginService,
-              private usersService: UsersService,
               private route: Router,
               private fb: FormBuilder) { }
-
-  onSignUp(){
-    console.log(this.email, this.password, "login component");
-    this.loginService.signUp(this.email, this.password);
-    this.loginService.saveUserToDatabase(this.userFirstName, this.userLastName);
-
-    this.route.navigate(['/profile']);
-  }
 
   toggleView(){
     this.componentViewLogin=!this.componentViewLogin;
   }
 
   onSubmitSubscribe(form){
-
-    this.subscribeErrorMessage = null;
     this.loginService.signUp(this.subscribeForm.controls.email.value, this.subscribeForm.controls.password.value).then(value=>{
       if (this.subscribeErrorMessage===null){
         this.loginService.saveUserToDatabase(this.subscribeForm.controls.firstname.value, this.subscribeForm.controls.lastname.value);
@@ -63,49 +53,51 @@ export class LoginComponent implements OnInit {
         }          
       }
       console.log(err.code);
-
     });
-    
+  }
 
+  resetErrorMessage(){
+    this.loginErrorMessage = null;
   }
 
   onSubmitLogin(form){
-    console.log("entered");
-    this.loginErrorMessage = null;
-    this.loginService.signIn(this.loginForm.controls.email.value, this.loginForm.controls.password.value).then(value=>{      
-      if (this.loginErrorMessage===null){
-      this.route.navigate(['/profile']);      
-    }}).catch(err=>{
-      console.log(err.code);
-      switch (err.code){
-        case "auth/wrong-password":{
-          this.loginErrorMessage = "Parola incorecta!"
-          break;
-        }
-        case "auth/user-not-found":{
-          this.loginErrorMessage = "Nu s-a gasit adresa de email!"
-          break;
-        }
-        default:{
-          this.loginErrorMessage = "Autentificarea a esuat!"
-          break;
-        }          
-      }   
-      console.log(this.loginErrorMessage); 
-    });
+
+      this.seeLoginValidations=true;
+      if (this.loginForm.valid){
+      this.loginService.signIn(this.loginForm.controls.email.value, this.loginForm.controls.password.value).then(value=>{      
+        {
+          this.route.navigate(['/profile']);      
+        }}).catch(err=>{
+          switch (err.code){
+            case "auth/wrong-password":{
+              this.loginErrorMessage = "Parola incorecta!"
+              break;
+            }
+            case "auth/user-not-found":{
+              this.loginErrorMessage = "Nu s-a gasit adresa de email!"
+              break;
+            }
+            default:{
+              this.loginErrorMessage = "Autentificarea a esuat!"
+              break;
+            }          
+          }   
+          console.log(this.loginErrorMessage); 
+        });
+    }
   }
 
   ngOnInit(): void {
 
     this.loginForm=this.fb.group({
-      email: [null, [Validators.required, Validators.email, Validators.maxLength(25)]],
+      email: [null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+[.]+[a-z]{2,4}$"), Validators.maxLength(25)]],
       password: [null, [Validators.required, Validators.minLength(6)]]
-    })
+    },  { updateOn: 'submit' });
 
     this.subscribeForm = this.fb.group({
       firstname: [null, [Validators.required, Validators.maxLength(15)]],
       lastname: [null, [Validators.required, Validators.maxLength(15)]],
-      email: [null, [Validators.required, Validators.email, Validators.maxLength(25)]],
+      email: [null, [Validators.required, Validators.email, Validators.maxLength(50)]],
       password: [null, [Validators.required, Validators.minLength(6)]]
     });
   }

@@ -43,7 +43,7 @@ li{
     text-align: left;
 }
 
-.page-container{
+.list-page-container{
     margin: 0 auto;
     max-width:960px;
 }
@@ -98,6 +98,7 @@ ul{
     margin-top:0px;
     height: auto;  
     font-family: 'Roboto', sans-serif!important;
+    padding: 0 15px;
 }
 
 .cardList{
@@ -213,8 +214,50 @@ ul{
       padding-top:40px;
       font-family: 'Anton', sans-serif;
       font-size:0.8em;
-
   }
+
+  .toggle-menu-title{
+      display:none;
+  }
+
+  .menu-link:hover{
+    cursor: pointer;
+  }
+
+  .menu-link{
+    font-size: 1rem;
+    padding:5px 20px;
+    font-weight: bold;
+  }
+
+    .menu-link a{
+    text-decoration: underline;
+    }
+    
+    .menu-link a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    }
+
+  @media screen and (max-width: 1800px) {
+  #toggle-menu{
+    display:block;}
+  }
+
+  @media screen and (max-width: 600px) {
+    .toggle-menu-title {
+        display:inline;
+    }
+
+    #toggle-menu{
+        display:none;
+    }}
+
+  @media screen and (max-width: 800px) {
+    .description-container, .description {
+        height: 0;
+        opacity: 0;
+    }}
 
 
       

@@ -1,6 +1,6 @@
 .swiper-container{
-    width:960px;
-    height: 220px;
+    max-width:960px;
+    min-height: 220px;
     margin-bottom:30px;
 }
 .swiper-slide{

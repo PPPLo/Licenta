@@ -13,11 +13,13 @@ import { AngularUiModule } from './angularmaterial/angular-ui.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { RatingComponent } from './rating/rating.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
-import { SwiperComponent } from './swiper/swiper.component';
+import { SwiperComponent } from './swiper/plants-we-love/swiper.component';
 import { RatingDialogComponent } from './rating/rating-dialog/rating-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
+import { SwiperDetailComponent } from './swiper/swiper-detail/swiper-detail.component';
+import { SuggestedSwiperComponent } from './swiper/suggested-swiper/suggested-swiper.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
     RatingComponent,
     SwiperComponent,
     RatingDialogComponent,
-    CartDialogComponent
+    CartDialogComponent,
+    SwiperDetailComponent,
+    SuggestedSwiperComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +55,9 @@ import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
     AngularUiModule,
     RatingComponent,
     NgxUsefulSwiperModule,
-    SwiperComponent
+    SwiperComponent,
+    SwiperDetailComponent,
+    SuggestedSwiperComponent
   ]
 })
 export class SharedModule { }

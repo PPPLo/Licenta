@@ -30,7 +30,7 @@ export class ProductSearchComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    this.sub=this.productService.getProductsByNameSearch().subscribe({next:products=>{
+    this.sub=this.productService.getAllProducts().subscribe({next:products=>{
       this.products=products; 
       this.filteredProducts=[];
     }});

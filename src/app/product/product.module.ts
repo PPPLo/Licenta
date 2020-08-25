@@ -28,13 +28,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FlexLayoutModule,
     SharedModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    AngularUiModule
   ],
   exports:[
     ProductDetailComponent,
     ProductListComponent,
     CommonModule,
-    NgbModule
+    NgbModule,
+    AngularUiModule
   ],
   providers: []
 })

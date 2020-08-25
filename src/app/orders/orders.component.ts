@@ -71,9 +71,8 @@ export class OrdersComponent implements OnInit {
       location: [null, [Validators.required, Validators.maxLength(15)]],
       state: [null, [Validators.required, Validators.maxLength(15)]],
       postalCode: [null, [Validators.required, Validators.pattern('[0-9]{6}'), Validators.maxLength(6)]],
-      phoneNumber: [null, [Validators.required, Validators.pattern('[0-9]{10}'), Validators.maxLength(10)]]
+      phoneNumber: [null, [Validators.required, Validators.pattern('07[0-9]{8}'), Validators.maxLength(10)]]
     });
-
   }
 
   onSubmitAddress(form){

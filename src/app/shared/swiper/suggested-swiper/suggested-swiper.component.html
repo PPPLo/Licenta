@@ -1,0 +1,49 @@
+<div class="swiper-container" >
+    <swiper [config]="config">
+        <div class="swiper-wrapper"  >    
+            <div class="swiper-slide" >
+              <a (click)="onChange(suggestedProducts[0].name)">
+                <img src={{suggestedProducts[0].urlImage1}} style="width: 100%;">
+              </a>
+              <div  class="see" >
+                <div class="details" >{{suggestedProducts[0].name}}</div>
+                <div class="details price" >{{suggestedProducts[0].price}}  RON</div>
+            </div>
+          </div>
+          <div class="swiper-slide" >
+            <a (click)="onChange(suggestedProducts[1].name)">
+              <img src={{suggestedProducts[1].urlImage1}} style="width: 100%;">
+            </a>
+            <div  class="see"   >
+              <div class="details" >{{suggestedProducts[1].name}}</div>
+              <div class="details price" >{{suggestedProducts[1].price}}  RON</div>
+           </div>
+          </div>          
+          <div class="swiper-slide" >
+            <a (click)="onChange(suggestedProducts[2].name)">
+              <img src={{suggestedProducts[2].urlImage1}} style="width: 100%;">
+            </a>
+            <div  class="see"   >
+              <div class="details" >{{suggestedProducts[2].name}}</div>
+              <div class="details price">{{suggestedProducts[2].price}}  RON</div>
+           </div>
+          </div>
+          <div class="swiper-slide" >
+            <a (click)="onChange(suggestedProducts[3].name)">
+            <img src={{suggestedProducts[3].urlImage1}} style="width: 100%;">
+            </a>
+            <div class="see"   >
+              <div class="details" >{{suggestedProducts[3].name}}</div>
+              <div class="details price" >{{suggestedProducts[3].price}}  RON</div>
+           </div>
+          </div>
+        </div>
+      
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>     
+      </swiper>
+</div>

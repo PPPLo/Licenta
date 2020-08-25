@@ -1,7 +1,8 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFireDatabase} from '@angular/fire/database';
 import { map, take } from 'rxjs/operators';
-import { Observable, Subject } from 'rxjs';
+import { IProduct, IReview } from '../product-interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,16 +11,16 @@ export class ProductService {
 
   option:string;
   
-  constructor(private db:AngularFireDatabase) {        
+  constructor(public db:AngularFireDatabase) {        
   }
 
-  getNewInProducts(){
-    return this.db.list('products', list=>list.limitToLast(8)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}})
+  getNewInProducts(): Observable<IProduct[]>{
+    return this.db.list('products', list=>list.limitToLast(8)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct})
     )))
   }
 
   getProduct( name : string){
-    return this.db.list('products',list => list.orderByChild("name").equalTo(name)).snapshotChanges().pipe(take(1), map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}})
+    return this.db.list('products',list => list.orderByChild("name").equalTo(name)).snapshotChanges().pipe(take(1), map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct})
     )))
   }
 
@@ -31,21 +32,30 @@ export class ProductService {
                map(products =>
                       products.map(p => (
                            {                               
-                             key: p.payload.key, ...(p.payload.val() as any)
+                             key: p.payload.key, ...(p.payload.val() as IReview)
                            }
                            ))))
   }
- 
 
-  getProductsByNameSearch(){
-    return this.db.list('products').snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}})
+  getAllProducts(){
+    return this.db.list('products').snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct})
     )))
+  }
+
+  getNextProducts(option:string, startAt: string, itemsPerPage:number){
+    if (option === "all")
+    {
+      return this.db.list('products', list=>list.orderByKey().startAt(startAt).limitToFirst(itemsPerPage)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct}))));
+    }
+  }
+
+  getAllProductsGroup( itemsPerPage:number, startAt:number){
+    return this.db.list('products', list=>list.orderByKey().startAt(startAt.toString()).limitToFirst(itemsPerPage)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct}))));
   }
 
   getFilteredProductsByOptionFlag(option : string){
     if (option === "all")
-    {
-      return this.db.list('products').snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}}))));
+    {    
     }
     else if (option === "airpurifying" || 
              option === "easycare" ||
@@ -53,7 +63,7 @@ export class ProductService {
              option === "vining" ||
              option === "petfriendly")
     {
-      return this.db.list('products', list => list.orderByChild(option).equalTo('yes')).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}}))));
+      return this.db.list('products', list => list.orderByChild(option).equalTo('yes')).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct}))));
     }
     else if (option === "hoya" || 
              option === "peperomia" ||
@@ -65,22 +75,21 @@ export class ProductService {
              option === "succulent" ||
              option === "flowering" )
     {
-      return this.db.list('products', list => list.orderByChild("family").equalTo(option)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}}))));
+      return this.db.list('products', list => list.orderByChild("family").equalTo(option)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct}))));
     }
     else if (option === "large" || 
             option === "medium" ||
             option === "small"  ||
             option === "mini" )
     {
-      return this.db.list('products', list => list.orderByChild("size").equalTo(option)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}}))));
+      return this.db.list('products', list => list.orderByChild("size").equalTo(option)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct}))));
     }
   }
-
 
   getSuggestedProducts(option : string){
     if (option === "all")
     {
-      return this.db.list('products',  list=>list.limitToLast(4)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}}))));
+      return this.db.list('products',  list=>list.limitToLast(4)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct}))));
     }
     else if (option === "airpurifying" || 
              option === "easycare" ||
@@ -88,7 +97,7 @@ export class ProductService {
              option === "vining" ||
              option === "petfriendly")
     {
-      return this.db.list('products', list => list.orderByChild(option).equalTo('yes').limitToLast(4)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}}))));
+      return this.db.list('products', list => list.orderByChild(option).equalTo('yes').limitToLast(4)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct }))));
     }
     else if (option === "hoya" || 
              option === "peperomia" ||
@@ -100,14 +109,14 @@ export class ProductService {
              option === "succulent" ||
              option === "flowering" )
     {
-      return this.db.list('products', list => list.orderByChild("family").equalTo(option).limitToLast(4)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}}))));
+      return this.db.list('products', list => list.orderByChild("family").equalTo(option).limitToLast(4)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct}))));
     }
     else if (option === "large" || 
             option === "medium" ||
             option === "small"  ||
             option === "mini" )
     {
-      return this.db.list('products', list => list.orderByChild("size").equalTo(option).limitToLast(4)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as {}}))));
+      return this.db.list('products', list => list.orderByChild("size").equalTo(option).limitToLast(4)).snapshotChanges().pipe(map(change=>change.map(c=>({key:c.payload.key, ...c.payload.val() as IProduct}))));
     }
   }
 

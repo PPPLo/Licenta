@@ -1,0 +1,22 @@
+.swiper-container{
+    max-width:960px;
+    margin-bottom:30px;
+}
+.swiper-slide{
+    width:250px;
+    overflow:hidden;
+}
+
+.details{
+    font-size: small;
+    height: 20px;
+    margin-bottom:5px;
+    padding:0;
+    margin:0;
+    font-family: 'Anton', sans-serif;
+    color:black;
+    display:inline-block;
+    width:50%;
+    padding: 0 15px;
+  }
+

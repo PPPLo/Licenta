@@ -1,19 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProductSearchComponent } from './product-search.component';
 
-describe('ProductSearchComponent', () => {
-  let component: ProductSearchComponent;
-  let fixture: ComponentFixture<ProductSearchComponent>;
+import { SuggestedSwiperComponent } from './suggested-swiper.component';
+
+describe('SuggestedSwiperComponent', () => {
+  let component: SuggestedSwiperComponent;
+  let fixture: ComponentFixture<SuggestedSwiperComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-
+      declarations: [ SuggestedSwiperComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProductSearchComponent);
+    fixture = TestBed.createComponent(SuggestedSwiperComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

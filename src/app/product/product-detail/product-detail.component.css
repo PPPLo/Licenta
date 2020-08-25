@@ -10,8 +10,8 @@
     max-width:960px;
 }
 .product-detail{
-    height: 400px;
     margin-bottom: 15px;
+    height: 100%;
 }
 
 .photo-galery{
@@ -125,7 +125,10 @@
 {
   padding:0px;
   text-align: top;
-  margin:0px;
+}
+
+.qty-selector{
+    margin-left:15px;
 }
 
 .qty-text{
@@ -230,7 +233,7 @@
   }
 
   .related-item{
-      height: 240px;
+      min-height: 240px;
   }
 
   .our-story{
@@ -249,7 +252,7 @@
   }
 
   .rel-product{
-    height: 250px;
+    min-height: 250px;
     margin-bottom: 15px;
   }
 
@@ -280,6 +283,7 @@
 
  .related-products{
      margin-top:20px;
+     height: auto;
  }
 
  .go-to-reviews:hover{
@@ -359,4 +363,50 @@
       width: 70px;
       font-size: 1.0rem !important;
   }
-  
+
+  .product-view{
+      height: auto;
+  }
+
+  .responsive{
+    display: none;
+    padding: 0 15px;
+}
+
+  @media screen and (max-width: 800px) {
+    .photo-galery {
+        display: none;
+        width: 0%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .main-photo, .side-info{
+        width: 50vh;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+     .side-info, .product-detail, .product-information{
+        max-width:100vh;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .main-photo{
+        display:none;
+    }
+
+    .related-item{
+        display:none;
+    }
+    .SuggestedSwiperComponent{
+        display:none;
+    }
+    .responsive{
+        display: inline;
+    }
+}
+
+
