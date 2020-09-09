@@ -5,6 +5,7 @@
   width:100%;
   margin:0px;
   padding:0px;
+  padding-bottom: 47vh;
 }
 .page-wrapper{
   width:100%;
@@ -56,6 +57,7 @@ video{
   position:relative;
   top:45px;
   left:0px;
+  padding-left:10px;
 }
 
 .welcome-button{

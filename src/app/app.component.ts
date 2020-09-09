@@ -15,7 +15,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(){
-    //this.db.list('/products').valueChanges().subscribe(products=>console.log(products));
+
+    /* const body_element = document.getElementById('container-fluid');
+    const footer_element = document.getElementById('footer-container');
+
+    body_element.style.paddingBottom = footer_element.offsetHeight.toString(); */ 
 
   }
 }

@@ -4,6 +4,7 @@
 
 .cart-page-wrapper{
     margin:0;
+    padding:10px;
 }
 .content-wrapper{
     margin:0 auto;
@@ -11,7 +12,8 @@
 }
 
 .flex-item{
-    padding:20px;
+    padding-top:5px;
+    padding-bottom:10px;
 }
 
 .flex-item h1{
@@ -36,13 +38,8 @@
   }
 
   .flex-item-button{
-      padding:0px;
       margin-top:0px;
   }
-.flex-container-button{
-    padding:20px;
-    margin:0;
-}
 
 table{
     width:100%;

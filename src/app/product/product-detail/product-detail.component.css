@@ -4,6 +4,7 @@
 .page-wrapper{
     margin-top:15px;
     margin-bottom:5px;
+    padding-bottom: 25vh;
 }
 .content-wrapper{
     margin:0 auto;
@@ -22,6 +23,7 @@
 
 .side-info{
     margin-left:5px;
+    padding:10px;
 }
 
 .info-container{
@@ -108,7 +110,6 @@
     text-overflow: ellipsis;
     padding-top:10px;
     font-weight: 200!important;
-    
 }
 
 .details-content{
@@ -198,6 +199,8 @@
 
 .product-information li{
     padding:1px;
+    padding-right: 30px;
+    text-align:justify;
 }
 
 .hr-sect {
@@ -238,8 +241,8 @@
 
   .our-story{
       font-size:0.8rem;
-      text-align:center;
-      padding:25px;
+      text-align:justify;
+      padding:10px;
   }
 
   .comment{
@@ -284,6 +287,10 @@
  .related-products{
      margin-top:20px;
      height: auto;
+
+     display:grid;
+     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+     column-gap:20px;
  }
 
  .go-to-reviews:hover{
@@ -389,7 +396,7 @@
 
 @media screen and (max-width: 600px) {
      .side-info, .product-detail, .product-information{
-        max-width:100vh;
+        max-width:100vw;
         height: auto;
         margin: 0 auto;
     }

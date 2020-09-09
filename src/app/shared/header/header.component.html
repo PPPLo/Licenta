@@ -62,7 +62,20 @@
                       <li><a class="dropdown-item"  href="https://www.plants.com/greenhouse/">GREENHOUSE Blog</a></li>
                       <li><a class="dropdown-item"  [routerLink] = "['/products/c', 'medium']">Cere sfatul unui expert</a></li>
                     </ul>
-                </li>            
+                </li>   
+                
+                <li role="separator" class="divider if-collapsed"></li>
+                
+                <li class="nav-item if-collapsed"> 
+                  <a class="nav-link" routerLink="/search">Search</a>
+                </li>  
+                <li class="nav-item if-collapsed">
+                  <a  *ngIf="!user"  class="nav-link" [routerLink] = "['/login']" >Login</a>
+                  <a  *ngIf="user"  class="nav-link" [routerLink] = "['/profile']" >My Account</a>
+                </li>
+                <li class="nav-item if-collapsed">
+                  <a class="nav-link" routerLink="/cart">Cart</a>
+                </li>    
           </ul>
         </div>
         <div class="menu-social" >

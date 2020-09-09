@@ -1,19 +1,22 @@
 .page-container {
-  margin:0px;
-  padding:0px;
+  position: relative;  
+  min-height: 100vh;
 }
 
 .header-container{
-  margin:0px;
-  padding:0px;
 }
 
 .container-fluid{
-  margin:0px;
-  padding:0px;
+}
+.container-fluid:after{
+/*   content:''; 
+  float:left; */
 }
 
 .footer-container{
-  margin:0px;
-  padding:0px;
+    /*clear:left;*/
+
+  position: absolute;
+  bottom:0px;
+  width: 100%;  
 }

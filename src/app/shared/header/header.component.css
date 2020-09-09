@@ -71,4 +71,17 @@ ul li a{
     margin: 0 auto !important;
 }
 
+.if-collapsed{
+    display:none;
+}
+
+@media screen and (max-width: 995px) {
+    .if-collapsed{
+        display: block;
+    }
+    .menu-social{
+        display:none;
+    }
+}
+
 

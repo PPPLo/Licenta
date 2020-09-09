@@ -21,12 +21,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   filteredProductsCopy:IProduct[];
   allProducts:IProduct[];
 
-  rowHeight:number;
   nrOfItems: number;
   itemsPerPage: number = 9 ;
-
-  prevPageStart: number;
-  nextPageStart: number;
 
   sortFlag:boolean=false;
 
@@ -51,29 +47,29 @@ export class ProductListComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               private router: Router) { }
  
-  ngOnInit(): void {   
+  ngOnInit(): void {  
+
     this.paramOptionSub=this.route.params.subscribe(
          (params) => {
+            if(this.isInitialized == false){
+              this.isInitialized=true;
+            }
+            else{
+              this.paginator.firstPage();
+            }
 
-          if(this.isInitialized == false){
-            this.isInitialized=true;
-          }
-          else{
-            this.paginator.firstPage();
-          }
-
-          this.categoryParam=params.option;
-          this.translatedCategory=this.translateParam(params.option);
-          if (this.categoryParam == "all"){
-              this.productListChangesSub=this.productService.getAllProductsGroup(this.itemsPerPage, 0).subscribe({next:products=>{
-              this.filteredProducts = products; 
-              this.sortProducts();
-              }});
-              this.productListLenghtSub=this.productService.getAllProducts().subscribe(products=>{
-              this.nrOfItems=products.length;
-              });
-          }
-          else{
+            this.categoryParam=params.option;
+            this.translatedCategory=this.translateParam(params.option);
+            if (this.categoryParam == "all"){
+                this.productListChangesSub=this.productService.getAllProductsGroup(this.itemsPerPage, 0).subscribe({next:products=>{
+                this.filteredProducts = products; 
+                this.sortProducts();
+                }});
+                this.productListLenghtSub=this.productService.getAllProducts().subscribe(products=>{
+                this.nrOfItems=products.length;
+                });
+            }
+            else{
               this.productListChangesSub=this.productService.getFilteredProductsByOptionFlag(this.categoryParam).subscribe({next:products=>{
               this.filteredProducts = products; 
               this.nrOfItems=products.length;
@@ -89,65 +85,25 @@ export class ProductListComponent implements OnInit, OnDestroy {
           }                  
       }
     );
-    this.nextPageStart = this.itemsPerPage; 
-    this.prevPageStart = null; 
-
-    console.log("next init", this.nextPageStart);           
   }
+
 
   onClickToHome(){
     this.router.navigate(['/welcome']);
   }
 
-  nextPage(){
-    if (this.categoryParam == "all")
-    {
-    this.nextSub=this.productService.getNextProducts(this.categoryParam, this.nextPageStart.toString(), this.itemsPerPage).subscribe(products=>
-      {
-      this.filteredProducts=products;
-      this.sortProducts();  
-      this.prevPageStart = ((this.nextPageStart - this.itemsPerPage)>=0)?(this.nextPageStart - this.itemsPerPage):null;   
-      this.nextPageStart = ((this.nextPageStart+this.itemsPerPage)>=this.nrOfItems)?this.nextPageStart:(this.nextPageStart+this.itemsPerPage);     
-      }
-      );
-    }
-    else{
-      console.log(this.nextPageStart);
-      this.filteredProducts = this.allProducts.slice(this.nextPageStart, this.nextPageStart+this.itemsPerPage);
-      this.prevPageStart = ((this.nextPageStart - this.itemsPerPage)>=0)?(this.nextPageStart - this.itemsPerPage):null;   
-      this.nextPageStart = ((this.nextPageStart+this.itemsPerPage)>=this.nrOfItems)?this.nextPageStart:(this.nextPageStart+this.itemsPerPage);
-    }
-  }
+  handlePage(event? : PageEvent){
+    console.log(event.pageIndex);
 
-  previousPage(){
-    if(this.categoryParam == "all"){
-      if(this.prevPageStart!==null) {
-        this.prevSub=this.productService.getNextProducts(this.categoryParam, this.prevPageStart.toString(), this.itemsPerPage).subscribe(products=>{
-          console.log(products);
+    if (this.categoryParam == "all"){
+        this.nextSub=this.productService.getNextProducts(this.categoryParam, (event.pageIndex*this.itemsPerPage).toString(), this.itemsPerPage).subscribe(products=>
+        {
           this.filteredProducts=products;
           this.sortProducts();
-
-          this.nextPageStart = ((this.prevPageStart + this.itemsPerPage)>=this.nrOfItems)?this.nextPageStart:(this.prevPageStart + this.itemsPerPage);
-          this.prevPageStart = ((this.prevPageStart - this.itemsPerPage)>=0)?(this.prevPageStart - this.itemsPerPage):null;
-        }
-        );}
-      }   
+        });
+    }
     else{
-      console.log(this.prevPageStart);
-      if(this.prevPageStart!=null){
-        this.filteredProducts=this.allProducts.slice(this.prevPageStart, this.prevPageStart+this.itemsPerPage);
-        this.nextPageStart = ((this.prevPageStart + this.itemsPerPage)>=this.nrOfItems)?this.nextPageStart:(this.prevPageStart + this.itemsPerPage);
-        this.prevPageStart = ((this.prevPageStart - this.itemsPerPage)>=0)?(this.prevPageStart - this.itemsPerPage):null;
-      }
-    }
-  }
-
-  handlePage(event? : PageEvent){
-    if (event.pageIndex>event.previousPageIndex){
-      this.nextPage();
-    }
-    else if (event.pageIndex < event.previousPageIndex){
-      this.previousPage();
+      this.filteredProducts=this.allProducts.slice(event.pageIndex*this.itemsPerPage, (event.pageIndex+1)*this.itemsPerPage);
     }
   }
 
@@ -176,7 +132,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
     if (this.sortOption=="atoz")
     {
     this.filteredProducts.sort((a,b) => a.name.localeCompare(b.name));
-    console.log(this.filteredProducts);
     }
     if (this.sortOption=="ztoa")
     {
@@ -227,18 +182,17 @@ export class ProductListComponent implements OnInit, OnDestroy {
   } 
 
   onDisplayClick(){
-    console.log("abc");
-
     const element = document.getElementById('toggle-menu');
-    console.log(element);
+    console.log("clicked");
     this.menuToggle=!this.menuToggle;
     console.log(this.menuToggle);
     if (this.menuToggle==true) {
       element.style.display = "block";
-      console.log("block");
+      console.log(true);
     }
     else {
       element.style.display = "none";
+      console.log(false);
     }
   }
 }    

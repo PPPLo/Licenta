@@ -139,8 +139,10 @@
             ></app-suggested-swiper>
             </div>
         </div>
-        <div class="related-products" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start" *ngIf="relatedProducts">
-            <div class="related-item" fxFlex="0 0 calc(25% -20px)" fxFlex.sm="1 1 calc(50% -20px)" fxFlex.xs="1 1 calc(100% -20px)" *ngFor="let products of relatedProducts">
+        <!--<div class="related-products" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start" *ngIf="relatedProducts"-->
+        <div class="related-products" *ngIf="relatedProducts">
+            <!-- <div class="related-item" fxFlex="0 0 calc(25% -20px)" fxFlex.sm="1 1 calc(50% -20px)" fxFlex.xs="1 1 calc(100% -20px)" *ngFor="let products of relatedProducts"> -->
+            <div class="related-item" *ngFor="let products of relatedProducts">
                 <a  class="related-p-link" (click)="onChange(products.name, param )">
                     <div class="rel-product">
                         <img class="image"  [src]="products.urlImage1" width=100% heigth=100%>
